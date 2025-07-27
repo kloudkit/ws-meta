@@ -1,15 +1,19 @@
 # Support
 
-Thank you for using **Kloud Workspace**.
-This project is an open-source initiative, and we appreciate any interest and involvement.
+Thank you for using **Kloud Workspace** 🎉.
+This is a community-driven, open-source project; **we do not provide commercial support**.
 
 ## Community Support
 
-As an open-source project, we does not offer formal support services.
-However, we are committed to fostering a supportive and active community.
+ | Inquiry             | Channel                   |
+ | ------------------- | ------------------------- |
+ | 📚 Documentation     | <https://ws.kloudkit.com> |
+ | 💬 Questions / Ideas | [GitHub Discussions][]    |
+ | 🐞 Bugs              | [GitHub Issues][]         |
+ | 🔒 Sensitive issues  | <info@kloudkit.com>       |
 
-If you are interested in contributing, have a look at our in-depth
-[documentation](https://ws.kloudkit.com/contribute).
+For contribution guidelines, see our [How to Contribute][] page.
 
-Thank you for being part of our community!
-We appreciate your patience and understanding.
+[How to Contribute]: https://ws.kloudkit.com/contribute
+[GitHub Discussions]: https://github.com/kloudkit/ws-meta/discussions
+[GitHub Issues]: https://github.com/kloudkit/ws-meta/issues

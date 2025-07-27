@@ -1,0 +1,39 @@
+---
+name: 🚀 Feature Request
+description: Suggest a new capability.
+title: 🚀 <title>
+labels:
+  - "type: feature request 🚀"
+
+body:
+  - type: checkboxes
+    attributes:
+      label: Existing Feature Request
+      description: Please confirm the feature request hasn't already been submitted.
+      options:
+        - label: I have searched existing feature requests
+          required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A clear, concise description of the feature.
+      placeholder: Describe your idea in a few lines.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Suggested Solution
+      description: |
+        Explain how you'd like this feature to work—be as specific as possible.
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Add any extra details, references, or mock-ups here.
+    validations:
+      required: false

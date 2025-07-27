@@ -1,0 +1,43 @@
+---
+name: 👋 Welcome New Contributor
+
+on:
+  issues:
+    types:
+      - opened
+
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet the contributor
+        uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            👋 **Welcome to Kloud Workspace!**
+
+            Thanks for opening your first issue.
+
+            Please complete every section of the template so we can help you quickly:
+
+            - Logs
+            - Steps to reproduce
+            - Environment details
+
+            We're glad you're here!
+
+          pr-message: |
+            🚀 **Thanks for your first Kloud Workspace pull request!**
+
+            Our maintainers will review it shortly.
+
+            Before we merge, please be sure that:
+            - All CI checks pass *(`pre-commit` lint, unit tests, Docker build)*.
+            - The PR description links to the related issue and follows our contribution guidelines.
+
+            We appreciate your contribution, welcome aboard!

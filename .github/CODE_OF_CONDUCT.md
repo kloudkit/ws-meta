@@ -1,3 +1,6 @@
 # Code of Conduct
 
-For more details, see out our [Code of Conduct](https://ws.kloudkit.com/contribute/code-of-conduct).
+We follow the [Contributor Covenant v2.1](https://ws.kloudkit.com/contribute/code-of-conduct).
+
+Reports or concerns?
+Email <info@kloudkit.com>.

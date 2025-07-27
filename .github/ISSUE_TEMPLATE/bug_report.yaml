@@ -1,0 +1,57 @@
+---
+name: 🐛 Bug Report
+description: Help us improve by reporting a bug.
+title: 🐛 <title>
+labels:
+  - "type: bug 🐛"
+
+body:
+  - type: checkboxes
+    attributes:
+      label: Existing Issue
+      description: Please confirm the bug hasn't already been reported.
+      options:
+        - label: I have searched existing issues
+          required: true
+
+  - type: input
+    attributes:
+      label: Version (Docker image digest)
+      description: >-
+        Enter the full digest—for example:
+        `sha256:58025ebfabf03b54899829b7d20b1c9c3de3558f452edd033802e809a8c194b0`
+      placeholder: sha256:...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Current Behavior
+      description: What is happening?
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: |
+        Provide reproducible steps and any extra context.
+
+        - Links
+        - References
+
+        *Tip*: Drag-and-drop images or logs here to attach them.
+      placeholder: |
+        1. In this environment...
+        2. With this config...
+        3. Run `...`
+        4. Observe the error...
+    validations:
+      required: false

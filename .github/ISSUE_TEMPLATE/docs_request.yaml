@@ -1,0 +1,26 @@
+---
+name: 📚 Documentation Change
+description: Suggest an improvement or addition to the docs.
+title: 📚 <title>
+labels:
+  - "type: documentation 📚"
+
+body:
+  - type: checkboxes
+    attributes:
+      label: Existing Request
+      description: Please confirm a similar request doesn't already exist.
+      options:
+        - label: I have searched existing issues
+          required: true
+
+  - type: textarea
+    attributes:
+      label: Summary
+      description: Explain what prompted this change and why it matters.
+      placeholder: |
+        I found the `build-and-install` section unclear.
+        While following it, I ran into several issues that might confuse
+        others.
+    validations:
+      required: true

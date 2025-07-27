@@ -2,12 +2,16 @@
 
 > 📌 The hub for **Kloud Workspace** roadmap, planning, and community discussions
 
-[![Open Issues](https://img.shields.io/github/issues/kloudkit/ws-meta?style=for-the-badge)](https://github.com/kloudkit/ws-meta/issues)
-[![Discussions](https://img.shields.io/github/discussions/kloudkit/ws-meta?style=for-the-badge)](https://github.com/kloudkit/ws-meta/discussions)
-[![Documentation](https://img.shields.io/badge/Documentation-green?style=for-the-badge)](https://ws.kloudkit.com)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://github.com/kloudkit/ws-meta?tab=MIT-1-ov-file#MIT-1-ov-file)
+[![Stars](https://img.shields.io/github/stars/kloudkit?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KPHBhdGggZD0iTTIzNS4yNCw4NC4zOGwtMjguMDYsMjMuNjgsOC41NiwzNS4zOWExMy4zNCwxMy4zNCwwLDAsMS01LjA5LDEzLjkxLDEzLjU0LDEzLjU0LDAsMCwxLTE1LC42OUwxNjQsMTM5bC0zMS42NSwxOS4wNmExMy41MSwxMy41MSwwLDAsMS0xNS0uNjksMTMuMzIsMTMuMzIsMCwwLDEtNS4xLTEzLjkxbDguNTYtMzUuMzlMOTIuNzYsODQuMzhhMTMuMzksMTMuMzksMCwwLDEsNy42Ni0yMy41OGwzNi45NC0yLjkyLDE0LjIxLTMzLjY2YTEzLjUxLDEzLjUxLDAsMCwxLDI0Ljg2LDBsMTQuMjEsMzMuNjYsMzYuOTQsMi45MmExMy4zOSwxMy4zOSwwLDAsMSw3LjY2LDIzLjU4Wk04OC4xMSwxMTEuODlhOCw4LDAsMCwwLTExLjMyLDBMMTguMzQsMTcwLjM0YTgsOCwwLDAsMCwxMS4zMiwxMS4zMmw1OC40NS01OC40NUE4LDgsMCwwLDAsODguMTEsMTExLjg5Wm0tLjUsNjEuMTlMMzQuMzQsMjI2LjM0YTgsOCwwLDAsMCwxMS4zMiwxMS4zMmw1My4yNi01My4yN2E4LDgsMCwwLDAtMTEuMzEtMTEuMzFabTczLTEtNTQuMjksNTQuMjhhOCw4LDAsMCwwLDExLjMyLDExLjMybDU0LjI4LTU0LjI4YTgsOCwwLDAsMC0xMS4zMS0xMS4zMloiIHN0eWxlPSJmaWxsOiAjQ0FEM0Y1OyIvPgo8L3N2Zz4%3D&logoColor=c6d0f5&labelColor=414559&color=yellow)](https://github.com/kloudkit/ws-meta/stargazers)
+[![Documentation](https://img.shields.io/badge/Browse-a?style=for-the-badge&logo=readthedocs&logoColor=c6d0f5&label=Documentation&labelColor=414559&color=85c1dc)](https://ws.kloudkit.com)
+[![License](https://img.shields.io/github/license/kloudkit/ws-meta?style=for-the-badge&logo=opensourceinitiative&logoColor=c6d0f5&labelColor=414559&color=8caaee)](https://github.com/kloudkit/ws-meta/blob/main/LICENSE)
 
 ---
+
+```sh
+# TL-DR; ⚡ Power your batteries now!
+docker run -p 8080:8080 ghcr.io/kloudkit/workspace:latest
+```
 
 ## Purpose
 
@@ -35,14 +39,24 @@ Instead, it serves as the single place to:
 
 Need more details on coding standards, branching, or PR etiquette?
 
-See the full [contribution guidelines](https://ws.kloudkit.com/contribute/) on our website.
+See the full [contribution guidelines](https://ws.kloudkit.com/contribute) on our website.
 
-## External Documentation
+## Documentation
 
-For detailed documentation, advanced usage, and API references, check out our
-[external documentation](https://ws.kloudkit.com).
+The full guide *(including advanced usage and API reference)* is available at
+<https://ws.kloudkit.com>.
+
+### Offline Documentation
+
+Want to browse the docs locally?
+If you have Docker installed, run:
+
+```sh
+docker run -p 8088:80 ghcr.io/kloudkit/ws-docs
+```
+
+Then open `http://localhost:8088` in your browser.
 
 ## License
 
-This project is licensed under the
-[**MIT License**](https://github.com/kloudkit/ws-meta?tab=MIT-1-ov-file#MIT-1-ov-file)
+Released under the [**MIT License**](https://github.com/kloudkit/ws-meta/blob/main/LICENSE)
