@@ -21,23 +21,30 @@ jobs:
           issue-message: |
             👋 **Welcome to Kloud Workspace!**
 
-            Thanks for opening your first issue.
+            Thanks for opening your very first issue — we're stoked you're here.
 
-            Please complete every section of the template so we can help you quickly:
+            To help the crew troubleshoot at warp-speed, please fill in
+            **every** section of the template:
 
-            - Logs
-            - Steps to reproduce
-            - Environment details
+            - 🔍 **Logs** (paste or attach them)
+            - 🔢 **Steps to reproduce** (clear & numbered)
+            - 🖥️ **Environment details** (OS, Docker tag, IDE, etc.)
 
-            We're glad you're here!
+            The more detail you share, the faster we can burst through the clouds together.
+
+            Happy debugging! ✨
 
           pr-message: |
-            🚀 **Thanks for your first Kloud Workspace pull request!**
+            🚀 **First Kloud PR detected — high-five!**
 
-            Our maintainers will review it shortly.
+            Our maintainers will review your code shortly.
 
-            Before we merge, please be sure that:
-            - All CI checks pass *(`pre-commit` lint, unit tests, Docker build)*.
-            - The PR description links to the related issue and follows our contribution guidelines.
+            Before liftoff, double-check that:
 
-            We appreciate your contribution, welcome aboard!
+            - ✅ All CI checks are green (pre-commit lint, unit tests, Docker build).
+            - 🔗 The PR description links to its related issue and follows our contribution guidelines.
+            - 📜 You've added any docs or tests needed to keep Kloud flying smoothly.
+
+            Thanks for contributing your superpowers to Kloud Workspace.
+
+            Welcome aboard — let's ship something awesome! ☁️🤝

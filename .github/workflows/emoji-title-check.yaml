@@ -1,0 +1,48 @@
+---
+name: 🤖 Suggest Emoji in Issue Title
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+
+jobs:
+  check-emoji:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
+      - name: 📛 Check if title starts with emoji
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.issue.title;
+            const emojiRegex = /^\p{Emoji}/u;
+
+            if (!emojiRegex.test(title)) {
+              const issue_number = context.payload.issue.number;
+
+              const body = [
+                "👋 Thanks for opening this issue!",
+                "",
+                "We encourage using an **emoji as the first character**",
+                " in the issue title to make it more scannable and fun.",
+                "",
+                "For example:",
+                "- `🐛 Bug: Crash when clicking Run`",
+                "- `✨ Feature: Add dark mode`",
+                "",
+                "You can pick an appropriate emoji from [gitmoji.dev](https://gitmoji.dev)",
+                "a community standard for commit and issue emojis.",
+                "",
+                "You can edit your issue title if you'd like to follow this convention. Thanks! 🎉"
+              ].join("\n");
+
+              await github.rest.issues.createComment({
+                ...context.repo,
+                issue_number,
+                body
+              });
+            }

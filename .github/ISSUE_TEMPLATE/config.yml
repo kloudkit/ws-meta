@@ -3,5 +3,11 @@ blank_issues_enabled: false
 
 contact_links:
   - name: ❓ Have a question?
+    url: https://github.com/kloudkit/ws-meta/discussions/new?category=q-a
+    about: Ask your questions in the GitHub Discussions.
+
+  - name: 📚 Documentation
     url: https://ws.kloudkit.com
-    about: Need help? Our documentation is a good place to start.
+    about: >-
+      The full guide, including advanced usage and API reference,
+      is available on the website
