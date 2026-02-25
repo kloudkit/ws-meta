@@ -1,0 +1,81 @@
+---
+name: 📦 Distribute shared files
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - shared/**
+  workflow_dispatch:
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.targets }}
+    steps:
+      - name: 📥 Checkout ws-meta
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+
+      - name: 🔧 Install yq
+        run: pip install yq
+
+      - name: 📋 Resolve targets
+        id: matrix
+        run: |
+          FILES=$(git diff --name-only HEAD~1 HEAD -- shared/)
+          [ -z "$FILES" ] && echo "targets=[]" >> "$GITHUB_OUTPUT" && exit 0
+          scripts/distribute.sh "$FILES"
+
+  sync:
+    needs: resolve
+    if: needs.resolve.outputs.matrix != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJson(needs.resolve.outputs.matrix) }}
+    steps:
+      - name: 📥 Checkout ws-meta
+        uses: actions/checkout@v6
+
+      - name: 📥 Checkout target repo
+        uses: actions/checkout@v6
+        with:
+          repository: kloudkit/${{ matrix.target.repo }}
+          token: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+          path: _target
+
+      - name: 📋 Copy files
+        run: |
+          while IFS='|' read -r src dest pr; do
+            [ -z "$src" ] && continue
+            mkdir -p "_target/$(dirname "$dest")"
+            cp -r "$src" "_target/${dest}"
+          done <<< "${{ matrix.target.mappings }}"
+
+      - name: 🔄 Create PR
+        if: matrix.target.use_pr
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+          path: _target
+          branch: sync/ws-meta
+          title: '🔄 Sync shared files from `ws-meta`'
+          body: 'Automated sync from ws-meta. Do not edit synced files manually.'
+          commit-message: '🔄 Sync shared files from `ws-meta`'
+          committer: 'kloud-bot <ws@kloud.email>'
+          author: 'kloud-bot <ws@kloud.email>'
+
+      - name: 📤 Direct push
+        if: '!matrix.target.use_pr'
+        run: |
+          cd _target
+          git add .
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git config user.name "kloud-bot"
+          git config user.email "ws@kloud.email"
+          git commit -m '🔄 Sync shared files from `ws-meta`'
+          git push

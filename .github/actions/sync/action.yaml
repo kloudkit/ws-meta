@@ -1,0 +1,61 @@
+---
+name: 🔄 Sync to ws-meta
+description: Push shared files to ws-meta
+inputs:
+  files:
+    description: Source paths to sync (one per line)
+    required: true
+  token:
+    description: PAT with write access to ws-meta
+    required: true
+  commit-message:
+    description: Commit message
+    default: 🔄 Sync `${{ github.repository }}` shared files
+
+runs:
+  using: composite
+  steps:
+    - name: 📥 Checkout caller
+      uses: actions/checkout@v6
+
+    - name: 📥 Checkout ws-meta
+      uses: actions/checkout@v6
+      with:
+        repository: kloudkit/ws-meta
+        token: ${{ inputs.token }}
+        path: _ws-meta
+        ref: main
+
+    - name: 📋 Copy files
+      shell: bash
+      run: |
+        REPO="${{ github.repository }}"
+        DEST="_ws-meta/shared/${REPO#*/}"
+
+        mkdir -p "$DEST"
+
+        while IFS= read -r src; do
+          [ -z "$src" ] && continue
+          if [ ! -e "$src" ]; then
+            echo "Warning: $src does not exist, skipping"
+            continue
+          fi
+          cp -r "$src" "$DEST/"
+        done <<< "${{ inputs.files }}"
+
+    - name: 📤 Push to ws-meta
+      shell: bash
+      run: |
+        cd _ws-meta
+        git add shared/
+        git diff --cached --quiet && echo "No changes" && exit 0
+        git config user.name "kloud-bot"
+        git config user.email "ws@kloud.email"
+        git commit -m "${{ inputs.commit-message }} [skip ci]"
+        git pull --rebase
+        git push
+
+    - name: 🧹 Cleanup
+      if: always()
+      shell: bash
+      run: rm -rf _ws-meta

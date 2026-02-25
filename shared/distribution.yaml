@@ -1,0 +1,11 @@
+---
+shared/workspace/env.reference.yaml:
+  - repo: ws-docs
+    path: .vitepress/data/env.reference.yaml
+
+  - repo: ws-helm
+    path: charts/workspace/scripts/env.reference.yaml
+
+shared/workspace/dependencies.yaml:
+  - repo: ws-docs
+    path: .vitepress/data/dependencies.yaml

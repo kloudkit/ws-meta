@@ -1,0 +1,755 @@
+---
+############################## Dependency Manifest #############################
+#
+# Purpose:
+#   Lists all dependencies *(tools or library)* installed in the workspace
+#
+# The file is used in:
+#   - Automated tests
+#   - Documentation builds
+#   - Renovate's dependency-update scans
+#
+# Renovate control:
+#   Set `track: false` on any item you want Renovate to ignore
+#
+# Package-name rules:
+#   - If the `package` field is missing, the key itself is used instead
+#   - That same key is displayed as the friendly name in generated docs
+################################################################################
+dependencies:
+  ansible-core:
+    cmd: ansible --version
+    datasource: pypi
+    group: Ansible
+    home: https://github.com/ansible/ansible
+    license: GPL 3
+    version: 2.20.3
+
+  ansible-lint:
+    cmd: ansible-lint --version
+    datasource: pypi
+    group: Ansible
+    home: https://github.com/ansible/ansible-lint
+    license: MIT
+    tool: true
+    version: 26.1.1
+
+  bat:
+    cmd: bat --version
+    datasource: github-releases
+    group: CLI Tools
+    home: https://github.com/sharkdp/bat
+    package: sharkdp/bat
+    license: Apache 2
+    version: 0.26.1
+
+  build-essential:
+    datasource: deb
+    home: https://packages.debian.org/build-essential
+    license: GPL 2
+
+  buildx:
+    cmd: docker buildx version
+    datasource: deb
+    group: Docker & Kubernetes
+    home: https://github.com/docker/buildx
+    license: Apache 2
+    package: docker-buildx-plugin
+    track: false
+    version: 0.31.1
+
+  catppuccin:
+    datasource: pypi
+    home: https://catppuccin.com/
+    license: MIT
+    package: catppuccin[pygments]
+
+  claude-code:
+    cmd: claude --version
+    datasource: github-releases
+    group: CLI Tools
+    home: https://github.com/anthropics/claude-code
+    license: Anthropic PBC
+    package: anthropics/claude-code
+    version: 2.1.52
+
+  community.docker:
+    datasource: galaxy-collection
+    group: Ansible
+    home: https://github.com/ansible-collections/community.docker
+    license: GPL 3
+    version: 5.0.6
+
+  community.general:
+    datasource: galaxy-collection
+    group: Ansible
+    home: https://github.com/ansible-collections/community.general
+    license: GPL 3
+    version: 12.4.0
+
+  containerd.io:
+    cmd: containerd --version
+    datasource: deb
+    group: Docker & Kubernetes
+    home: https://github.com/containerd/containerd
+    license: Apache 2
+    track: false
+    version: 2.2.0
+
+  crane:
+    cmd: crane version
+    datasource: github-releases
+    group: Docker & Kubernetes
+    home: https://github.com/google/go-containerregistry
+    license: Apache 2
+    package: google/go-containerregistry
+    version: 0.21.1
+
+  cspell:
+    cmd: cspell --version
+    datasource: npm
+    group: CLI Tools
+    home: https://github.com/streetsidesoftware/cspell
+    license: MIT
+    version: 9.7.0
+
+  curl:
+    cmd: curl --version
+    datasource: deb
+    group: Networking Tools
+    home: https://curl.se
+    license: MIT
+    version: 8.14.1
+
+  dbus-user-session:
+    datasource: deb
+    home: https://dbus.freedesktop.org
+    license: GPL 2
+
+  debsig-verify:
+    datasource: deb
+    home: https://github.com/guillemj/debsig-verify
+    license: GPL 2
+
+  dig:
+    cmd: (dig -v) > >(cat) 2>&1
+    datasource: deb
+    group: Networking Tools
+    home: https://www.isc.org/bind
+    license: MPL 2
+    package: dnsutils
+    track: false
+    version: 9.20.11
+
+  dive:
+    cmd: dive -v
+    datasource: github-releases
+    group: Docker & Kubernetes
+    home: https://github.com/wagoodman/dive
+    license: MIT
+    package: wagoodman/dive
+    version: 0.13.1
+
+  dlv:
+    datasource: go
+    group: Go
+    home: https://github.com/go-delve/delve/cmd/dlv
+    license: MIT
+    package: github.com/go-delve/delve/cmd/dlv
+    version: 1.26.0
+
+  docker:
+    datasource: deb
+    group: Docker & Kubernetes
+    home: https://docs.docker.com/engine
+    license: Apache 2
+    package: docker-ce
+    track: false
+    version: 28.3.2
+
+  docker CLI:
+    datasource: deb
+    home: https://docs.docker.com/engine
+    license: Apache 2
+    package: docker-ce-cli
+    track: false
+
+  docker compose:
+    cmd: docker compose version
+    datasource: deb
+    group: Docker & Kubernetes
+    home: https://github.com/docker/compose
+    license: Apache 2
+    package: docker-compose-plugin
+    track: false
+    version: 5.1.0
+
+  docker-py:
+    datasource: pypi
+    group: Python
+    home: https://github.com/docker/docker-py
+    license: Apache 2
+    package: docker
+    version: 7.1.0
+
+  dos2unix:
+    cmd: dos2unix --version
+    datasource: deb
+    group: CLI Tools
+    home: https://waterlan.home.xs4all.nl/dos2unix.html
+    license: BSD 2
+    version: 7.5.2
+
+  dumb-init:
+    datasource: deb
+    home: https://github.com/Yelp/dumb-init
+    license: MIT
+
+  eza:
+    cmd: eza --version
+    datasource: deb
+    group: CLI Tools
+    home: https://github.com/eza-community/eza
+    license: MIT
+    track: false
+    version: 0.23.4
+
+  fuse-overlayfs:
+    datasource: deb
+    home: https://github.com/containers/fuse-overlayfs
+    license: GPL 3
+
+  fzf:
+    cmd: fzf --version
+    datasource: github-releases
+    group: CLI Tools
+    home: https://github.com/junegunn/fzf
+    license: MIT
+    package: junegunn/fzf
+    version: 0.68.0
+
+  gettext:
+    cmd: gettext -V
+    datasource: deb
+    group: CLI Tools
+    home: https://www.gnu.org/software/gettext
+    package: gettext-base
+    license: GPL 3
+    version: 0.23.1
+
+  git:
+    cmd: git --version
+    datasource: deb
+    group: CLI Tools
+    home: https://git-scm.com
+    license: GPL 2
+    version: 2.47.3
+
+  gnupg:
+    cmd: gpg --version
+    datasource: deb
+    group: CLI Tools
+    home: https://gnupg.org
+    license: GPL 3
+    version: 2.4.7
+
+  Go:
+    cmd: go version
+    datasource: github-tags
+    group: Go
+    home: https://github.com/golang/go
+    license: BSD 3
+    package: golang/go
+    version: 1.26.0
+
+  go-outline:
+    datasource: go
+    group: Go
+    home: https://github.com/ramya-rao-a/go-outline
+    license: MIT
+    package: github.com/ramya-rao-a/go-outline
+    version: 0.0.0-20210608161538-9736a4bde949
+
+  gomodifytags:
+    datasource: go
+    group: Go
+    home: https://github.com/fatih/gomodifytags
+    license: MIT
+    package: github.com/fatih/gomodifytags
+    version: 1.17.0
+
+  goplay:
+    datasource: go
+    group: Go
+    home: https://github.com/haya14busa/goplay/cmd/goplay
+    license: MIT
+    package: github.com/haya14busa/goplay/cmd/goplay
+    version: 1.0.0
+
+  gopls:
+    datasource: go
+    group: Go
+    home: https://golang.org/x/tools/gopls
+    license: BSD
+    package: golang.org/x/tools/gopls
+    version: 0.21.1
+
+  gotests:
+    datasource: go
+    group: Go
+    home: https://github.com/cweill/gotests/gotests
+    license: Apache 2
+    package: github.com/cweill/gotests/gotests
+    version: 1.9.0
+
+  hadolint:
+    cmd: hadolint --version
+    datasource: github-releases
+    group: Docker & Kubernetes
+    home: https://github.com/hadolint/hadolint
+    license: GPL 3
+    package: hadolint/hadolint
+    version: 2.14.0
+
+  helm:
+    cmd: helm version --short
+    datasource: github-releases
+    group: Docker & Kubernetes
+    home: https://github.com/helm/helm
+    license: Apache 2
+    package: helm/helm
+    version: 4.1.1
+
+  htop:
+    cmd: htop --version
+    datasource: deb
+    group: CLI Tools
+    home: https://htop.dev
+    license: GPL 2
+    version: 3.4.1
+
+  impl:
+    datasource: go
+    group: Go
+    home: https://github.com/josharian/impl
+    license: MIT
+    package: github.com/josharian/impl
+    version: 1.5.0
+
+  iproute2:
+    cmd: ip -Version
+    datasource: deb
+    group: Networking Tools
+    home: https://wiki.linuxfoundation.org/networking/iproute2
+    license: GPL 2
+    version: 6.15.0
+
+  jq:
+    cmd: jq --version
+    datasource: github-releases
+    group: CLI Tools
+    home: https://stedolan.github.io/jq
+    package: jqlang/jq
+    license: MIT
+    version: 1.8.1
+
+  k9s:
+    cmd: k9s version
+    datasource: github-releases
+    group: Docker & Kubernetes
+    home: https://github.com/derailed/k9s
+    license: Apache 2
+    package: derailed/k9s
+    version: 0.50.18
+
+  kind:
+    cmd: kind version
+    datasource: github-releases
+    group: Docker & Kubernetes
+    home: https://github.com/kubernetes-sigs/kind
+    license: Apache 2
+    package: kubernetes-sigs/kind
+    version: 0.31.0
+
+  kube-linter:
+    cmd: kube-linter version
+    datasource: github-releases
+    group: Docker & Kubernetes
+    home: https://github.com/stackrox/kube-linter
+    license: Apache 2
+    package: stackrox/kube-linter
+    version: 0.8.1
+
+  kubectl:
+    cmd: kubectl version --client=true
+    datasource: deb
+    group: Docker & Kubernetes
+    home: https://kubernetes.io/docs/tasks/tools
+    license: Apache 2
+    track: false
+    version: 1.34.1
+
+  kubernetes-py:
+    datasource: pypi
+    group: Python
+    home: https://github.com/kubernetes-client/python
+    license: Apache
+    package: kubernetes
+    version: 35.0.0
+
+  kubernetes.core:
+    datasource: galaxy-collection
+    group: Ansible
+    home: https://github.com/ansible-collections/kubernetes.core
+    license: Apache 2
+    version: 6.3.0
+
+  less:
+    cmd: less --version
+    datasource: deb
+    group: CLI Tools
+    home: http://www.greenwoodsoftware.com/less
+    license: GPL 3
+
+  locales:
+    datasource: deb
+    home: https://wiki.debian.org/Locale
+    license: GPL 2
+
+  lsb-release:
+    datasource: deb
+    home: https://wiki.debian.org/LSBRelease
+    license: GPL 2
+
+  lsof:
+    cmd: (lsof -v) > >(cat) 2>&1
+    datasource: deb
+    group: CLI Tools
+    home: https://github.com/lsof-org/lsof
+    license: BSD 2
+    version: 4.99.4
+
+  man:
+    cmd: man --version
+    datasource: deb
+    home: https://savannah.nongnu.org/projects/man-db
+    license: GPL 2
+    package: man-db
+    version: 2.13.1
+
+  markdownlint:
+    cmd: markdownlint --version
+    datasource: npm
+    group: CLI Tools
+    home: https://github.com/igorshubovych/markdownlint-cli
+    license: MIT
+    package: markdownlint-cli
+    version: 0.47.0
+
+  nc:
+    cmd: (nc -h) > >(cat) 2>&1
+    datasource: deb
+    group: Networking Tools
+    home: https://salsa.debian.org/debian/netcat
+    license: BSD 4
+    package: netcat-traditional
+    version: "1.10"
+
+  netaddr:
+    datasource: pypi
+    group: Networking Tools
+    home: https://github.com/drkjam/netaddr
+    license: BSD
+    version: 1.3.0
+
+  Node.js:
+    cmd: node --version
+    datasource: deb
+    group: Node.js
+    home: https://nodejs.org
+    license: MIT
+    package: nodejs
+    version: 24.14.0
+
+  npm:
+    cmd: npm --version
+    datasource: github-releases
+    group: Node.js
+    home: https://github.com/npm/cli
+    license: Artistic 2
+    package: npm/cli
+    version: 11.9.0
+
+  oc:
+    cmd: oc version
+    datasource: github-tags
+    group: Docker & Kubernetes
+    home: https://github.com/openshift/oc
+    license: Apache 2
+    package: openshift/oc
+    version: 4.19.0
+
+  oh-my-zsh:
+    datasource: github-releases
+    group: Terminal
+    home: https://ohmyz.sh
+    license: MIT
+    track: false
+    version: 4.17.9
+
+  op:
+    cmd: op --version
+    datasource: deb
+    group: CLI Tools
+    home: https://developer.1password.com/docs/cli
+    license: Proprietary
+    package: 1password-cli
+    track: false
+    version: 2.32.0
+
+  openssh-server:
+    datasource: deb
+    home: https://www.openssh.com
+    license: BSD 2
+    package: openssh-server
+
+  passlib:
+    datasource: pypi
+    group: Python
+    home: https://github.com/passlib/passlib
+    license: BSD
+    version: 1.7.4
+
+  ping:
+    cmd: ping -V
+    datasource: deb
+    group: Networking Tools
+    home: https://github.com/iputils/iputils
+    license: BSD 2
+    package: iputils-ping
+
+  pip:
+    cmd: pip --version
+    datasource: deb
+    group: Python
+    home: https://pip.pypa.io
+    license: MIT
+    package: python3-pip
+    version: 25.1.1
+
+  pnpm:
+    cmd: pnpm --version
+    datasource: github-releases
+    group: Node.js
+    home: https://github.com/pnpm/pnpm
+    license: MIT
+    package: pnpm/pnpm
+    version: 10.30.2
+
+  podman:
+    cmd: podman --version
+    datasource: deb
+    group: Docker & Kubernetes
+    home: https://github.com/containers/podman
+    license: Apache 2
+    version: 5.4.2
+
+  pre-commit:
+    cmd: pre-commit --version
+    datasource: pypi
+    group: CLI Tools
+    home: https://github.com/pre-commit/pre-commit
+    license: MIT
+    package: pre-commit
+    tool: true
+    version: 4.5.1
+
+  ps:
+    cmd: ps --version
+    datasource: deb
+    group: CLI Tools
+    home: https://gitlab.com/procps-ng/procps
+    license: GPL 2
+    package: procps
+    version: 4.0.2
+
+  pylint:
+    cmd: pylint --version
+    datasource: pypi
+    group: Python
+    home: https://github.com/pylint-dev/pylint
+    license: GPL 2
+    tool: true
+    version: 4.0.5
+
+  Python:
+    cmd: python3 --version
+    datasource: deb
+    group: Python
+    home: https://www.python.org
+    license: PSF 2
+    package: python3
+    version: 3.13.5
+
+  ruff:
+    cmd: ruff --version
+    datasource: pypi
+    group: Python
+    home: https://github.com/astral-sh/ruff
+    license: MIT
+    tool: true
+    version: 0.15.2
+
+  ShellCheck:
+    cmd: shellcheck --version
+    datasource: github-releases
+    group: CLI Tools
+    home: https://github.com/koalaman/shellcheck
+    license: GPL 3
+    package: koalaman/shellcheck
+    version: 0.11.0
+
+  slirp4netns:
+    cmd: slirp4netns --version
+    datasource: deb
+    home: https://github.com/rootless-containers/slirp4netns
+    license: GPL 2
+    version: 1.2.0
+
+  ssh:
+    cmd: (ssh -V) > >(cat) 2>&1
+    datasource: deb
+    group: Networking Tools
+    home: https://www.openssh.com
+    license: BSD 2
+    package: openssh-client
+    version: "10.0"
+    track: false
+
+  sshpass:
+    cmd: sshpass -V
+    datasource: deb
+    home: https://github.com/kevinburke/sshpass
+    license: GPL 2
+    version: "1.10"
+
+  starship:
+    cmd: starship --version
+    datasource: github-releases
+    group: Terminal
+    home: https://starship.rs
+    license: ISC
+    package: starship/starship
+    version: 1.24.2
+
+  staticcheck:
+    datasource: go
+    group: Go
+    home: https://github.com/dominikh/go-tools
+    license: MIT
+    package: honnef.co/go/tools/cmd/staticcheck
+    version: 0.7.0
+
+  sudo:
+    cmd: sudo -V
+    datasource: deb
+    home: https://www.sudo.ws
+    license: ISC
+    version: 1.9.13
+
+  taskfile:
+    cmd: task --version
+    datasource: npm
+    group: CLI Tools
+    home: https://github.com/go-task/task
+    license: MIT
+    package: "@go-task/cli"
+    version: 3.48.0
+
+  uidmap:
+    datasource: deb
+    home: https://github.com/shadow-maint/shadow
+    license: GPL 2
+
+  unzip:
+    cmd: (unzip -v) > >(cat) 2>&1
+    datasource: deb
+    group: CLI Tools
+    home: https://infozip.sourceforge.net
+    license: InfoZIP
+    version: "6.0"
+
+  uv:
+    cmd: uv self version
+    datasource: github-releases
+    group: Python
+    home: https://github.com/astral-sh/uv
+    package: astral-sh/uv
+    license: MIT
+    version: 0.10.5
+
+  vim:
+    cmd: vim --version
+    datasource: deb
+    group: CLI Tools
+    home: https://www.vim.org
+    license: Vim
+    version: "9.1"
+
+  wget:
+    cmd: wget --version
+    datasource: deb
+    group: Networking Tools
+    home: https://www.gnu.org/software/wget
+    license: GPL 3
+    version: 1.25.0
+
+  ws-cli:
+    cmd: ws-cli --version
+    datasource: go
+    home: https://github.com/kloudkit/ws-cli
+    license: MIT
+    package: github.com/kloudkit/ws-cli
+    version: 0.0.49
+
+  yamllint:
+    cmd: yamllint --version
+    datasource: pypi
+    group: CLI Tools
+    home: https://github.com/adrienverge/yamllint
+    license: GPL 3
+    tool: true
+    version: 1.38.0
+
+  yarn:
+    cmd: yarn --version
+    datasource: npm
+    group: Node.js
+    home: https://github.com/yarnpkg/yarn
+    license: BSD 2
+    version: 1.22.22
+
+  yq:
+    cmd: yq --version
+    datasource: pypi
+    group: CLI Tools
+    home: https://github.com/kislyuk/yq
+    license: MIT
+    tool: true
+    version: 3.4.3
+
+  zsh:
+    cmd: zsh --version
+    datasource: deb
+    group: Terminal
+    home: https://www.zsh.org
+    license: MIT
+    version: "5.9"
+
+  zsh-autosuggestions:
+    datasource: github-tags
+    group: Terminal
+    home: https://github.com/zsh-users/zsh-autosuggestions
+    license: MIT
+    track: false
+    version: 0.7.1
