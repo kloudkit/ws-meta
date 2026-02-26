@@ -32,7 +32,7 @@ dependencies:
     home: https://github.com/ansible/ansible-lint
     license: MIT
     tool: true
-    version: 26.1.1
+    version: 26.2.0
 
   bat:
     cmd: bat --version
@@ -479,15 +479,6 @@ dependencies:
     license: Artistic 2
     package: npm/cli
     version: 11.9.0
-
-  oc:
-    cmd: oc version
-    datasource: github-tags
-    group: Docker & Kubernetes
-    home: https://github.com/openshift/oc
-    license: Apache 2
-    package: openshift/oc
-    version: 4.19.0
 
   oh-my-zsh:
     datasource: github-releases
