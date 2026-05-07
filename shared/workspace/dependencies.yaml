@@ -469,7 +469,7 @@ dependencies:
     home: https://nodejs.org
     license: MIT
     package: nodejs
-    version: 24.14.0
+    version: 24.15.0
 
   npm:
     cmd: npm --version
@@ -478,7 +478,7 @@ dependencies:
     home: https://github.com/npm/cli
     license: Artistic 2
     package: npm/cli
-    version: 11.11.0
+    version: 11.12.0
 
   oh-my-zsh:
     datasource: github-releases
