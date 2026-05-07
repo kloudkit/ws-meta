@@ -71,7 +71,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.119
+    version: 2.1.132
 
   community.docker:
     datasource: galaxy-collection
@@ -156,7 +156,7 @@ dependencies:
     home: https://github.com/go-delve/delve/cmd/dlv
     license: MIT
     package: github.com/go-delve/delve/cmd/dlv
-    version: 1.26.2
+    version: 1.26.3
 
   docker:
     datasource: deb
@@ -402,7 +402,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible-collections/kubernetes.core
     license: Apache 2
-    version: 6.3.0
+    version: 6.4.0
 
   less:
     cmd: less --version
@@ -535,7 +535,7 @@ dependencies:
     home: https://github.com/pnpm/pnpm
     license: MIT
     package: pnpm/pnpm
-    version: 10.33.2
+    version: 11.0.8
 
   podman:
     cmd: podman --version
@@ -631,7 +631,7 @@ dependencies:
     home: https://starship.rs
     license: ISC
     package: starship/starship
-    version: 1.25.0
+    version: 1.25.1
 
   staticcheck:
     datasource: go
@@ -677,7 +677,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.11.7
+    version: 0.11.11
 
   vim:
     cmd: vim --version
