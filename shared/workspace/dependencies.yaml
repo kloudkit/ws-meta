@@ -582,6 +582,15 @@ dependencies:
     package: python3
     version: 3.13.5
 
+  ripgrep:
+    cmd: rg --version
+    datasource: github-releases
+    group: CLI Tools
+    home: https://github.com/BurntSushi/ripgrep
+    license: MIT
+    package: BurntSushi/ripgrep
+    version: 15.1.0
+
   ruff:
     cmd: ruff --version
     datasource: pypi
