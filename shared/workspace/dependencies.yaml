@@ -710,7 +710,7 @@ dependencies:
     home: https://github.com/kloudkit/ws-cli
     license: MIT
     package: github.com/kloudkit/ws-cli
-    version: 0.0.52
+    version: 0.0.54
 
   yamllint:
     cmd: yamllint --version
