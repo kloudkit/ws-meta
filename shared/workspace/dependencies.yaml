@@ -141,15 +141,6 @@ dependencies:
     track: false
     version: 9.20.11
 
-  dive:
-    cmd: dive -v
-    datasource: github-releases
-    group: Docker & Kubernetes
-    home: https://github.com/wagoodman/dive
-    license: MIT
-    package: wagoodman/dive
-    version: 0.13.1
-
   dlv:
     datasource: go
     group: Go
