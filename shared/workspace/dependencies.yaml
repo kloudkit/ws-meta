@@ -56,7 +56,7 @@ dependencies:
     license: Apache 2
     package: docker-buildx-plugin
     track: false
-    version: 0.33.0
+    version: 0.34.0
 
   catppuccin:
     datasource: pypi
