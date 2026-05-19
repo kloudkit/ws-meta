@@ -23,7 +23,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible/ansible
     license: GPL 3
-    version: 2.20.5
+    version: 2.21.0
 
   ansible-lint:
     cmd: ansible-lint --version
