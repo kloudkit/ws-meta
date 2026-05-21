@@ -71,7 +71,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.140
+    version: 2.1.146
 
   community.docker:
     datasource: galaxy-collection
@@ -85,7 +85,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible-collections/community.general
     license: GPL 3
-    version: 12.6.0
+    version: 13.0.0
 
   containerd.io:
     cmd: containerd --version
@@ -103,7 +103,7 @@ dependencies:
     home: https://github.com/google/go-containerregistry
     license: Apache 2
     package: google/go-containerregistry
-    version: 0.21.5
+    version: 0.21.6
 
   cspell:
     cmd: cspell --version
@@ -283,7 +283,7 @@ dependencies:
     home: https://golang.org/x/tools/gopls
     license: BSD
     package: golang.org/x/tools/gopls
-    version: 0.21.1
+    version: 0.22.0
 
   gotests:
     datasource: go
@@ -309,7 +309,7 @@ dependencies:
     home: https://github.com/helm/helm
     license: Apache 2
     package: helm/helm
-    version: 4.1.4
+    version: 4.2.0
 
   htop:
     cmd: htop --version
@@ -526,7 +526,7 @@ dependencies:
     home: https://github.com/pnpm/pnpm
     license: MIT
     package: pnpm/pnpm
-    version: 11.1.1
+    version: 11.2.1
 
   podman:
     cmd: podman --version
@@ -589,7 +589,7 @@ dependencies:
     home: https://github.com/astral-sh/ruff
     license: MIT
     tool: true
-    version: 0.15.12
+    version: 0.15.13
 
   ShellCheck:
     cmd: shellcheck --version
@@ -655,7 +655,7 @@ dependencies:
     home: https://github.com/go-task/task
     license: MIT
     package: "@go-task/cli"
-    version: 3.50.0
+    version: 3.51.1
 
   uidmap:
     datasource: deb
@@ -677,7 +677,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.11.14
+    version: 0.11.15
 
   vim:
     cmd: vim --version
