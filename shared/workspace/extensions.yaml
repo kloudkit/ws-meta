@@ -1,0 +1,156 @@
+---
+############################## Extensions Manifest #############################
+#
+# Purpose:
+#   Lists all prepackaged VSCode extensions baked into the workspace image
+#
+# The file is used in:
+#   - Image build (rendered to extensions.sh via extensions.sh.j2)
+#   - Automated tests
+#   - Documentation builds (distributed via ws-meta to ws-docs)
+#
+# Schema (per entry):
+#   name:         friendly name shown in docs
+#   license:      ws-docs vocabulary (MIT, Apache 2, EPL 2, GPL 3, MPL 2,
+#                 BSD, ISC, Other) — NOT SPDX
+#   home:         upstream project repository (open-vsx `repository` field,
+#                 trailing `.git` stripped)
+#   version:      optional pin; rendered as Publisher.Id@version into
+#                 `code --install-extension`
+#
+# Entry-key rules:
+#   - The top-level key is the full `Publisher.Id` (case-preserved per
+#     marketplace canonical) — that same key is the install identifier
+#   - Entries sorted alphabetically by key, case-insensitive
+################################################################################
+extensions:
+  Anthropic.claude-code:
+    name: Claude Code for VS Code
+    license: Other
+    home: https://github.com/anthropics/claude-code
+
+  Catppuccin.catppuccin-vsc:
+    name: Catppuccin for VSCode
+    license: MIT
+    home: https://github.com/catppuccin/vscode
+
+  charliermarsh.ruff:
+    name: Ruff
+    license: MIT
+    home: https://github.com/astral-sh/ruff-vscode
+    version: 2026.38.0
+
+  DavidAnson.vscode-markdownlint:
+    name: markdownlint
+    license: MIT
+    home: https://github.com/DavidAnson/vscode-markdownlint
+
+  EditorConfig.EditorConfig:
+    name: EditorConfig
+    license: MIT
+    home: https://github.com/editorconfig/editorconfig-vscode
+
+  exiasr.hadolint:
+    name: hadolint
+    license: MIT
+    home: https://github.com/ExiaSR/vscode-hadolint
+
+  golang.Go:
+    name: Go
+    license: MIT, Apache 2, BSD, Other
+    home: https://github.com/golang/vscode-go
+
+  hashicorp.hcl:
+    name: HashiCorp HCL
+    license: MPL 2
+    home: https://github.com/hashicorp/vscode-hcl
+
+  humao.rest-client:
+    name: REST Client
+    license: MIT
+    home: https://github.com/Huachao/vscode-restclient
+
+  ludwhe.vscode-uuid:
+    name: UUID Generator
+    license: ISC
+    home: https://github.com/ludwhe/vscode-uuid
+
+  mikestead.dotenv:
+    name: DotENV
+    license: MIT
+    home: https://github.com/mikestead/vscode-dotenv
+
+  ms-azuretools.vscode-containers:
+    name: Container Tools
+    license: MIT
+    home: https://github.com/microsoft/vscode-containers
+
+  ms-kubernetes-tools.vscode-kubernetes-tools:
+    name: Kubernetes
+    license: Apache 2
+    home: https://github.com/vscode-kubernetes-tools/vscode-kubernetes-tools
+
+  ms-python.python:
+    name: Python
+    license: MIT
+    home: https://github.com/Microsoft/vscode-python
+
+  ms-python.vscode-python-envs:
+    name: Python Environments
+    license: MIT
+    home: https://github.com/microsoft/vscode-python-environments
+
+  ms-vscode.hexeditor:
+    name: Hex Editor
+    license: MIT
+    home: https://github.com/microsoft/vscode-hexeditor
+
+  PKief.material-icon-theme:
+    name: Material Icon Theme
+    license: MIT
+    home: https://github.com/material-extensions/vscode-material-icon-theme
+
+  redhat.ansible:
+    name: Ansible
+    license: MIT
+    home: https://github.com/ansible/vscode-ansible
+
+  redhat.vscode-xml:
+    name: XML
+    license: EPL 2
+    home: https://github.com/redhat-developer/vscode-xml
+
+  redhat.vscode-yaml:
+    name: YAML
+    license: MIT
+    home: https://github.com/redhat-developer/vscode-yaml
+
+  samuelcolvin.jinjahtml:
+    name: Better Jinja
+    license: MIT
+    home: https://github.com/samuelcolvin/jinjahtml-vscode
+
+  streetsidesoftware.code-spell-checker:
+    name: Code Spell Checker
+    license: GPL 3
+    home: https://github.com/streetsidesoftware/vscode-spell-checker
+
+  tamasfe.even-better-toml:
+    name: Even Better TOML
+    license: MIT
+    home: https://github.com/tamasfe/taplo
+
+  timonwong.shellcheck:
+    name: ShellCheck
+    license: MIT
+    home: https://github.com/vscode-shellcheck/vscode-shellcheck
+
+  wayou.vscode-todo-highlight:
+    name: TODO Highlight
+    license: MIT
+    home: https://github.com/wayou/vscode-todo-highlight
+
+  yzhang.markdown-all-in-one:
+    name: Markdown All in One
+    license: MIT
+    home: https://github.com/yzhang-gh/vscode-markdown
