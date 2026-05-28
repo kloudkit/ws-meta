@@ -10,6 +10,7 @@ on:
 
 jobs:
   resolve:
+    name: 🔍 Resolve targets
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.matrix.outputs.targets }}
@@ -30,6 +31,7 @@ jobs:
           scripts/distribute.sh "$FILES"
 
   sync:
+    name: 🔄 Sync (${{ matrix.target.repo }})
     needs: resolve
     if: needs.resolve.outputs.matrix != '[]'
     runs-on: ubuntu-latest
