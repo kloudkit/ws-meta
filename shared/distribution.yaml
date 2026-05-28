@@ -13,3 +13,7 @@ shared/workspace/dependencies.yaml:
 shared/workspace/extensions.yaml:
   - repo: ws-docs
     path: .vitepress/data/extensions.yaml
+
+shared/ws-feature-store/manifest.json:
+  - repo: ws-docs
+    path: .vitepress/data/fs-manifest.json
