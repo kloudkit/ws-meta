@@ -44,16 +44,29 @@ runs:
         done <<< "${{ inputs.files }}"
 
     - name: 📤 Push to ws-meta
+      id: push
       shell: bash
       run: |
         cd _ws-meta
         git add shared/
-        git diff --cached --quiet && echo "No changes" && exit 0
+        if git diff --cached --quiet; then
+          echo "No changes"
+          echo "changed=false" >> "$GITHUB_OUTPUT"
+          exit 0
+        fi
         git config user.name "kloud-bot"
         git config user.email "ws@kloud.email"
         git commit -m "${{ inputs.commit-message }} [skip ci]"
         git pull --rebase
         git push
+        echo "changed=true" >> "$GITHUB_OUTPUT"
+
+    - name: 🚀 Trigger distribution
+      if: steps.push.outputs.changed == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+      run: gh workflow run distribute.yaml --repo kloudkit/ws-meta --ref main
 
     - name: 🧹 Cleanup
       if: always()
