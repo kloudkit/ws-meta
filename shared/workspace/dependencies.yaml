@@ -521,11 +521,11 @@ dependencies:
 
   pnpm:
     cmd: pnpm --version
-    datasource: github-releases
+    datasource: npm
     group: Node.js
     home: https://github.com/pnpm/pnpm
     license: MIT
-    package: pnpm/pnpm
+    package: pnpm
     version: 11.5.0
 
   podman:
