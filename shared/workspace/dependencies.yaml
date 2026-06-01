@@ -71,7 +71,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.146
+    version: 2.1.158
 
   community.docker:
     datasource: galaxy-collection
@@ -85,7 +85,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible-collections/community.general
     license: GPL 3
-    version: 13.0.0
+    version: 13.0.1
 
   containerd.io:
     cmd: containerd --version
@@ -217,7 +217,7 @@ dependencies:
     home: https://github.com/junegunn/fzf
     license: MIT
     package: junegunn/fzf
-    version: 0.72.0
+    version: 0.73.1
 
   gettext:
     cmd: gettext -V
@@ -386,7 +386,7 @@ dependencies:
     home: https://github.com/kubernetes-client/python
     license: Apache
     package: kubernetes
-    version: 35.0.0
+    version: 36.0.1
 
   kubernetes.core:
     datasource: galaxy-collection
@@ -526,7 +526,7 @@ dependencies:
     home: https://github.com/pnpm/pnpm
     license: MIT
     package: pnpm/pnpm
-    version: 11.2.1
+    version: 11.5.0
 
   podman:
     cmd: podman --version
@@ -589,7 +589,7 @@ dependencies:
     home: https://github.com/astral-sh/ruff
     license: MIT
     tool: true
-    version: 0.15.13
+    version: 0.15.15
 
   ShellCheck:
     cmd: shellcheck --version
@@ -677,7 +677,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.11.15
+    version: 0.11.17
 
   vim:
     cmd: vim --version
@@ -701,7 +701,7 @@ dependencies:
     home: https://github.com/kloudkit/ws-cli
     license: MIT
     package: github.com/kloudkit/ws-cli
-    version: 0.0.55
+    version: 0.0.57
 
   yamllint:
     cmd: yamllint --version
