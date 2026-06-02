@@ -14,6 +14,10 @@ shared/workspace/extensions.yaml:
   - repo: ws-docs
     path: .vitepress/data/extensions.yaml
 
+shared/workspace/fonts.yaml:
+  - repo: ws-docs
+    path: .vitepress/data/fonts.yaml
+
 shared/ws-feature-store/manifest.json:
   - repo: ws-docs
     path: .vitepress/data/fs-manifest.json
