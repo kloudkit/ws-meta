@@ -38,7 +38,7 @@ extensions:
     name: Ruff
     license: MIT
     home: https://github.com/astral-sh/ruff-vscode
-    version: 2026.38.0
+    version: 2026.46.0
 
   DavidAnson.vscode-markdownlint:
     name: markdownlint
@@ -74,6 +74,11 @@ extensions:
     name: UUID Generator
     license: ISC
     home: https://github.com/ludwhe/vscode-uuid
+
+  meta.pyrefly:
+    name: Pyrefly
+    license: MIT
+    home: https://github.com/facebook/pyrefly
 
   mikestead.dotenv:
     name: DotENV

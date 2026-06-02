@@ -564,6 +564,15 @@ dependencies:
     tool: true
     version: 4.0.5
 
+  pyrefly:
+    cmd: pyrefly --version
+    datasource: pypi
+    group: Python
+    home: https://github.com/facebook/pyrefly
+    license: MIT
+    tool: true
+    version: 1.0.0
+
   Python:
     cmd: python3 --version
     datasource: deb
