@@ -460,7 +460,7 @@ dependencies:
     home: https://nodejs.org
     license: MIT
     package: nodejs
-    version: 24.15.0
+    version: 24.16.0
 
   npm:
     cmd: npm --version
@@ -469,7 +469,16 @@ dependencies:
     home: https://github.com/npm/cli
     license: Artistic 2
     package: npm/cli
-    version: 11.12.0
+    version: 11.13.0
+
+  oauth2-proxy:
+    cmd: oauth2-proxy --version
+    datasource: github-releases
+    group: Networking Tools
+    home: https://github.com/oauth2-proxy/oauth2-proxy
+    license: MIT
+    package: oauth2-proxy/oauth2-proxy
+    version: 7.15.2
 
   oh-my-zsh:
     datasource: github-releases
