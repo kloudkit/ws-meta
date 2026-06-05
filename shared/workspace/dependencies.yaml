@@ -71,14 +71,14 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.158
+    version: 2.1.161
 
   community.docker:
     datasource: galaxy-collection
     group: Ansible
     home: https://github.com/ansible-collections/community.docker
     license: GPL 3
-    version: 5.2.0
+    version: 5.2.1
 
   community.general:
     datasource: galaxy-collection
@@ -111,7 +111,7 @@ dependencies:
     group: CLI Tools
     home: https://github.com/streetsidesoftware/cspell
     license: MIT
-    version: 10.0.0
+    version: 10.0.1
 
   curl:
     cmd: curl --version
@@ -386,7 +386,7 @@ dependencies:
     home: https://github.com/kubernetes-client/python
     license: Apache
     package: kubernetes
-    version: 36.0.1
+    version: 36.0.2
 
   kubernetes.core:
     datasource: galaxy-collection
@@ -695,7 +695,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.11.17
+    version: 0.11.18
 
   vim:
     cmd: vim --version
@@ -719,7 +719,7 @@ dependencies:
     home: https://github.com/kloudkit/ws-cli
     license: MIT
     package: github.com/kloudkit/ws-cli
-    version: 0.0.57
+    version: 0.0.60
 
   yamllint:
     cmd: yamllint --version
