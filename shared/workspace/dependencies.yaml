@@ -71,7 +71,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.161
+    version: 2.1.169
 
   community.docker:
     datasource: galaxy-collection
@@ -695,7 +695,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.11.18
+    version: 0.11.19
 
   vim:
     cmd: vim --version
@@ -719,7 +719,7 @@ dependencies:
     home: https://github.com/kloudkit/ws-cli
     license: MIT
     package: github.com/kloudkit/ws-cli
-    version: 0.0.61
+    version: 0.0.62
 
   yamllint:
     cmd: yamllint --version
