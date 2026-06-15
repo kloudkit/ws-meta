@@ -71,7 +71,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.169
+    version: 2.1.177
 
   community.docker:
     datasource: galaxy-collection
@@ -190,11 +190,6 @@ dependencies:
     home: https://waterlan.home.xs4all.nl/dos2unix.html
     license: BSD 2
     version: 7.5.2
-
-  dumb-init:
-    datasource: deb
-    home: https://github.com/Yelp/dumb-init
-    license: MIT
 
   eza:
     cmd: eza --version
