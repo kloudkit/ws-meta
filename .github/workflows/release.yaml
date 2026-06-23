@@ -51,11 +51,18 @@ jobs:
             exit 0
           fi
 
+          pkg='https://github.com/orgs/kloudkit/packages/container/package/workspace'
+
           {
             printf '### 🐳 Pull\n\n```sh\n'
             printf 'docker pull ghcr.io/kloudkit/workspace:v%s\n' "${ver}"
             printf '```\n\n'
-            awk '/^## \[/{c++} c==1' "${changelog}" | tail -n +2
+            printf '### 📝 What'\''s Changed\n\n'
+            awk '/^## \[/{c++} c==1' "${changelog}" | tail -n +2 | sed 's/^### /#### /'
+            printf '\n---\n\n'
+            printf '📚 [Documentation](https://ws.kloudkit.com) ·\n'
+            printf '🐳 [Container image](%s) ·\n' "${pkg}"
+            printf '📜 [Full changelog](https://ws.kloudkit.com/changelog)\n'
           } > notes.md
 
           gh release create "v${ver}" \
