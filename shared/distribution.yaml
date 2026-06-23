@@ -18,6 +18,10 @@ shared/workspace/fonts.yaml:
   - repo: ws-docs
     path: .vitepress/data/fonts.yaml
 
+shared/workspace/CHANGELOG.md:
+  - repo: ws-docs
+    path: .vitepress/data/CHANGELOG.md
+
 shared/ws-feature-store/manifest.json:
   - repo: ws-docs
     path: .vitepress/data/fs-manifest.json
