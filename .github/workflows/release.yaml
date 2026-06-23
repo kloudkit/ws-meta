@@ -51,7 +51,12 @@ jobs:
             exit 0
           fi
 
-          awk '/^## \[/{c++} c==1' "${changelog}" | tail -n +2 > notes.md
+          {
+            printf '### 🐳 Pull\n\n```sh\n'
+            printf 'docker pull ghcr.io/kloudkit/workspace:v%s\n' "${ver}"
+            printf '```\n\n'
+            awk '/^## \[/{c++} c==1' "${changelog}" | tail -n +2
+          } > notes.md
 
           gh release create "v${ver}" \
             -R kloudkit/ws-meta \
