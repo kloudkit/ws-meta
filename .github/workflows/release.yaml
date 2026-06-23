@@ -1,0 +1,59 @@
+---
+name: 🚀 Mirror release
+
+on:
+  workflow_run:
+    workflows:
+      - 📦 Distribute shared files
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: 🏷️ Cut release from changelog
+    runs-on: ubuntu-latest
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      - name: 📥 Checkout ws-meta
+        uses: actions/checkout@v6
+
+      - name: 🚀 Cut release if the top version has none
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          changelog="shared/workspace/CHANGELOG.md"
+
+          if [ ! -f "${changelog}" ]; then
+            echo "No ${changelog} yet — nothing to release."
+            exit 0
+          fi
+
+          ver=$(grep -oP '^## \[\K[0-9][0-9.]*' "${changelog}" | head -1)
+
+          if [ -z "${ver}" ]; then
+            echo "No version section found in ${changelog} — skipping."
+            exit 0
+          fi
+
+          if gh release view "v${ver}" -R kloudkit/ws-meta >/dev/null 2>&1; then
+            echo "Release v${ver} already exists — no-op."
+            exit 0
+          fi
+
+          awk '/^## \[/{c++} c==1' "${changelog}" | tail -n +2 > notes.md
+
+          gh release create "v${ver}" \
+            -R kloudkit/ws-meta \
+            --title "v${ver}" \
+            --notes-file notes.md
