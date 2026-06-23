@@ -23,7 +23,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible/ansible
     license: GPL 3
-    version: 2.21.0
+    version: 2.21.1
 
   ansible-lint:
     cmd: ansible-lint --version
@@ -71,7 +71,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.177
+    version: 2.1.186
 
   community.docker:
     datasource: galaxy-collection
@@ -85,7 +85,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible-collections/community.general
     license: GPL 3
-    version: 13.0.1
+    version: 13.1.0
 
   containerd.io:
     cmd: containerd --version
@@ -103,7 +103,7 @@ dependencies:
     home: https://github.com/google/go-containerregistry
     license: Apache 2
     package: google/go-containerregistry
-    version: 0.21.6
+    version: 0.21.7
 
   cspell:
     cmd: cspell --version
@@ -304,7 +304,7 @@ dependencies:
     home: https://github.com/helm/helm
     license: Apache 2
     package: helm/helm
-    version: 4.2.0
+    version: 4.2.2
 
   htop:
     cmd: htop --version
@@ -346,7 +346,7 @@ dependencies:
     home: https://github.com/derailed/k9s
     license: Apache 2
     package: derailed/k9s
-    version: 0.50.18
+    version: 0.51.0
 
   kind:
     cmd: kind version
@@ -355,7 +355,7 @@ dependencies:
     home: https://github.com/kubernetes-sigs/kind
     license: Apache 2
     package: kubernetes-sigs/kind
-    version: 0.31.0
+    version: 0.32.0
 
   kube-linter:
     cmd: kube-linter version
@@ -430,7 +430,7 @@ dependencies:
     home: https://github.com/igorshubovych/markdownlint-cli
     license: MIT
     package: markdownlint-cli
-    version: 0.48.0
+    version: 0.49.0
 
   nc:
     cmd: (nc -h) > >(cat) 2>&1
@@ -473,7 +473,7 @@ dependencies:
     home: https://github.com/oauth2-proxy/oauth2-proxy
     license: MIT
     package: oauth2-proxy/oauth2-proxy
-    version: 7.15.2
+    version: 7.15.3
 
   oh-my-zsh:
     datasource: github-releases
@@ -530,7 +530,7 @@ dependencies:
     home: https://github.com/pnpm/pnpm
     license: MIT
     package: pnpm
-    version: 11.5.0
+    version: 11.8.0
 
   podman:
     cmd: podman --version
@@ -566,7 +566,7 @@ dependencies:
     home: https://github.com/pylint-dev/pylint
     license: GPL 2
     tool: true
-    version: 4.0.5
+    version: 4.0.6
 
   pyrefly:
     cmd: pyrefly --version
@@ -602,7 +602,7 @@ dependencies:
     home: https://github.com/astral-sh/ruff
     license: MIT
     tool: true
-    version: 0.15.15
+    version: 0.15.18
 
   ShellCheck:
     cmd: shellcheck --version
@@ -690,7 +690,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.11.19
+    version: 0.11.23
 
   vim:
     cmd: vim --version
