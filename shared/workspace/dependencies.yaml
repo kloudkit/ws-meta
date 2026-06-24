@@ -50,13 +50,12 @@ dependencies:
 
   buildx:
     cmd: docker buildx version
-    datasource: deb
+    datasource: github-releases
     group: Docker & Kubernetes
     home: https://github.com/docker/buildx
     license: Apache 2
-    package: docker-buildx-plugin
-    track: false
-    version: 0.34.0
+    package: docker/buildx
+    version: 0.35.0
 
   catppuccin:
     datasource: pypi
@@ -167,13 +166,12 @@ dependencies:
 
   docker compose:
     cmd: docker compose version
-    datasource: deb
+    datasource: github-releases
     group: Docker & Kubernetes
     home: https://github.com/docker/compose
     license: Apache 2
-    package: docker-compose-plugin
-    track: false
-    version: 5.1.0
+    package: docker/compose
+    version: 5.2.0
 
   docker-py:
     datasource: pypi

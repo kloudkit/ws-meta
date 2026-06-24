@@ -2,30 +2,36 @@
 
 ## [0.4.0] — 2026-06-23
 
+### Breaking
+
+- 💥 Reject wildcard proxy domains instead of silently stripping the `*.` prefix
+- 💥 Move shell/REPL history to `~/.ws/history`; history at the previous paths is not migrated *(#704)*
+
 ### Added
 
 - ✨ dotnet: Debian 13 trixie + selectable version bands (8.0/9.0/10.0)
-- ✨ Install additional pip packages and uv tools via env vars (#703)
+- ✨ Install additional pip packages and uv tools via env vars *(#703)*
 - ✨ Install additional npm packages via `WS_NPM_ADDITIONAL_PACKAGES`
-- ✨ Run `cloudflared` as a supervised s6 tunnel daemon (#700)
-- ✨ Skip feature-install sections via `--skip-*` flags (#698)
-- ✨ Enable built-in Markdown features and markdownlint parity (#697)
-- ✨ Add user feature playbooks under `~/.ws/features.d` (#696)
-- ✨ Query `show env` by canonical dotted keys, retire WS_* query form (#693)
+- ✨ Run `cloudflared` as a supervised s6 tunnel daemon *(#700)*
+- ✨ Skip feature-install sections via `--skip-*` flags *(#698)*
+- ✨ Enable built-in Markdown features and markdownlint parity *(#697)*
+- ✨ Add user feature playbooks under `~/.ws/features.d` *(#696)*
+- ✨ Query `show env` by canonical dotted keys, retire WS_* query form *(#693)*
 - ✨ Enforce WS_* value validation via declared patterns
 - ✨ Retire common.sh env wrappers into `ws-cli show env`
-- ✨ Add in-workspace OIDC auth via oauth2-proxy (#690)
-- ✨ Add fonts.yaml manifest and render to fonts.sh (#683)
+- ✨ Add in-workspace OIDC auth via oauth2-proxy *(#690)*
+- ✨ Add fonts.yaml manifest and render to fonts.sh *(#683)*
 
 ### Changed
 
-- 🏗️ Automate release tagging and changelog from a WS_VERSION literal (#722)
+- 🏗️ Automate release tagging and changelog from a WS_VERSION literal *(#722)*
 - ♻️ dotnet: DRY the version var, trim zshenv comments
-- 🚚 Move shell/REPL history to `~/.ws/history` and consolidate env into `zshenv` (#704)
-- ♻️ Extract `github_binary` role task and sweep feature playbooks (#701)
-- 🚚 Replace `dumb-init` with `s6-overlay` v3 daemon supervision (#699)
-- 🏗️ Audit image build: isolate code-server into a cache-stable stage (#695)
-- 🏗️ Audit dependency manifest: sudo PATH parity + Renovate hygiene (#694)
+- 🚚 Move shell/REPL history to `~/.ws/history` and consolidate env into `zshenv` *(#704)*
+- ♻️ Extract `github_binary` role task and sweep feature playbooks *(#701)*
+- 🚚 Replace `dumb-init` with `s6-overlay` v3 daemon supervision *(#699)*
+- 🏗️ Audit image build: isolate code-server into a cache-stable stage *(#695)*
+- 🏗️ Audit dependency manifest: sudo PATH parity + Renovate hygiene *(#694)*
+- 🚀 Swap jedi for pyrefly LSP *(#689)*
 
 ### Fixed
 
