@@ -77,11 +77,7 @@ jobs:
 
       - name: 📤 Direct push
         if: '!matrix.target.use_pr'
-        run: |
-          cd _target
-          git add .
-          git diff --cached --quiet && echo "No changes" && exit 0
-          git config user.name "kloud-bot"
-          git config user.email "ws@kloud.email"
-          git commit -m '🔄 Sync shared files from `ws-meta`'
-          git push
+        uses: ./.github/actions/commit-and-push
+        with:
+          message: 🔄 Sync shared files from `ws-meta`
+          cwd: _target

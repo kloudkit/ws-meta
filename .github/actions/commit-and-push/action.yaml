@@ -1,0 +1,44 @@
+---
+name: 📤 Commit and push
+description: Stage, commit as kloud-bot, and push — no-op when the tree is clean
+inputs:
+  message:
+    description: Commit message (gitmoji-prefixed by convention)
+    required: true
+  paths:
+    description: Pathspec to stage
+    default: .
+  cwd:
+    description: Working directory to run git in
+    default: .
+  branch:
+    description: Branch to push to (defaults to the current upstream)
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: 📤 Commit and push
+      shell: bash
+      working-directory: ${{ inputs.cwd }}
+      env:
+        MESSAGE: ${{ inputs.message }}
+        PATHS: ${{ inputs.paths }}
+        BRANCH: ${{ inputs.branch }}
+      run: |
+        git add ${PATHS}
+
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+
+        git config user.name "kloud-bot"
+        git config user.email "ws@kloud.email"
+        git commit -m "${MESSAGE}"
+
+        if [ -n "${BRANCH}" ]; then
+          git push origin "HEAD:${BRANCH}"
+        else
+          git push
+        fi

@@ -1,0 +1,51 @@
+---
+name: 🏷️ Emoji title check
+description: Validate that a title starts with an approved gitmoji; warn or comment when missing
+inputs:
+  title:
+    description: The issue/PR title to validate
+    required: true
+  mode:
+    description: "How to report a missing emoji: warn (annotation) or comment"
+    default: warn
+  number:
+    description: Issue/PR number to comment on (required when mode is comment)
+    default: ""
+  token:
+    description: GitHub token with issues write (required when mode is comment)
+    default: ""
+
+runs:
+  using: composite
+  steps:
+    - name: 🏷️ Validate gitmoji prefix
+      shell: bash
+      env:
+        TITLE: ${{ inputs.title }}
+        MODE: ${{ inputs.mode }}
+        NUMBER: ${{ inputs.number }}
+        GH_TOKEN: ${{ inputs.token }}
+      run: |
+        allowed='✨📈🐛🚑🩹⚡♻️🚚🏗️🗑️🔥🔒🔐💥⬆️⬇️➕➖📝✅👷💚🎨🔧🚧🔖'
+        first=$(printf '%s' "${TITLE}" | grep -oP '^\X' || true)
+
+        if printf '%s' "${allowed}" | grep -qF -- "${first}"; then
+          echo "✓ '${first}' — valid gitmoji"
+          exit 0
+        fi
+
+        if [ "${MODE}" = "comment" ]; then
+          body=$(printf '%s\n' \
+            "👋 Thanks for opening this!" \
+            "" \
+            "We use a **gitmoji as the first character** of the title to keep things scannable. For example:" \
+            "" \
+            "- \`🐛 Bug: Crash when clicking Run\`" \
+            "- \`✨ Feature: Add dark mode\`" \
+            "" \
+            "Pick one from [gitmoji.dev](https://gitmoji.dev) and edit your title. Thanks! 🎉")
+
+          gh issue comment "${NUMBER}" --body "${body}"
+        else
+          echo "::warning::Title needs a gitmoji.dev emoji; got '${first:-∅}'"
+        fi
