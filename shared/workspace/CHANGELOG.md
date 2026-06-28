@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- ✨ Agent-consumable documentation: `llms.txt`, `llms-full.txt`, per-page raw Markdown, and AI-crawler hints
+
 ## [0.4.0] — 2026-06-23
 
 ### Breaking
