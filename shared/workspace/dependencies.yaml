@@ -453,7 +453,7 @@ dependencies:
     home: https://nodejs.org
     license: MIT
     package: nodejs
-    version: 24.17.0
+    version: 24.18.0
 
   npm:
     cmd: npm --version
@@ -462,7 +462,7 @@ dependencies:
     home: https://github.com/npm/cli
     license: Artistic 2
     package: npm/cli
-    version: 11.13.0
+    version: 11.16.0
 
   oauth2-proxy:
     cmd: oauth2-proxy --version
