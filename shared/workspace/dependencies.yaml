@@ -70,7 +70,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.186
+    version: 2.1.195
 
   community.docker:
     datasource: galaxy-collection
@@ -528,7 +528,7 @@ dependencies:
     home: https://github.com/pnpm/pnpm
     license: MIT
     package: pnpm
-    version: 11.8.0
+    version: 11.9.0
 
   podman:
     cmd: podman --version
@@ -600,7 +600,7 @@ dependencies:
     home: https://github.com/astral-sh/ruff
     license: MIT
     tool: true
-    version: 0.15.18
+    version: 0.15.20
 
   ShellCheck:
     cmd: shellcheck --version
@@ -688,7 +688,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.11.23
+    version: 0.11.25
 
   vim:
     cmd: vim --version
