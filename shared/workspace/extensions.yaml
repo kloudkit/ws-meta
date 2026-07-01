@@ -38,7 +38,7 @@ extensions:
     name: Ruff
     license: MIT
     home: https://github.com/astral-sh/ruff-vscode
-    version: 2026.46.0
+    version: 2026.56.0
 
   DavidAnson.vscode-markdownlint:
     name: markdownlint

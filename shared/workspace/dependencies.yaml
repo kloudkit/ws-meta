@@ -32,7 +32,7 @@ dependencies:
     home: https://github.com/ansible/ansible-lint
     license: MIT
     tool: true
-    version: 26.4.0
+    version: 26.6.0
 
   bat:
     cmd: bat --version
@@ -712,7 +712,7 @@ dependencies:
     home: https://github.com/kloudkit/ws-cli
     license: MIT
     package: github.com/kloudkit/ws-cli
-    version: 0.0.66
+    version: 0.0.68
 
   yamllint:
     cmd: yamllint --version
