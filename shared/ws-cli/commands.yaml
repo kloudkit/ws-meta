@@ -1,0 +1,418 @@
+name: ws-cli
+synopsis: ⚡ CLI companion to charge the workspace batteries
+description: The workspace command-line companion. Groups helpers for inspecting the running workspace, managing settings and secrets, driving the editor, and serving local assets — most are called by the startup scripts, all are yours in the terminal.
+aliases:
+    - ws
+commands:
+    - name: ws-cli clip
+      synopsis: Interact with the native clipboard
+      description: Reach the browser clipboard from the terminal over the workspace IPC socket.
+      commands:
+        - name: ws-cli clip paste
+          synopsis: Paste clipboard content
+          description: Read the browser clipboard over the workspace IPC socket and write it to stdout — redirect it to a file or pipe it onward. Pairs with the pbcopy/xclip/xsel shims for terminal clipboard access.
+          usage: ws-cli clip paste
+    - name: ws-cli editor
+      synopsis: Inspect and drive the active editor session
+      description: Query and control the running VS Code / code-server window over the workspace IPC socket — list open tabs, read diagnostics and the current selection, or open a file. Blocked over SSH, where there is no browser editor to reach.
+      options:
+        - name: raw
+          default: "false"
+          usage: Output the raw JSON response without styling
+      commands:
+        - name: ws-cli editor diagnostics
+          synopsis: Show language diagnostics for the workspace (or a single file)
+          description: Pull language-server diagnostics (errors, warnings) from the editor over the IPC socket, across the whole workspace or a single file with --uri. Styled table by default, --raw for the JSON.
+          usage: ws-cli editor diagnostics [flags]
+          options:
+            - name: uri
+              usage: Filter to a single file (URI or absolute path)
+        - name: ws-cli editor list
+          synopsis: List the currently open editor tabs
+          description: List the editor's open tabs over the IPC socket, with each tab's path, language, and active or dirty state.
+          usage: ws-cli editor list
+        - name: ws-cli editor open
+          synopsis: Open a file in the editor
+          description: Open a file in the running editor window over the workspace IPC socket — a tab in the current window by default, a separate one with --new-window, jumping to a range with --selection. Fails fast over SSH, where there is no browser editor to open into.
+          usage: ws-cli editor open <file> [flags]
+          options:
+            - name: new-window
+              default: "false"
+              usage: Open in a new window
+            - name: preview
+              default: "false"
+              usage: Open as a preview tab (reuse-window only)
+            - name: reuse-window
+              default: "false"
+              usage: Open in the current window as a tab (default)
+            - name: selection
+              usage: 'Select a range: LINE:COL[-LINE:COL] (1-based)'
+        - name: ws-cli editor selection
+          synopsis: Show the active editor's current selection
+          description: Report the active editor's current selection — file, range, and selected text — over the IPC socket. Empty when nothing is selected.
+          usage: ws-cli editor selection
+    - name: ws-cli feature
+      synopsis: Install additional pre-configured features
+      description: Install and inspect optional workspace features — Ansible playbooks that add tools on top of the base image. Ships a curated set; --root points at your own under ~/.ws/features.d.
+      options:
+        - name: root
+          usage: Root directory of additional features
+      commands:
+        - name: ws-cli feature info
+          synopsis: Show detailed information about a feature
+          description: Show a feature's description and the variables it accepts, so you know what --opt values install will take.
+          usage: ws-cli feature info <name>
+        - name: ws-cli feature install
+          synopsis: Install additional pre-configured features
+          description: Run a feature's playbook to install it. Pass variables with --opt KEY=VAL, and skip parts you do not want with --skip-extensions, --skip-completion, or --skip-repository.
+          usage: ws-cli feature install [flags]
+          options:
+            - name: opt
+              default: '[]'
+              usage: Optional variables to use during installation
+            - name: skip-completion
+              default: "false"
+              usage: Skip configuring shell completion
+            - name: skip-extensions
+              default: "false"
+              usage: Skip installing VSCode extensions
+            - name: skip-repository
+              default: "false"
+              usage: Skip enabling the vendor APT repository
+        - name: ws-cli feature list
+          synopsis: List available features that can be installed
+          description: List the features you can install, marking where each comes from — the shipped set, a workspace override, or your own ~/.ws/features.d.
+          usage: ws-cli feature list
+          aliases:
+            - ls
+        - name: ws-cli feature new
+          synopsis: Print boilerplate for a custom feature playbook
+          description: |-
+            Print a starter feature playbook to stdout.
+
+            Redirect it into ~/.ws/features.d/<name>.yaml, then extend it and install
+            with "ws-cli feature install <name>":
+
+              ws-cli feature new redis > ~/.ws/features.d/redis.yaml
+          usage: ws-cli feature new [name]
+        - name: ws-cli feature store
+          synopsis: List packages available in the feature store
+          description: List the artifacts published to the feature store (WS_FEATURES_STORE_URL) — the offline mirror features install from when the network is locked down.
+          usage: ws-cli feature store
+    - name: ws-cli info
+      synopsis: Display workspace information
+      description: Report facts about the running workspace — version, effective environment, installed extensions, live resource metrics, and uptime.
+      commands:
+        - name: ws-cli info env
+          synopsis: Display effective workspace environment variables
+          description: Print every WS_* variable in effect, sorted — the resolved environment the workspace booted with.
+          usage: ws-cli info env
+        - name: ws-cli info extensions
+          synopsis: Display installed extensions
+          description: List the installed VS Code extensions with their versions.
+          usage: ws-cli info extensions
+        - name: ws-cli info metrics
+          synopsis: Display workspace metrics
+          description: Show live resource usage — CPU, memory, disk, and file descriptors, plus GPU with --gpu.
+          usage: ws-cli info metrics [flags]
+          options:
+            - name: gpu
+              default: "false"
+              usage: Include GPU metrics
+        - name: ws-cli info uptime
+          synopsis: Display the workspace uptime
+          description: Show when the workspace session started and how long it has been running.
+          usage: ws-cli info uptime
+        - name: ws-cli info version
+          synopsis: Display installed workspace version
+          description: Print the workspace version. --all expands to the full table — workspace, ws-cli, and VS Code.
+          usage: ws-cli info version [flags]
+          options:
+            - name: all
+              default: "false"
+              usage: Show all version information
+    - name: ws-cli log
+      synopsis: Log messages
+      description: Emit styled, level-tagged log lines — the same formatting the startup scripts use. --pipe runs each line of piped input through the logger.
+      options:
+        - name: pipe
+          shorthand: p
+          default: "false"
+          usage: Loop through piped output
+      commands:
+        - name: ws-cli log debug
+          synopsis: Log debugging messages
+          description: Emit a log line at debug level in the workspace style — the same formatting the startup scripts use. --indent nests it under a preceding line, --stamp prefixes a timestamp.
+          usage: ws-cli log debug message [flags]
+          options:
+            - name: indent
+              shorthand: i
+              default: "0"
+              usage: Desired prefixed indentation
+            - name: stamp
+              shorthand: s
+              default: "false"
+              usage: Prefix message with current timestamp
+        - name: ws-cli log error
+          synopsis: Log error messages
+          description: Emit a log line at error level in the workspace style — the same formatting the startup scripts use. --indent nests it under a preceding line, --stamp prefixes a timestamp.
+          usage: ws-cli log error message [flags]
+          options:
+            - name: indent
+              shorthand: i
+              default: "0"
+              usage: Desired prefixed indentation
+            - name: stamp
+              shorthand: s
+              default: "false"
+              usage: Prefix message with current timestamp
+        - name: ws-cli log info
+          synopsis: Log information messages
+          description: Emit a log line at info level in the workspace style — the same formatting the startup scripts use. --indent nests it under a preceding line, --stamp prefixes a timestamp.
+          usage: ws-cli log info message [flags]
+          options:
+            - name: indent
+              shorthand: i
+              default: "0"
+              usage: Desired prefixed indentation
+            - name: stamp
+              shorthand: s
+              default: "false"
+              usage: Prefix message with current timestamp
+        - name: ws-cli log stamp
+          synopsis: Log the current timestamp
+          description: Print just the current timestamp in the workspace log style — handy for marking phases in a startup log.
+          usage: ws-cli log stamp
+        - name: ws-cli log warn
+          synopsis: Log warning messages
+          description: Emit a log line at warn level in the workspace style — the same formatting the startup scripts use. --indent nests it under a preceding line, --stamp prefixes a timestamp.
+          usage: ws-cli log warn message [flags]
+          options:
+            - name: indent
+              shorthand: i
+              default: "0"
+              usage: Desired prefixed indentation
+            - name: stamp
+              shorthand: s
+              default: "false"
+              usage: Prefix message with current timestamp
+    - name: ws-cli logs
+      synopsis: Retrieve workspace logs
+      description: Read a workspace daemon's log — the main log by default, or --target metrics|docker|auth_proxy|cloudflared. Filter by --level, limit with --tail, or stream live with --follow.
+      usage: ws-cli logs [flags]
+      options:
+        - name: follow
+          shorthand: f
+          default: "false"
+          usage: Follow log output in real-time
+        - name: level
+          shorthand: l
+          usage: Filter by log level (debug|info|warn|error)
+        - name: tail
+          shorthand: t
+          default: "0"
+          usage: Number of lines to show from the end (0 for all)
+        - name: target
+          default: main
+          usage: Log target to read (main|metrics|docker|auth_proxy|cloudflared)
+    - name: ws-cli secrets
+      synopsis: Manage encryption and decryption of secrets
+      description: 'Encrypt and decrypt values under a master key, and generate the keys themselves. Encrypted values are what the seed engine''s secrets: map stores and decrypts at boot.'
+      options:
+        - name: force
+          default: "false"
+          usage: Overwrite existing files
+        - name: master
+          usage: Master key or path to key file
+        - name: mode
+          usage: File permissions (e.g., 0o600, 384), only when --output is used
+        - name: output
+          usage: Write output to file instead of stdout
+        - name: raw
+          default: "false"
+          usage: Output without styling
+      commands:
+        - name: ws-cli secrets decrypt
+          synopsis: Decrypt an encrypted value
+          description: Decrypt a value produced by encrypt, under the master key. Reads from the argument or stdin (-); writes the plaintext to stdout, or a file with --output.
+          usage: ws-cli secrets decrypt <encrypted|->
+        - name: ws-cli secrets encrypt
+          synopsis: Encrypt a plaintext value
+          description: Encrypt a value under the master key. Reads the plaintext from the argument or stdin (-); writes the ciphertext to stdout, or a file with --output.
+          usage: ws-cli secrets encrypt <plaintext|->
+        - name: ws-cli secrets generate
+          synopsis: Generate master keys or login password hashes
+          description: Generate the credentials the workspace needs — a master key for secrets, or a login password hash for the server.
+          commands:
+            - name: ws-cli secrets generate login
+              synopsis: Generate a workspace password hash for authentication
+              description: Prompt for a password and print its hash for the workspace server login (WS_AUTH_PASSWORD_HASHED). Store the hash, never the password.
+              usage: ws-cli secrets generate login
+            - name: ws-cli secrets generate master
+              synopsis: Generate a cryptographically secure master key
+              description: Generate a random master key, printed base64-encoded — the key encrypt, decrypt, and the seed engine use. --length sets the byte size (default 32).
+              usage: ws-cli secrets generate master [flags]
+              options:
+                - name: length
+                  default: "32"
+                  usage: Key length in bytes
+    - name: ws-cli seed
+      synopsis: Project declarative content onto the filesystem
+      description: Copy files and apply small edits from a seed source onto the filesystem at boot. Bare files mirror verbatim; a .seed.yaml manifest overlays behavior — copy, merge, append — and decrypts secrets under the master key. Point --source at a mounted volume to seed a container from durable storage.
+      options:
+        - name: source
+          usage: Seed source directory
+      commands:
+        - name: ws-cli seed apply
+          synopsis: Project seed content onto the filesystem
+          description: Apply the seed source to the filesystem — mirror bare files and run the .seed.yaml operations. Writes only where the destination is missing unless --force; pass destinations to limit the run to those paths.
+          usage: ws-cli seed apply [dest...] [flags]
+          options:
+            - name: force
+              default: "false"
+              usage: Overwrite existing destinations
+            - name: master
+              usage: Master key or path to key file
+        - name: ws-cli seed ls
+          synopsis: List seed destinations and their behaviors
+          description: List what apply would write — each destination with its operation and whether it carries a secret or a template — without touching the filesystem.
+          usage: ws-cli seed ls
+        - name: ws-cli seed rotate
+          synopsis: Re-encrypt managed secrets under a new master key
+          description: 'Re-encrypt every managed secret from the old master key (--master) to a new one (--new-master), in place. All-or-nothing: it verifies every secret decrypts before writing anything.'
+          usage: ws-cli seed rotate [flags]
+          options:
+            - name: master
+              usage: Current master key or path to key file
+            - name: new-master
+              usage: New master key or path to key file
+    - name: ws-cli serve
+      synopsis: Serve internal assets
+      description: Run a small HTTP server for local assets — fonts or the current directory — on --port (default 38080).
+      options:
+        - name: bind
+          default: 0.0.0.0
+          usage: Bind address
+        - name: port
+          shorthand: p
+          default: "38080"
+          usage: Port to serve assets on
+      commands:
+        - name: ws-cli serve current
+          synopsis: Serve current directory as a static site
+          description: Serve the current directory over HTTP as a static site — a quick way to preview built files.
+          usage: ws-cli serve current
+        - name: ws-cli serve current
+          synopsis: Serve current directory as a static site
+          description: Serve the current directory over HTTP as a static site — a quick way to preview built files.
+          usage: ws-cli serve current [flags]
+        - name: ws-cli serve font
+          synopsis: Serve fonts for local download
+          description: Serve the installed fonts over HTTP so a browser can fetch them for local install.
+          usage: ws-cli serve font
+        - name: ws-cli serve font
+          synopsis: Serve fonts for local download
+          description: Serve the installed fonts over HTTP so a browser can fetch them for local install.
+          usage: ws-cli serve font [flags]
+        - name: ws-cli serve metrics
+          synopsis: Start the Prometheus metrics server
+          usage: ws-cli serve metrics [flags]
+          options:
+            - name: collectors
+              default: '[*]'
+              usage: Comma-separated list of collectors to enable (e.g., workspace,container.cpu,gpu)
+            - name: port
+              shorthand: p
+              default: "9100"
+              usage: Port to serve metrics on
+    - name: ws-cli show
+      synopsis: Display information about the current workspace instance
+      description: Resolve and print facts about this workspace instance — settings, IP addresses, and paths. --raw drops the styling for use in scripts.
+      options:
+        - name: raw
+          default: "false"
+          usage: Output raw value without styling
+      commands:
+        - name: ws-cli show env
+          synopsis: Display the resolved value of a workspace environment variable
+          description: Resolve a setting by its dotted key (server.port) and print it with its source and description. --value emits just the value for scripts, --as bool|int|list validates the shape, --check tests whether it is set so a startup script can guard on it.
+          usage: ws-cli show env <KEY> [flags]
+          options:
+            - name: as
+              usage: 'Validate and emit as one of: bool, int, list (mutex with --value)'
+            - name: check
+              default: "false"
+              usage: Check whether the variable (or its --deprecated alias) is set
+            - name: delimiter
+              usage: Override delimiter for --as=list (defaults to YAML delimiter or space)
+            - name: deprecated
+              usage: Deprecated alias paired with --check
+            - name: or-skip
+              default: "false"
+              usage: Exit 1 (not error) on the natural absence of the chosen projection
+            - name: validate
+              usage: Anchored regex each --as=list token must full-match; rejects fail-closed
+            - name: value
+              default: "false"
+              usage: Emit the raw resolved value as a single line
+        - name: ws-cli show ip
+          synopsis: Display IP addresses
+          description: Print the workspace's IP addresses — the internal container address or the node it runs on.
+          commands:
+            - name: ws-cli show ip internal
+              synopsis: Display the internal IP address
+              description: Print the workspace container's internal IP address.
+              usage: ws-cli show ip internal
+            - name: ws-cli show ip node
+              synopsis: Display the node/host IP address
+              description: Print the IP address of the node hosting the workspace.
+              usage: ws-cli show ip node
+        - name: ws-cli show path
+          synopsis: Display various paths
+          description: Print well-known workspace paths — the home root or the VS Code settings file.
+          commands:
+            - name: ws-cli show path home
+              synopsis: Display the workspace home path
+              description: Print the workspace home (server root) path.
+              usage: ws-cli show path home
+            - name: ws-cli show path vscode-settings
+              synopsis: Display the VS Code settings path
+              description: Print the path to the VS Code settings file — the user file by default, or the folder's with --workspace.
+              usage: ws-cli show path vscode-settings [flags]
+              options:
+                - name: workspace
+                  default: "false"
+                  usage: Get the workspace settings
+    - name: ws-cli template
+      synopsis: Manage static configuration files
+      description: Copy shared configuration files (linters, formatters) from their global locations into a project, and inspect what they hold.
+      commands:
+        - name: ws-cli template apply
+          synopsis: Apply a configuration template to the current project
+          description: Copy a template into the project — a shared config like ruff or markdownlint — to --path (the current directory by default). --force overwrites an existing file.
+          usage: ws-cli template apply <template> [flags]
+          options:
+            - name: force
+              shorthand: f
+              default: "false"
+              usage: Overwrite existing files
+            - name: path
+              default: .
+              usage: Target directory path
+        - name: ws-cli template list
+          synopsis: List all available configuration templates
+          description: List the templates you can apply, with their source paths and whether one is already applied here.
+          usage: ws-cli template list
+          aliases:
+            - ls
+        - name: ws-cli template show
+          synopsis: Display the contents of a configuration template
+          description: |-
+            Display the contents of a configuration template.
+
+              Available templates: ansible, markdownlint, ruff, yamllint
+          usage: ws-cli template show <template> [flags]
+          options:
+            - name: local
+              default: "false"
+              usage: Show the local version of the template (if applied)
