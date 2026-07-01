@@ -25,3 +25,7 @@ shared/workspace/CHANGELOG.md:
 shared/ws-feature-store/manifest.json:
   - repo: ws-docs
     path: .vitepress/data/fs-manifest.json
+
+shared/ws-cli/commands.yaml:
+  - repo: ws-docs
+    path: .vitepress/data/commands.yaml
