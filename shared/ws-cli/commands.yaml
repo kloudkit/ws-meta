@@ -8,6 +8,12 @@ commands:
       since: 0.2.0
       synopsis: Interact with the native clipboard
       description: Reach the browser clipboard from the terminal over the workspace IPC socket.
+      example: |-
+        # Save the browser clipboard to a file
+        ws clip paste > out.txt
+
+        # Search within it
+        ws clip paste | grep "pattern"
       commands:
         - name: ws-cli clip paste
           since: 0.2.0
@@ -18,6 +24,12 @@ commands:
       since: next
       synopsis: Inspect and drive the active editor session
       description: Query and control the running VS Code / code-server window over the workspace IPC socket — list open tabs, read diagnostics and the current selection, or open a file. Blocked over SSH, where there is no browser editor to reach.
+      example: |-
+        # List the open editor tabs
+        ws editor list
+
+        # Open a file at a specific line and column
+        ws editor open src/main.go --selection 12:1
       options:
         - name: raw
           default: "false"
@@ -62,6 +74,12 @@ commands:
       since: 0.2.0
       synopsis: Install additional pre-configured features
       description: Install and inspect optional workspace features — Ansible playbooks that add tools on top of the base image. Ships a curated set; --root points at your own under ~/.ws/features.d.
+      example: |-
+        # List the features you can install
+        ws feature list
+
+        # Install one, skipping its VSCode extensions
+        ws feature install redis --skip-extensions
       options:
         - name: root
           usage: Root directory of additional features
@@ -116,6 +134,12 @@ commands:
       since: 0.2.0
       synopsis: Display workspace information
       description: Report facts about the running workspace — version, effective environment, installed extensions, live resource metrics, and uptime.
+      example: |-
+        # Show the full version table
+        ws info version --all
+
+        # Watch live resource usage
+        ws info metrics
       commands:
         - name: ws-cli info env
           since: 0.2.0
@@ -154,6 +178,12 @@ commands:
       since: 0.2.0
       synopsis: Log messages
       description: Emit styled, level-tagged log lines — the same formatting the startup scripts use. --pipe runs each line of piped input through the logger.
+      example: |-
+        # Emit an info-level line
+        ws log info "starting up"
+
+        # Nest a warning under it with a timestamp
+        ws log warn "slow response" --indent 1 --stamp
       options:
         - name: pipe
           shorthand: p
@@ -226,6 +256,12 @@ commands:
       synopsis: Retrieve workspace logs
       description: Read a workspace daemon's log — the main log by default, or --target metrics|docker|auth_proxy|cloudflared. Filter by --level, limit with --tail, or stream live with --follow.
       usage: ws-cli logs [flags]
+      example: |-
+        # Stream errors live, starting from the last 100 lines
+        ws logs --level=error --tail=100 --follow
+
+        # Read a specific target instead of the main log
+        ws logs --target metrics
       options:
         - name: follow
           shorthand: f
@@ -245,6 +281,12 @@ commands:
       since: 0.2.0
       synopsis: Manage encryption and decryption of secrets
       description: 'Encrypt and decrypt values under a master key, and generate the keys themselves. Encrypted values are what the seed engine''s secrets: map stores and decrypts at boot.'
+      example: |-
+        # Generate a master key
+        ws secrets generate master
+
+        # Encrypt a value under it
+        ws secrets encrypt "s3cr3t" --master ~/.ws/master.key
       options:
         - name: force
           default: "false"
@@ -292,6 +334,12 @@ commands:
       since: next
       synopsis: Project declarative content onto the filesystem
       description: Copy files and apply small edits from a seed source onto the filesystem at boot. Bare files mirror verbatim; a .seed.yaml manifest overlays behavior — copy, merge, append — and decrypts secrets under the master key. Point --source at a mounted volume to seed a container from durable storage.
+      example: |-
+        # Preview what apply would write
+        ws seed ls --source /mnt/seed
+
+        # Apply it, overwriting existing destinations
+        ws seed apply --source /mnt/seed --force
       options:
         - name: source
           usage: Seed source directory
@@ -326,6 +374,12 @@ commands:
       since: 0.2.0
       synopsis: Serve internal assets
       description: Run a small HTTP server for local assets — fonts or the current directory — on --port (default 38080).
+      example: |-
+        # Serve the current directory
+        ws serve current
+
+        # Serve fonts on a custom port
+        ws serve font --port 38081
       options:
         - name: bind
           default: 0.0.0.0
@@ -371,6 +425,12 @@ commands:
       since: 0.2.0
       synopsis: Display information about the current workspace instance
       description: Resolve and print facts about this workspace instance — settings, IP addresses, and paths. --raw drops the styling for use in scripts.
+      example: |-
+        # Resolve a setting by its dotted key
+        ws show env server.port
+
+        # Reverse-tunnel a local port to the workspace node
+        ws_node_ip=$(ws show ip node); ssh -N -R "3001:${ws_node_ip}:3001" "${ws_node_ip}"
       options:
         - name: raw
           default: "false"
@@ -437,6 +497,12 @@ commands:
       since: 0.2.0
       synopsis: Manage static configuration files
       description: Copy shared configuration files (linters, formatters) from their global locations into a project, and inspect what they hold.
+      example: |-
+        # List available templates
+        ws template list
+
+        # Apply the ruff config to the current project
+        ws template apply ruff
       commands:
         - name: ws-cli template apply
           since: 0.2.0
