@@ -708,11 +708,13 @@ dependencies:
 
   ws-cli:
     cmd: ws-cli --version
-    datasource: go
+    currentDigest: 85f54c970561c49b36261f74dbb9b0e8dbbaa9e4
+    currentValue: main
+    datasource: git-refs
     home: https://github.com/kloudkit/ws-cli
     license: MIT
     package: github.com/kloudkit/ws-cli
-    version: 0.0.69
+    packageName: https://github.com/kloudkit/ws-cli
 
   yamllint:
     cmd: yamllint --version
