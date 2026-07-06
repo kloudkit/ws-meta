@@ -733,6 +733,11 @@ dependencies:
     license: BSD 2
     version: 1.22.22
 
+  # yq (kislyuk) 4.x reports `0.0.0` from `yq --version`: the PyPI wheel omits the
+  # setuptools_scm-generated version.py, so it falls back to a hardcoded 0.0.0
+  # (4.1.1 on disk, prints 0.0.0). `version:` is intentionally dropped so the version
+  # assertion is skipped (yq keeps its presence check); restore it once upstream ships
+  # a version-reporting release. Tracked: future-9-yq-version-check-restore.
   yq:
     cmd: yq --version
     datasource: pypi
@@ -740,7 +745,6 @@ dependencies:
     home: https://github.com/kislyuk/yq
     license: MIT
     tool: true
-    version: 3.4.3
 
   zsh:
     cmd: zsh --version
