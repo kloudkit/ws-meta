@@ -1,0 +1,68 @@
+---
+################################ Fonts Manifest ###############################
+#
+# Web fonts served with the editor. Fetched at build time by `scripts/fonts.sh`
+# and baked (web copies only) into the served tree at
+# `vscode/resources/server/kloud/fonts/`. Registered as a ws-meta distribution
+# origin so ws-docs can source its licenses table from here after the cutover.
+#
+#   name/license/home  shown in the docs licenses table
+#   install:           OPTIONAL. Present => downloaded at build time.
+#                      Absent => attribution-only (theme / UI font, no web copy).
+#     datasource/package/version  Renovate metadata (renovate.json jsonata manager)
+#     url       `${repo}` (= package) and `${version}` are shell vars
+#     archive   tar.gz (extracted whole) | zip
+#     extract   in-archive directories whose font files are flattened into the
+#               served fonts dir (zip only; tar.gz archives are already flat)
+#
+# Sorted by key, case-insensitive.
+################################################################################
+fonts:
+  catppuccin:
+    name: Catppuccin
+    license: MIT
+    home: https://github.com/catppuccin/catppuccin
+
+  fira-sans:
+    name: Fira Sans
+    license: OFL 1.1
+    home: https://github.com/mozilla/Fira
+
+  firacode:
+    name: FiraCode
+    license: OFL 1.1
+    home: https://github.com/tonsky/FiraCode
+    install:
+      datasource: github-releases
+      package: tonsky/FiraCode
+      version: "6.2"
+      url: https://github.com/${repo}/releases/download/${version}/Fira_Code_v${version}.zip
+      archive: zip
+      extract:
+        - woff
+        - woff2
+
+  meslo:
+    name: MesloLGS
+    license: Apache 2
+    home: https://github.com/romkatv/powerlevel10k-media
+    install:
+      datasource: github-releases
+      package: romkatv/powerlevel10k-media
+      version: 2.3.3
+      url: https://github.com/${repo}/releases/download/v${version}/meslo-lgs-nf.tar.gz
+      archive: tar.gz
+
+  victormono:
+    name: Victor Mono
+    license: OFL 1.1
+    home: https://github.com/rubjo/victor-mono
+    install:
+      datasource: github-releases
+      package: rubjo/victor-mono
+      version: 1.5.6
+      url: https://github.com/${repo}/archive/refs/tags/v${version}.zip
+      archive: zip
+      extract:
+        - victor-mono-${version}/dist/woff
+        - victor-mono-${version}/dist/woff2
