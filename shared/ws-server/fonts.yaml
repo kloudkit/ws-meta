@@ -3,17 +3,17 @@
 #
 # Web fonts served with the editor. Fetched at build time by `scripts/fonts.sh`
 # and baked (web copies only) into the served tree at
-# `vscode/resources/server/kloud/fonts/`. Registered as a ws-meta distribution
+# `server/browser/fonts/` (served by the H3 `/__ws__/fonts` route). Registered as a ws-meta distribution
 # origin so ws-docs can source its licenses table from here after the cutover.
 #
 #   name/license/home  shown in the docs licenses table
 #   install:           OPTIONAL. Present => downloaded at build time.
 #                      Absent => attribution-only (theme / UI font, no web copy).
 #     datasource/package/version  Renovate metadata (renovate.json jsonata manager)
-#     url       `${repo}` (= package) and `${version}` are shell vars
-#     archive   tar.gz (extracted whole) | zip
-#     extract   in-archive directories whose font files are flattened into the
-#               served fonts dir (zip only; tar.gz archives are already flat)
+#
+# The download URL and the per-archive layout live in `scripts/fonts.sh`, which reads
+# `version:` from here and nothing else. Declaring them twice meant one of the two was
+# always a lie.
 #
 # Sorted by key, case-insensitive.
 ################################################################################
@@ -36,11 +36,6 @@ fonts:
       datasource: github-releases
       package: tonsky/FiraCode
       version: "6.2"
-      url: https://github.com/${repo}/releases/download/${version}/Fira_Code_v${version}.zip
-      archive: zip
-      extract:
-        - woff
-        - woff2
 
   meslo:
     name: MesloLGS
@@ -50,8 +45,6 @@ fonts:
       datasource: github-releases
       package: romkatv/powerlevel10k-media
       version: 2.3.3
-      url: https://github.com/${repo}/releases/download/v${version}/meslo-lgs-nf.tar.gz
-      archive: tar.gz
 
   victormono:
     name: Victor Mono
@@ -61,8 +54,3 @@ fonts:
       datasource: github-releases
       package: rubjo/victor-mono
       version: 1.5.6
-      url: https://github.com/${repo}/archive/refs/tags/v${version}.zip
-      archive: zip
-      extract:
-        - victor-mono-${version}/dist/woff
-        - victor-mono-${version}/dist/woff2
