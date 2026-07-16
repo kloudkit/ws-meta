@@ -330,6 +330,11 @@ commands:
                 - name: length
                   default: "32"
                   usage: Key length in bytes
+        - name: ws-cli secrets materialize
+          since: next
+          synopsis: Project the configured master key to its conventional secret path
+          description: Persist WS_SECRETS_MASTER_KEY to /run/secrets/workspace/secrets/master_key so the key outlives the editor's environment scrub. A no-op when the key is unset or the path already holds one.
+          usage: ws-cli secrets materialize
     - name: ws-cli seed
       since: next
       synopsis: Project declarative content onto the filesystem
