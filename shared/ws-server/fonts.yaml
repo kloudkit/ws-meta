@@ -2,9 +2,9 @@
 ################################ Fonts Manifest ###############################
 #
 # Web fonts served with the editor. Fetched at build time by `scripts/fonts.sh`
-# and baked (web copies only) into the served tree at
-# `server/browser/fonts/` (served by the H3 `/__ws__/fonts` route). Registered as a ws-meta distribution
-# origin so ws-docs can source its licenses table from here after the cutover.
+# and baked (web copies only) into the served tree at `server/browser/fonts/`
+# (served by the H3 `/__ws__/fonts` route). This is the ws-meta distribution
+# origin for the manifest: ws-docs sources its licenses table from here.
 #
 #   name/license/home  shown in the docs licenses table
 #   install:           OPTIONAL. Present => downloaded at build time.
