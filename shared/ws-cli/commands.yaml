@@ -14,7 +14,15 @@ commands:
 
         # Search within it
         ws clip paste | grep "pattern"
+
+        # Send command output to the browser clipboard
+        ls | ws clip copy
       commands:
+        - name: ws-cli clip copy
+          since: next
+          synopsis: Copy stdin to the clipboard
+          description: Read stdin and write it to the browser clipboard over the workspace IPC socket. Pairs with the pbcopy/xclip/xsel shims for terminal clipboard access.
+          usage: ws-cli clip copy
         - name: ws-cli clip paste
           since: 0.2.0
           synopsis: Paste clipboard content
@@ -48,6 +56,17 @@ commands:
           synopsis: List the currently open editor tabs
           description: List the editor's open tabs over the IPC socket, with each tab's path, language, and active or dirty state.
           usage: ws-cli editor list
+        - name: ws-cli editor notify
+          since: next
+          synopsis: Raise a notification in the editor
+          description: Read a JSON payload from stdin and raise it as a notification in the running editor window over the workspace IPC socket. Requires a "message"; optional "detail", "actions", "modal", "timeout", and "severity" tune it. Prints the chosen action (or timeout) as JSON. Blocked over SSH.
+          usage: ws-cli editor notify
+          example: |-
+            # A simple toast
+            echo '{"message": "Build finished"}' | ws editor notify
+
+            # Ask a question and read the chosen action
+            echo '{"message": "Deploy now?", "actions": ["Yes", "No"]}' | ws editor notify
         - name: ws-cli editor open
           since: next
           synopsis: Open a file in the editor
