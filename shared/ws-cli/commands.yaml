@@ -397,13 +397,13 @@ commands:
     - name: ws-cli serve
       since: 0.2.0
       synopsis: Serve internal assets
-      description: Run a small HTTP server for local assets — fonts or the current directory — on --port (default 38080).
+      description: Run a small HTTP server for the current directory on --port (default 38080).
       example: |-
         # Serve the current directory
         ws serve current
 
-        # Serve fonts on a custom port
-        ws serve font --port 38081
+        # Serve on a custom port
+        ws serve current --port 38081
       options:
         - name: bind
           default: 0.0.0.0
@@ -423,16 +423,6 @@ commands:
           synopsis: Serve current directory as a static site
           description: Serve the current directory over HTTP as a static site — a quick way to preview built files.
           usage: ws-cli serve current [flags]
-        - name: ws-cli serve font
-          since: 0.2.0
-          synopsis: Serve fonts for local download
-          description: Serve the installed fonts over HTTP so a browser can fetch them for local install.
-          usage: ws-cli serve font
-        - name: ws-cli serve font
-          since: 0.2.0
-          synopsis: Serve fonts for local download
-          description: Serve the installed fonts over HTTP so a browser can fetch them for local install.
-          usage: ws-cli serve font [flags]
         - name: ws-cli serve metrics
           since: 0.2.0
           synopsis: Start the Prometheus metrics server
