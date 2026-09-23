@@ -1,3 +1,5 @@
+![Kloud Workspace — configured development by KloudKIT](shared/brand/banner-strip-wordmark-blue.png)
+
 # Kloud Workspace • Meta
 
 > 📌 The hub for **Kloud Workspace** roadmap, planning, and community discussions

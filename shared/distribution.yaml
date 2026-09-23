@@ -9,6 +9,14 @@ shared/brand/app-icon-navy.png:
   - repo: ws-server
     path: src/server/browser/media/favicon.png
 
+shared/brand/banner-wordmark-blue.png:
+  - repo: ws-docs
+    path: docs/public/og-image.png
+
+shared/brand/favicon-light.svg:
+  - repo: ws-docs
+    path: docs/public/logo-nav.svg
+
 shared/brand/favicon-navy-glyphs.svg:
   - repo: ws-docs
     path: docs/public/logo.svg
