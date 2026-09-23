@@ -1,0 +1,41 @@
+KloudKIT Brand Assets License
+
+Copyright (c) 2026 KloudKIT. All rights reserved.
+
+This license applies to every file in the `shared/brand/` directory of this repository and
+its subdirectories (the "Brand Assets"), including all logos, marks, wordmarks, icons,
+favicons, badges, animations and brand guides, in any format or derivative form.
+
+1. NOT COVERED BY THE MIT LICENSE.
+   The MIT License at the root of this repository does NOT apply to the Brand Assets.
+   Its grant is limited to the files outside this directory.
+
+2. PROPRIETARY.
+   The Brand Assets are proprietary to KloudKIT. No license, right, title or interest
+   in them is granted, whether expressly, by implication, by estoppel or otherwise,
+   except as stated in section 3.
+
+3. PERMITTED USE.
+   You may display the Brand Assets, unmodified, solely to refer to KloudKIT or Kloud
+   Workspace in an accurate, non-misleading way (for example, linking to the project or
+   noting that your work runs on it), provided that such use does not suggest
+   sponsorship, endorsement or affiliation by KloudKIT.
+
+4. RESTRICTIONS.
+   Without prior written permission from KloudKIT, you may not:
+   a. modify, recolor, distort, animate or otherwise alter the Brand Assets, or create
+      derivative works of them;
+   b. use the Brand Assets, or anything confusingly similar, as or within the name,
+      logo or branding of your own product, service, project, fork, company or domain;
+   c. redistribute the Brand Assets as part of a fork or modified version of any
+      KloudKIT software; forks must remove or replace them;
+   d. sell, sublicense or use the Brand Assets on merchandise.
+
+5. TRADEMARKS.
+   "KloudKIT", "Kloud Workspace" and the associated logos are trademarks of KloudKIT.
+   Nothing in this repository grants any right to use them beyond section 3.
+
+6. NO WARRANTY.
+   THE BRAND ASSETS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
+For permission requests, open an issue at https://github.com/kloudkit/ws-meta/issues.

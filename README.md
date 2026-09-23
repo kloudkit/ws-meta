@@ -60,4 +60,8 @@ Then open `http://localhost:8088` in your browser.
 
 ## License
 
-Released under the [**MIT License**](https://github.com/kloudkit/ws-meta/blob/main/LICENSE)
+Released under the [**MIT License**](https://github.com/kloudkit/ws-meta/blob/main/LICENSE),
+**except** the [`shared/brand/`](shared/brand) directory.
+
+KloudKIT logos, icons and other brand assets are proprietary and **all rights reserved**;
+see [`shared/brand/LICENSE`](shared/brand/LICENSE).

@@ -1,4 +1,38 @@
 ---
+
+#################################### brand #####################################
+
+shared/brand/app-icon-navy.png:
+  - repo: ws-docs
+    path: docs/public/logo.png
+
+  - repo: ws-server
+    path: src/server/browser/media/favicon.png
+
+shared/brand/favicon-navy-glyphs.svg:
+  - repo: ws-docs
+    path: docs/public/logo.svg
+
+  - repo: ws-server
+    path: src/server/browser/media/logo.svg
+
+shared/brand/favicon-navy.ico:
+  - repo: ws-docs
+    path: docs/public/favicon.ico
+
+  - repo: ws-server
+    path: src/server/browser/media/favicon.ico
+
+################################## workspace ###################################
+
+shared/workspace/CHANGELOG.md:
+  - repo: ws-docs
+    path: .vitepress/data/CHANGELOG.md
+
+shared/workspace/dependencies.yaml:
+  - repo: ws-docs
+    path: .vitepress/data/dependencies.yaml
+
 shared/workspace/env.reference.yaml:
   - repo: ws-docs
     path: .vitepress/data/env.reference.yaml
@@ -9,25 +43,23 @@ shared/workspace/env.reference.yaml:
   - repo: ws-server
     path: tests/fixtures/env.reference.yaml
 
-shared/workspace/dependencies.yaml:
-  - repo: ws-docs
-    path: .vitepress/data/dependencies.yaml
-
 shared/workspace/extensions.yaml:
   - repo: ws-docs
     path: .vitepress/data/extensions.yaml
 
-shared/workspace/CHANGELOG.md:
+#################################### ws-cli ####################################
+
+shared/ws-cli/commands.yaml:
   - repo: ws-docs
-    path: .vitepress/data/CHANGELOG.md
+    path: .vitepress/data/commands.yaml
+
+############################### ws-feature-store ###############################
 
 shared/ws-feature-store/manifest.json:
   - repo: ws-docs
     path: .vitepress/data/fs-manifest.json
 
-shared/ws-cli/commands.yaml:
-  - repo: ws-docs
-    path: .vitepress/data/commands.yaml
+################################## ws-server ###################################
 
 shared/ws-server/fonts.yaml:
   - repo: ws-docs

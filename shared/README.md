@@ -16,6 +16,9 @@ Origin repos ── push --> `shared/<repo>/` ── distribute --> Downstream r
 
 Origins know nothing about consumers. Adding a new shared resource means adding an entry to `distribution.yaml`.
 
+`shared/brand/` is the exception: logos and icons authored here, not synced from an origin repo.
+They are proprietary *(see [`brand/LICENSE`](brand/LICENSE))*.
+
 ## Usage in Origin Repository
 
 ```yaml
