@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.5.1] — 2026-10-05
+
+### Dependencies
+
+- 🤖 Bump claude-code to 2.1.289
+- 🐍 Bump uv to 0.12.23 and ruff to 0.16.10
+- 🐹 Build on Go 1.27.1
+- 📦 Bump pnpm to 11.28.4
+- 🐳 Bump docker compose to 5.6.0 and the docker Python SDK to 7.2.0
+- ☸️ Bump helm to 4.3.0 and the kubernetes.core collection to 6.6.0
+- 🔎 Bump fzf to 0.74.4
+- 📋 Bump go-task to 3.54.0
+- ⚡ Bump ws-cli to Go 1.27.1 and its latest modules
+
 ## [0.5.0] — 2026-10-05
 
 ### Breaking
