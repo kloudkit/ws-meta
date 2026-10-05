@@ -6,8 +6,8 @@
 
 ### Breaking
 
-- 🚚 Move editor settings and extensions to `~/.local/share/ws-server/`; volumes mounted at `~/.local/share/workspace` or `/extensions` are not migrated
-- 🛒 Read the extension gallery from `WS_MARKETPLACE_GALLERY` and the per-key `WS_MARKETPLACE_*` variables; `EXTENSIONS_GALLERY` is ignored
+- 🚚 Move editor settings and extensions to `~/.local/share/ws-server/`; existing volumes are not migrated
+- 🛒 Read the extension gallery from the `WS_MARKETPLACE_*` variables; `EXTENSIONS_GALLERY` is ignored
 - 🗑️ Remove `/etc/workspace/config.yaml`; the editor is configured through `WS_*` variables only
 - 🔐 Remove `WS_SERVER_SSL_ROOT`; self-signed certificates are minted in memory
 - 🔤 Remove `ws serve font`; install fonts from their upstream projects

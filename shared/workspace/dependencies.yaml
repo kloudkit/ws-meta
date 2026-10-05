@@ -737,7 +737,7 @@ dependencies:
   # setuptools_scm-generated version.py, so it falls back to a hardcoded 0.0.0
   # (4.1.1 on disk, prints 0.0.0). `version:` is intentionally dropped so the version
   # assertion is skipped (yq keeps its presence check); restore it once upstream ships
-  # a version-reporting release. Tracked: future-9-yq-version-check-restore.
+  # a version-reporting release. Tracked: 6-10-yq-version-check-restore.
   yq:
     cmd: yq --version
     datasource: pypi
