@@ -429,7 +429,7 @@ commands:
           usage: ws-cli serve metrics [flags]
           options:
             - name: collectors
-              default: '[]'
+              default: '[*]'
               usage: Comma-separated list of collectors to enable (e.g., workspace,container.cpu,gpu)
             - name: port
               shorthand: p
