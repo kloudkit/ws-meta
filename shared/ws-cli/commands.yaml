@@ -19,7 +19,7 @@ commands:
         ls | ws clip copy
       commands:
         - name: ws-cli clip copy
-          since: next
+          since: 0.5.0
           synopsis: Copy stdin to the clipboard
           description: Read stdin and write it to the browser clipboard over the workspace IPC socket. Pairs with the pbcopy/xclip/xsel shims for terminal clipboard access.
           usage: ws-cli clip copy
@@ -29,7 +29,7 @@ commands:
           description: Read the browser clipboard over the workspace IPC socket and write it to stdout — redirect it to a file or pipe it onward. Pairs with the pbcopy/xclip/xsel shims for terminal clipboard access.
           usage: ws-cli clip paste
     - name: ws-cli editor
-      since: next
+      since: 0.5.0
       synopsis: Inspect and drive the active editor session
       description: Query and control the running VS Code / code-server window over the workspace IPC socket — list open tabs, read diagnostics and the current selection, or open a file. Blocked over SSH, where there is no browser editor to reach.
       example: |-
@@ -44,7 +44,7 @@ commands:
           usage: Output the raw JSON response without styling
       commands:
         - name: ws-cli editor diagnostics
-          since: next
+          since: 0.5.0
           synopsis: Show language diagnostics for the workspace (or a single file)
           description: Pull language-server diagnostics (errors, warnings) from the editor over the IPC socket, across the whole workspace or a single file with --uri. Styled table by default, --raw for the JSON.
           usage: ws-cli editor diagnostics [flags]
@@ -52,12 +52,12 @@ commands:
             - name: uri
               usage: Filter to a single file (URI or absolute path)
         - name: ws-cli editor list
-          since: next
+          since: 0.5.0
           synopsis: List the currently open editor tabs
           description: List the editor's open tabs over the IPC socket, with each tab's path, language, and active or dirty state.
           usage: ws-cli editor list
         - name: ws-cli editor notify
-          since: next
+          since: 0.5.0
           synopsis: Raise a notification in the editor
           description: Read a JSON payload from stdin and raise it as a notification in the running editor window over the workspace IPC socket. Requires a "message"; optional "detail", "actions", "modal", "timeout", and "severity" tune it. Prints the chosen action (or timeout) as JSON. Blocked over SSH.
           usage: ws-cli editor notify
@@ -68,7 +68,7 @@ commands:
             # Ask a question and read the chosen action
             echo '{"message": "Deploy now?", "actions": ["Yes", "No"]}' | ws editor notify
         - name: ws-cli editor open
-          since: next
+          since: 0.5.0
           synopsis: Open a file in the editor
           description: Open a file in the running editor window over the workspace IPC socket — a tab in the current window by default, a separate one with --new-window, jumping to a range with --selection. Fails fast over SSH, where there is no browser editor to open into.
           usage: ws-cli editor open <file> [flags]
@@ -85,7 +85,7 @@ commands:
             - name: selection
               usage: 'Select a range: LINE:COL[-LINE:COL] (1-based)'
         - name: ws-cli editor selection
-          since: next
+          since: 0.5.0
           synopsis: Show the active editor's current selection
           description: Report the active editor's current selection — file, range, and selected text — over the IPC socket. Empty when nothing is selected.
           usage: ws-cli editor selection
@@ -350,12 +350,12 @@ commands:
                   default: "32"
                   usage: Key length in bytes
         - name: ws-cli secrets materialize
-          since: next
+          since: 0.5.0
           synopsis: Project the configured master key to its conventional secret path
           description: Persist WS_SECRETS_MASTER_KEY to /run/secrets/workspace/secrets/master_key so the key outlives the editor's environment scrub. A no-op when the key is unset or the path already holds one.
           usage: ws-cli secrets materialize
     - name: ws-cli seed
-      since: next
+      since: 0.5.0
       synopsis: Project declarative content onto the filesystem
       description: Copy files and apply small edits from a seed source onto the filesystem at boot. Bare files mirror verbatim; a .seed.yaml manifest overlays behavior — copy, merge, append — and decrypts secrets under the master key. Point --source at a mounted volume to seed a container from durable storage.
       example: |-
@@ -369,7 +369,7 @@ commands:
           usage: Seed source directory
       commands:
         - name: ws-cli seed apply
-          since: next
+          since: 0.5.0
           synopsis: Project seed content onto the filesystem
           description: Apply the seed source to the filesystem — mirror bare files and run the .seed.yaml operations. Writes only where the destination is missing unless --force; pass destinations to limit the run to those paths.
           usage: ws-cli seed apply [dest...] [flags]
@@ -380,12 +380,12 @@ commands:
             - name: master
               usage: Master key or path to key file
         - name: ws-cli seed ls
-          since: next
+          since: 0.5.0
           synopsis: List seed destinations and their behaviors
           description: List what apply would write — each destination with its operation and whether it carries a secret or a template — without touching the filesystem.
           usage: ws-cli seed ls
         - name: ws-cli seed rotate
-          since: next
+          since: 0.5.0
           synopsis: Re-encrypt managed secrets under a new master key
           description: 'Re-encrypt every managed secret from the old master key (--master) to a new one (--new-master), in place. All-or-nothing: it verifies every secret decrypts before writing anything.'
           usage: ws-cli seed rotate [flags]
@@ -429,7 +429,7 @@ commands:
           usage: ws-cli serve metrics [flags]
           options:
             - name: collectors
-              default: '[*]'
+              default: '[]'
               usage: Comma-separated list of collectors to enable (e.g., workspace,container.cpu,gpu)
             - name: port
               shorthand: p
