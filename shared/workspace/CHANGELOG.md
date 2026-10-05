@@ -4,54 +4,56 @@
 
 > 2026-10-05
 
+### Breaking
+
+- 🚚 Move editor settings and extensions to `~/.local/share/ws-server/`; volumes mounted at `~/.local/share/workspace` or `/extensions` are not migrated
+- 🛒 Read the extension gallery from `WS_MARKETPLACE_GALLERY` and the per-key `WS_MARKETPLACE_*` variables; `EXTENSIONS_GALLERY` is ignored
+- 🗑️ Remove `/etc/workspace/config.yaml`; the editor is configured through `WS_*` variables only
+- 🔐 Remove `WS_SERVER_SSL_ROOT`; self-signed certificates are minted in memory
+- 🔤 Remove `ws serve font`; install fonts from their upstream projects
+
 ### Added
 
-- ✨ Enable .NET debugging + revive terminal-link remap on the live workbench bundle *(#735)*
-- ✨ Seed files from a durable source directory on startup *(#727)*
-- ✨ Add editor-state IPC routes + ws-cli editor; rewire open/openn
-- ✨ Add ws completion via compdef ws=ws-cli
+- 🆙 Ship VS Code 1.140.0
+- 🎨 Rebrand the editor and docs with the Kloud Workspace icons
+- 🚪 Add a Sign out action to the editor, overridable via `WS_EDITOR_LOGOUT_URL`
+- 📁 Add `WS_EDITOR_DISABLE_FILE_DOWNLOADS` and `WS_EDITOR_DISABLE_FILE_UPLOADS`
+- 🐞 Enable .NET debugging + revive terminal-link remap on the live workbench bundle *(#735)*
+- 🌱 Seed files from a durable source directory on startup *(#727)*
+- 📡 Add editor-state IPC routes + ws-cli editor; rewire open/openn
+- ⌨️ Add ws completion via compdef ws=ws-cli
+- 🤖 Agent-consumable documentation: `llms.txt`, `llms-full.txt`, per-page raw Markdown, and AI-crawler hints
 
 ### Changed
 
-- ♻️ Single-source the workspace version through manifest.json [skip ci]
-- ♻️ Swap to the `ws-cli` seed engine, retire the `vault` + seed tier *(#728)*
-- ♻️ Adopt shared ws-meta CI actions for changelog + PR emoji check
-- 🏗️ Propagate CHANGELOG.md to ws-meta for the public surface *(#723)*
+- 🔖 Single-source the workspace version through manifest.json
+- 🫙 Swap to the `ws-cli` seed engine, retire the `vault` + seed tier *(#728)*
+- 👷 Adopt shared ws-meta CI actions for changelog + PR emoji check
+- 📜 Propagate CHANGELOG.md to ws-meta for the public surface *(#723)*
 
 ### Dependencies
 
-- ⬆️ Bump pylint to 4.1.2
-- ⬆️ Bump ansible-lint to 26.9.0 and op to 2.40.0
-- ⬆️ Bump deps: setup-node v6, code-server 4.126.0, claude-code, delve, uv, starship
-- ⬆️ Bump ws-cli to 0.0.69
-- ⬆️ Bump ws-cli to 0.0.68
-- ⬆️ Bump claude-code, uv, pnpm, ruff
-- ⬆️ Bump base-image v0.1.2 (Debian 13.5) & ws-cli v0.0.65
+- 🐍 Bump pylint to 4.1.2
+- 🔑 Bump ansible-lint to 26.9.0 and op to 2.40.0
+- 🧰 Bump deps: setup-node v6, claude-code, delve, uv, starship
+- ⚡ Bump ws-cli to 0.0.69
+- ⚡ Bump ws-cli to 0.0.68
+- 📦 Bump claude-code, uv, pnpm, ruff
+- 🐧 Bump base-image v0.1.2 (Debian 13.5) & ws-cli v0.0.65
 
 ### Fixed
 
-- 🐛 Skip dockerd when CAP_NET_ADMIN is missing instead of restart-looping [skip ci]
-- 🐛 Make `file://` terminal links clickable in browser *(#725)*
+- 🐳 Skip dockerd when CAP_NET_ADMIN is missing instead of restart-looping
+- 🔗 Make `file://` terminal links clickable in browser *(#725)*
 
 ### Removed
 
-- 🔥 Remove the `openn` alias
+- ✂️ Remove the `openn` alias
 
 ### Security
 
-- 🔒 Harden the ws-extension IPC server (bind, reclaim, perms, body cap) *(#726)*
-- 🔒 Trust custom CAs in git, cargo & aws via CA-bundle env vars
-- 🔒 Install `docker compose`/`buildx` from upstream releases *(#724)*
-
-## [Unreleased]
-
-### Added
-
-- ✨ Agent-consumable documentation: `llms.txt`, `llms-full.txt`, per-page raw Markdown, and AI-crawler hints
-
-### Security
-
-- 🔒 Trust custom CAs in `git`, `cargo`, and `aws` via per-tool CA-bundle env vars
+- 🛡️ Trust custom CAs in git, cargo & aws via CA-bundle env vars
+- 🐋 Install `docker compose`/`buildx` from upstream releases *(#724)*
 
 ## [0.4.0] — 2026-06-23
 
