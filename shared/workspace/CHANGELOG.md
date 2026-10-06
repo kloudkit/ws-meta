@@ -38,6 +38,7 @@
 
 ### Changed
 
+- 🌐 Treat a leading `*.` in `WS_SERVER_PROXY_DOMAIN` as the bare suffix instead of rejecting it
 - 🔖 Single-source the workspace version through manifest.json
 - 🫙 Swap to the `ws-cli` seed engine, retire the `vault` + seed tier *(#728)*
 - 👷 Adopt shared ws-meta CI actions for changelog + PR emoji check
