@@ -60,10 +60,10 @@ jobs:
             printf '### 📝 What'\''s Changed\n\n'
             awk '/^## \[/{c++} c==1' "${changelog}" | tail -n +2 | sed 's/^### /#### /'
             printf '\n---\n\n'
-            printf '📚 [Documentation](https://ws.kloudkit.com) ·\n'
-            printf '🐳 [Container image](%s) ·\n' "${pkg}"
+            printf '📚 [Documentation](https://ws.kloudkit.com) · '
+            printf '🐳 [Container image](%s) · ' "${pkg}"
             printf '📜 [Full changelog](https://ws.kloudkit.com/changelog)\n'
-          } > notes.md
+          } | cat -s > notes.md
 
           gh release create "v${ver}" \
             -R kloudkit/ws-meta \
