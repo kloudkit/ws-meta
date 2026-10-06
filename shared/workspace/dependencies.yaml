@@ -584,6 +584,18 @@ dependencies:
     package: python3
     version: 3.13.5
 
+  python-environment-tools:
+    cmd: /usr/libexec/python-environment-tools/pet --version
+    currentDigest: 4ca7c03f5f870861a9d3bd13979fcf30ee0b5d1b
+    currentValue: main
+    datasource: git-refs
+    group: Python
+    home: https://github.com/microsoft/python-environment-tools
+    installer: cargo
+    license: MIT
+    package: pet
+    packageName: https://github.com/microsoft/python-environment-tools
+
   ripgrep:
     cmd: rg --version
     datasource: github-releases
