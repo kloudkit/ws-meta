@@ -418,11 +418,6 @@ commands:
           synopsis: Serve current directory as a static site
           description: Serve the current directory over HTTP as a static site — a quick way to preview built files.
           usage: ws-cli serve current
-        - name: ws-cli serve current
-          since: 0.2.0
-          synopsis: Serve current directory as a static site
-          description: Serve the current directory over HTTP as a static site — a quick way to preview built files.
-          usage: ws-cli serve current [flags]
         - name: ws-cli serve metrics
           since: 0.2.0
           synopsis: Start the Prometheus metrics server
