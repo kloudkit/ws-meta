@@ -24,7 +24,7 @@
 
 ### Fixed
 
-- 💪 Ship arm64-native `kube-linter` and `starship`; earlier arm64 images carried an amd64 `kube-linter` and a 32-bit `starship` *(#781)*
+- 💪 Ship arm64-native `kube-linter` and `starship`; earlier arm64 images had wrong-arch builds *(#781)*
 - 🍪 Scope OIDC cookie domains the way ws-server parses proxy domains *(#779)*
 - 🔐 Export the CA bundle env to startup scripts *(#777)*
 - 🤖 Point Renovate at the features.d playbook pins
