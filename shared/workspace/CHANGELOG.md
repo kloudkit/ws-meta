@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.5.2] — 2026-10-07
+
+### Added
+
+- ✨ Build `pet` from source for the Python extensions
+
+### Changed
+
+- 🚚 Fetch `sops` and `talos` from the `<name>/<arch>` store path
+- ♻️ Install the vendor-apt CLIs from static release binaries
+
+### Dependencies
+
+- ⬆️ Sweep Renovate dependency updates *(#778)*
+
+### Fixed
+
+- 🐛 Fetch the arm64 `kube-linter` and `starship` binaries on arm64 *(#781)*
+- 🐛 Scope OIDC cookie domains the way ws-server parses proxy domains *(#779)*
+- 🐛 Point Renovate at the features.d playbook pins
+- 🐛 Export the CA bundle env to startup scripts *(#777)*
+
+### Removed
+
+- 🔥 Drop the gh, cloudflared, hashicorp and jfrog apt sources and keys
+
 ## [0.5.1] — 2026-10-05
 
 ### Dependencies
