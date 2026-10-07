@@ -26,7 +26,7 @@
 
 - 💪 Ship arm64-native `kube-linter` and `starship`; earlier arm64 images had wrong-arch builds *(#781)*
 - 🍪 Scope OIDC cookie domains the way ws-server parses proxy domains *(#779)*
-- 🔐 Export the CA bundle env to startup scripts *(#777)*
+- 🔐 Fix startup feature installs and `WS_NPM_ADDITIONAL_PACKAGES` failing TLS behind a custom root CA *(#777)*
 - 🤖 Point Renovate at the features.d playbook pins
 
 ## [0.5.1] — 2026-10-05
