@@ -2,14 +2,21 @@
 
 ## [0.5.2] — 2026-10-07
 
+### Breaking
+
+- ✂️ Separate `WS_SERVER_PROXY_DOMAIN` and `WS_SERVER_SSL_HOSTS` entries with spaces only; commas no longer split
+- 📦 Drop the gh, cloudflared, hashicorp and jfrog apt sources; install those tools through their features
+
 ### Added
 
-- ✨ Build `pet` from source for the Python extensions
+- 🐍 Build `pet` from source for the Python extensions
 
 ### Changed
 
+- 🔗 Resolve forwarded-port links from the host the editor is viewed at; terminals no longer get `VSCODE_PROXY_URI`
+- 🧰 Install the vendor-apt CLIs from static release binaries
 - 🚚 Fetch `sops` and `talos` from the `<name>/<arch>` store path
-- ♻️ Install the vendor-apt CLIs from static release binaries
+- 👷 Build each image once: promote the tested PR image to `:dev`, release on native arm64 *(#780)*
 
 ### Dependencies
 
@@ -17,14 +24,10 @@
 
 ### Fixed
 
-- 🐛 Fetch the arm64 `kube-linter` and `starship` binaries on arm64 *(#781)*
-- 🐛 Scope OIDC cookie domains the way ws-server parses proxy domains *(#779)*
-- 🐛 Point Renovate at the features.d playbook pins
-- 🐛 Export the CA bundle env to startup scripts *(#777)*
-
-### Removed
-
-- 🔥 Drop the gh, cloudflared, hashicorp and jfrog apt sources and keys
+- 💪 Ship arm64-native `kube-linter` and `starship`; earlier arm64 images carried an amd64 `kube-linter` and a 32-bit `starship` *(#781)*
+- 🍪 Scope OIDC cookie domains the way ws-server parses proxy domains *(#779)*
+- 🔐 Export the CA bundle env to startup scripts *(#777)*
+- 🤖 Point Renovate at the features.d playbook pins
 
 ## [0.5.1] — 2026-10-05
 
