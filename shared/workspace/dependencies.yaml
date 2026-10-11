@@ -93,7 +93,7 @@ dependencies:
     home: https://github.com/containerd/containerd
     license: Apache 2
     track: false
-    version: 2.3.5
+    version: 2.4.1
 
   crane:
     cmd: crane version
@@ -612,7 +612,7 @@ dependencies:
     home: https://github.com/astral-sh/ruff
     license: MIT
     tool: true
-    version: 0.16.10
+    version: 0.17.0
 
   ShellCheck:
     cmd: shellcheck --version
