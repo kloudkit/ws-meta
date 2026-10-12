@@ -32,7 +32,7 @@ dependencies:
     home: https://github.com/ansible/ansible-lint
     license: MIT
     tool: true
-    version: 26.9.0
+    version: 26.10.0
 
   bat:
     cmd: bat --version
@@ -720,7 +720,7 @@ dependencies:
 
   ws-cli:
     cmd: ws-cli --version
-    currentDigest: b79b86f1607fa6f546a21148740c2f18b5205ee5
+    currentDigest: a07bfabb1dbdc8a2c4599c2de963e7e3a7c4cebc
     currentValue: main
     datasource: git-refs
     home: https://github.com/kloudkit/ws-cli
