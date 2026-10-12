@@ -112,7 +112,7 @@ commands:
           since: 0.2.0
           synopsis: Install additional pre-configured features
           description: Run a feature's playbook to install it. Pass variables with --opt KEY=VAL, and skip parts you do not want with --skip-extensions, --skip-completion, or --skip-repository.
-          usage: ws-cli feature install [flags]
+          usage: ws-cli feature install <name> [flags]
           options:
             - name: opt
               default: '[]'
@@ -439,7 +439,7 @@ commands:
         ws show env server.port
 
         # Reverse-tunnel a local port to the workspace node
-        ws_node_ip=$(ws show ip node); ssh -N -R "3001:${ws_node_ip}:3001" "${ws_node_ip}"
+        ws_node_ip=$(ws show ip node --raw); ssh -N -R "3001:${ws_node_ip}:3001" "${ws_node_ip}"
       options:
         - name: raw
           default: "false"
