@@ -55,7 +55,7 @@ dependencies:
     home: https://github.com/docker/buildx
     license: Apache 2
     package: docker/buildx
-    version: 0.37.2
+    version: 0.38.0
 
   catppuccin:
     datasource: pypi
@@ -70,7 +70,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.289
+    version: 2.1.296
 
   community.docker:
     datasource: galaxy-collection
@@ -210,7 +210,7 @@ dependencies:
     home: https://github.com/junegunn/fzf
     license: MIT
     package: junegunn/fzf
-    version: 0.74.4
+    version: 0.74.5
 
   gettext:
     cmd: gettext -V
@@ -379,7 +379,7 @@ dependencies:
     home: https://github.com/kubernetes-client/python
     license: Apache
     package: kubernetes
-    version: 36.0.3
+    version: 37.0.1
 
   kubernetes.core:
     datasource: galaxy-collection
@@ -489,7 +489,7 @@ dependencies:
     license: Proprietary
     package: 1password-cli
     track: false
-    version: 2.40.0
+    version: 2.41.0
 
   openssh-server:
     datasource: deb
@@ -528,7 +528,7 @@ dependencies:
     home: https://github.com/pnpm/pnpm
     license: MIT
     package: pnpm
-    version: 12.9.1
+    version: 12.11.2
 
   podman:
     cmd: podman --version
@@ -546,7 +546,7 @@ dependencies:
     license: MIT
     package: pre-commit
     tool: true
-    version: 4.6.2
+    version: 4.7.0
 
   ps:
     cmd: ps --version
@@ -564,7 +564,7 @@ dependencies:
     home: https://github.com/pylint-dev/pylint
     license: GPL 2
     tool: true
-    version: 4.1.2
+    version: 4.1.3
 
   pyrefly:
     cmd: pyrefly --version
@@ -586,7 +586,7 @@ dependencies:
 
   python-environment-tools:
     cmd: /usr/libexec/python-environment-tools/pet --version
-    currentDigest: 4ca7c03f5f870861a9d3bd13979fcf30ee0b5d1b
+    currentDigest: fd72ff3c34a43de58bbb22f219d39198a66f9428
     currentValue: main
     datasource: git-refs
     group: Python
@@ -700,7 +700,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.12.23
+    version: 0.13.0
 
   vim:
     cmd: vim --version
@@ -752,7 +752,7 @@ dependencies:
     home: https://github.com/kislyuk/yq
     license: MIT
     tool: true
-    version: 4.4.0
+    version: 4.4.5
 
   zsh:
     cmd: zsh --version

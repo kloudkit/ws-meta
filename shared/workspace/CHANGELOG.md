@@ -1,5 +1,34 @@
 # Changelog
 
+## [0.5.3] — Unreleased
+
+### Added
+
+- 🔁 Re-check OIDC sessions with the IdP via `WS_AUTH_OIDC_SESSION_REFRESH`, so users disabled there lose access *(opt-in)*
+
+### Changed
+
+- 🚪 End the IdP session on OIDC sign-out, through the IdP's `end_session_endpoint`
+- 🚫 Tell OIDC access denials apart from failed sign-ins, and offer "Sign in as a different user" when denied
+- 🎨 Make ws-cli output pipe-safe and consistent across every command *(#799)*
+- 📄 Keep the startup console colored and write `workspace.log` as plain text *(#799)*
+- 🐚 Run startup scripts with the terminal's zsh environment *(#782)*
+
+### Dependencies
+
+- 🔼 Bump VS Code to 1.141.0 *(ws-server#35)*
+- ⬆️ Bump http-proxy-3 to 2.0.1 *(ws-server#34)*
+- ⬆️ Sweep Renovate updates, including uv 0.13 and the Kubernetes Python client 37 *(#800)*
+
+### Fixed
+
+- 🔒 Stop forwarding the workspace session cookies to forwarded ports on websocket upgrades *(ws-server#34)*
+- 🧩 Load TypeScript server plugin extensions on the workspace host *(ws-server#35)*
+- 📜 Fix `ws logs` filtering with `--level`, `--tail` and `--follow` *(#799)*
+- ⏱️ Time out `ws info extensions` instead of hanging
+- 🏠 Own `~/.ws` for `kloud` when it is a mounted volume *(#782)*
+- 🧷 Render a `&` in `WS_AUTH_OIDC_FORBIDDEN_MESSAGE` literally
+
 ## [0.5.2] — 2026-10-07
 
 ### Breaking
