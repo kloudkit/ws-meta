@@ -21,7 +21,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 concurrency:
   group: ${{ github.workflow }}
@@ -40,7 +39,7 @@ jobs:
       - name: 🔍 Probe access
         if: inputs.probe
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.TOKEN__GITHUB_KLOUDKIT_ORG_GHCR_CLEANUP }}
           PR_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
         run: |
           unreadable=0
@@ -49,7 +48,7 @@ jobs:
               --jq "\"✓ ${package}: versions listable\""; then
               continue
             fi
-            echo "::error::${package} versions are not listable with GITHUB_TOKEN"
+            echo "::error::${package} versions are not listable with TOKEN__GITHUB_KLOUDKIT_ORG_GHCR_CLEANUP"
             unreadable=1
           done
 
@@ -68,13 +67,13 @@ jobs:
         uses: docker/login-action@v4
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.TOKEN__GITHUB_KLOUDKIT_ORG_GHCR_CLEANUP }}
 
       - name: 🧹 Cleanup
         if: ${{ !inputs.probe }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.TOKEN__GITHUB_KLOUDKIT_ORG_GHCR_CLEANUP }}
           PR_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
           DRY_RUN: ${{ github.event_name == 'schedule' || inputs.dry-run }}
           MAX_DELETES: ${{ inputs.max-deletes || 0 }}
