@@ -11,12 +11,13 @@ on:
         type: boolean
         default: true
       probe:
-        description: Only report the token's scopes and package access
+        description: Only report package and pull request access
         type: boolean
         default: false
 
 permissions:
   contents: read
+  packages: write
 
 concurrency:
   group: ${{ github.workflow }}
@@ -32,21 +33,28 @@ jobs:
       - name: 📥 Checkout ws-meta
         uses: actions/checkout@v7
 
-      - name: 🔍 Probe the token
+      - name: 🔍 Probe access
         if: inputs.probe
         env:
-          GH_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
         run: |
-          scopes="$(gh api --include /user | tr -d '\r' | sed -n 's/^[Xx]-[Oo]auth-[Ss]copes: *//p')"
-          echo "Token scopes: ${scopes:-none reported}"
-
           unreadable=0
           for package in ws-server ws-server/testbench ws-server/cache workspace; do
-            if gh api "/orgs/kloudkit/packages/container/${package//\//%2F}" \
-              --jq '"✓ \(.name): \(.visibility), \(.version_count) versions"'; then
+            if gh api "/orgs/kloudkit/packages/container/${package//\//%2F}/versions?per_page=1" \
+              --jq "\"✓ ${package}: versions listable\""; then
               continue
             fi
-            echo "::error::${package} is not readable with this token"
+            echo "::error::${package} versions are not listable with GITHUB_TOKEN"
+            unreadable=1
+          done
+
+          for repo in ws-server workspace; do
+            if GH_TOKEN="${PR_TOKEN}" gh pr list --repo "kloudkit/${repo}" --state all --limit 1 \
+              --json number --jq "\"✓ ${repo}: pull requests readable\""; then
+              continue
+            fi
+            echo "::error::${repo} pull requests are not readable with KLOUD_BOT_ORG_PAT"
             unreadable=1
           done
           exit "${unreadable}"
@@ -56,12 +64,13 @@ jobs:
         uses: docker/login-action@v4
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🧹 Cleanup
         if: ${{ !inputs.probe }}
         env:
-          GH_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
           DRY_RUN: ${{ github.event_name == 'schedule' || inputs.dry-run }}
         run: scripts/cleanup-images.sh
