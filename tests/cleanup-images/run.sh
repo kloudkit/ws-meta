@@ -28,7 +28,7 @@ check() {
 }
 
 run() {
-  rm -f "${MOCK_LOG}"
+  rm -f "${MOCK_LOG}" "${MOCK_LOG}".*.lists
   touch "${MOCK_LOG}"
   set +e
   env "$@" "${script}" > "${work}/out" 2>&1
@@ -74,6 +74,18 @@ run DRY_RUN=false MOCK_GONE=1006 MOCK_RETAG=1008
 check "gone version is a no-op" 'grep -q "^GONE   ws-server 1006 " "${work}/out"'
 check "retagged version is skipped" 'grep -q "^SKIP   ws-server 1008 .*tags changed" "${work}/out"'
 check "mid-run cases delete the rest" '[ "${status}" -eq 0 ] && [ "$(wc -l < "${MOCK_LOG}")" -eq 80 ]'
+
+run DRY_RUN=false MOCK_DELETE_FAIL=1006
+check "a refused delete fails the run" '[ "${status}" -eq 1 ] && [ ! -s "${MOCK_LOG}" ] && grep -q "Deleting ws-server 1006 failed" "${work}/out" && ! grep -q "^GONE" "${work}/out"'
+
+run DRY_RUN=false MOCK_FAIL_RELIST=ws-server
+check "a failed re-list fails the run" '[ "${status}" -eq 1 ] && [ ! -s "${MOCK_LOG}" ] && grep -q "Re-listing ws-server failed" "${work}/out"'
+
+run DRY_RUN=false MAX_DELETES=1
+check "MAX_DELETES=1 deletes exactly one" '[ "${status}" -eq 0 ] && [ "$(wc -l < "${MOCK_LOG}")" -eq 1 ] && grep -qxF "Stopping at MAX_DELETES=1" "${work}/out"'
+
+run DRY_RUN=false MAX_DELETES=abc
+check "a non-numeric MAX_DELETES is refused" '[ "${status}" -eq 1 ] && [ ! -s "${MOCK_LOG}" ]'
 
 for failure in MOCK_FAIL_PR=801 MOCK_FAIL_LIST=workspace "MOCK_FAIL_INSPECT=sha256:$(printf '%064x' 60)"; do
   run DRY_RUN=false "${failure}"
