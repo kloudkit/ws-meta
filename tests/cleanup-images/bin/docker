@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ref="${*: -1}"
+digest="${ref#*@}"
+
+if [ -n "${MOCK_FAIL_INSPECT:-}" ] && [ "${digest}" = "${MOCK_FAIL_INSPECT}" ]; then
+  echo "ERROR: unauthorized" >&2
+  exit 1
+fi
+
+if [ -f "${MOCK_FX}/man/${digest}" ]; then
+  cat "${MOCK_FX}/man/${digest}"
+else
+  echo '{"mediaType":"application/vnd.oci.image.manifest.v1+json"}'
+fi

@@ -10,3 +10,18 @@ repos:
       - id: end-of-file-fixer
       - id: mixed-line-ending
       - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+      - id: shellcheck
+        name: shellcheck
+        language: system
+        entry: shellcheck
+        files: ^(scripts/cleanup-images\.sh|tests/cleanup-images/(run\.sh|bin/.*))$
+
+      - id: cleanup-images
+        name: cleanup-images tests
+        language: system
+        entry: tests/cleanup-images/run.sh
+        files: ^(scripts/cleanup-images\.sh|tests/cleanup-images/.*)$
+        pass_filenames: false

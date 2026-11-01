@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+prefix=/orgs/kloudkit/packages/container/
+
+if [ "$1" = pr ] && [ "$2" = view ]; then
+  number="$3"
+  repo="${5#*/}"
+  if [ "${MOCK_FAIL_PR:-}" = "${number}" ]; then
+    echo "HTTP 502" >&2
+    exit 1
+  fi
+  [ -f "${MOCK_FX}/pr/${repo}-${number}" ] || { echo "no PR" >&2; exit 1; }
+  cat "${MOCK_FX}/pr/${repo}-${number}"
+  echo
+  exit 0
+fi
+
+[ "$1" = api ] || { echo "unexpected gh $*" >&2; exit 2; }
+shift
+
+if [ "$1" = --paginate ]; then
+  package="${3#"${prefix}"}"
+  package="${package%/versions*}"
+  if [ "${MOCK_FAIL_LIST:-}" = "${package}" ]; then
+    echo "HTTP 403 rate limit" >&2
+    exit 1
+  fi
+  cat "${MOCK_FX}/${package}.json"
+  exit 0
+fi
+
+if [ "$1" = --method ]; then
+  echo "$3" >> "${MOCK_LOG}"
+  exit 0
+fi
+
+url="$1"
+filter="$3"
+id="${url##*/}"
+package="${url#"${prefix}"}"
+package="${package%/versions/*}"
+
+if [ "${MOCK_GONE:-}" = "${id}" ]; then
+  echo "gh: Not Found (HTTP 404)" >&2
+  exit 1
+fi
+
+if [ "${MOCK_RETAG:-}" = "${id}" ]; then
+  echo dev
+  exit 0
+fi
+
+found="$(jq -c --argjson id "${id}" 'add | .[] | select(.id == $id)' "${MOCK_FX}/${package}.json")"
+[ -n "${found}" ] || { echo "gh: Not Found (HTTP 404)" >&2; exit 1; }
+jq -r "${filter}" <<< "${found}"
