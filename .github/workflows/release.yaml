@@ -39,10 +39,11 @@ jobs:
             exit 0
           fi
 
-          ver=$(grep -oP '^## \[\K[0-9][0-9.]*' "${changelog}" | head -1)
+          top=$(grep -m1 '^## \[' "${changelog}" || true)
+          ver=$(grep -oP '^## \[\K[0-9][0-9.]*(?=\] — \d{4}-\d{2}-\d{2}$)' <<< "${top}" || true)
 
           if [ -z "${ver}" ]; then
-            echo "No version section found in ${changelog} — skipping."
+            echo "Top section of ${changelog} is not a dated release (${top:-none}) — skipping."
             exit 0
           fi
 
