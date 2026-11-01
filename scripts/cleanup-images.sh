@@ -58,7 +58,7 @@ jq -r '.[] | .repo as $r | .tags[] | select(test("^pr-[0-9]+$")) | "\($r) \(ltri
 
 : > "${work}/prs.jsonl"
 while read -r repo number; do
-  state="$(gh pr view "${number}" --repo "${OWNER}/${repo}" --json state --jq .state < /dev/null)" \
+  state="$(GH_TOKEN="${PR_TOKEN:-${GH_TOKEN:-}}" gh pr view "${number}" --repo "${OWNER}/${repo}" --json state --jq .state < /dev/null)" \
     || fail "PR lookup ${OWNER}/${repo}#${number} failed"
   case "${state}" in
     OPEN|CLOSED|MERGED) ;;
