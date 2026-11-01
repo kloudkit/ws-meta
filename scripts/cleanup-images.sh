@@ -9,8 +9,10 @@ DRY_RUN="${DRY_RUN:-true}"
 BUILD_MAX_AGE_DAYS="${BUILD_MAX_AGE_DAYS:-30}"
 UNTAGGED_MAX_AGE_DAYS="${UNTAGGED_MAX_AGE_DAYS:-7}"
 NOW="${NOW:-$(date -u +%s)}"
+MAX_DELETES="${MAX_DELETES:-0}"
 
 [ "${DRY_RUN}" = "false" ] || DRY_RUN=true
+[[ "${MAX_DELETES}" =~ ^[0-9]+$ ]] || { echo "::error::MAX_DELETES must be a number" >&2; exit 1; }
 
 work="$(mktemp -d)"
 trap 'rm -rf "${work}"' EXIT
@@ -146,20 +148,34 @@ done < "${work}/plan.tsv"
 echo "Plan: ${planned} to delete, ${kept} kept (dry run: ${DRY_RUN})"
 
 deleted=0
+relisted=""
 if [ "${DRY_RUN}" = false ]; then
   while IFS=$'\t' read -r act package id digest tags why; do
     [ "${act}" = DELETE ] || continue
-    url="$(versions_url "${package}")/${id}"
 
-    if ! current="$(gh api "${url}" --jq '.metadata.container.tags // [] | if length == 0 then "-" else join(",") end' \
-      < /dev/null 2> "${work}/err")"; then
-      if grep -q "HTTP 404" "${work}/err"; then
-        echo "GONE   ${package} ${id} ${digest}"
-        continue
-      fi
-      cat "${work}/err" >&2
-      echo "::error::Re-reading ${package} ${id} failed; stopping after ${deleted} deletions" >&2
-      exit 1
+    if [ "${MAX_DELETES}" -gt 0 ] && [ "${deleted}" -ge "${MAX_DELETES}" ]; then
+      echo "Stopping at MAX_DELETES=${MAX_DELETES}"
+      break
+    fi
+
+    if [ "${relisted}" != "${package}" ]; then
+      gh api --paginate --slurp "$(versions_url "${package}")?per_page=100" < /dev/null \
+        > "${work}/current.json" 2> "${work}/err" || {
+        cat "${work}/err" >&2
+        echo "::error::Re-listing ${package} failed; stopping after ${deleted} deletions" >&2
+        exit 1
+      }
+      jq -r 'add // [] | .[] | "\(.id)\t\(.metadata.container.tags // [] | if length == 0 then "-" else join(",") end)"' \
+        "${work}/current.json" > "${work}/current.tsv" || {
+        echo "::error::Parsing the ${package} listing failed; stopping after ${deleted} deletions" >&2
+        exit 1
+      }
+      relisted="${package}"
+    fi
+
+    if ! current="$(awk -F'\t' -v id="${id}" '$1 == id { print $2; found = 1 } END { exit !found }' "${work}/current.tsv")"; then
+      echo "GONE   ${package} ${id} ${digest}"
+      continue
     fi
 
     if [ "${current}" != "${tags}" ]; then
@@ -167,11 +183,7 @@ if [ "${DRY_RUN}" = false ]; then
       continue
     fi
 
-    if ! gh api --method DELETE "${url}" < /dev/null > /dev/null 2> "${work}/err"; then
-      if grep -q "HTTP 404" "${work}/err"; then
-        echo "GONE   ${package} ${id} ${digest}"
-        continue
-      fi
+    if ! gh api --method DELETE "$(versions_url "${package}")/${id}" < /dev/null > /dev/null 2> "${work}/err"; then
       cat "${work}/err" >&2
       echo "::error::Deleting ${package} ${id} failed; stopping after ${deleted} deletions" >&2
       exit 1
@@ -188,6 +200,7 @@ if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
     echo
     echo "- Planned: ${planned}"
     echo "- Deleted: ${deleted}"
+    [ "${MAX_DELETES}" -gt 0 ] && echo "- Max deletes: ${MAX_DELETES}"
     echo "- Kept: ${kept}"
     if [ "${planned}" -gt 0 ]; then
       echo
