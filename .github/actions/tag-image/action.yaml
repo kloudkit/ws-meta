@@ -1,0 +1,50 @@
+---
+name: 🏷️ Tag image
+description: Point one or more tags at an existing digest without creating a new one
+inputs:
+  image:
+    description: Image repository without a tag (e.g. ghcr.io/kloudkit/ws-server)
+    required: true
+  digest:
+    description: The sha256 digest to tag
+    required: true
+  tags:
+    description: Tags to add (one per line)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: 🏷️ Tag ${{ inputs.digest }}
+      shell: bash
+      env:
+        IMAGE: ${{ inputs.image }}
+        DIGEST: ${{ inputs.digest }}
+        TAGS: ${{ inputs.tags }}
+      run: |
+        if [[ ! "${DIGEST}" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+          echo "::error::Refusing to tag ${IMAGE}: '${DIGEST}' is not a sha256 digest"
+          exit 1
+        fi
+
+        args=()
+        while IFS= read -r tag; do
+          [ -n "${tag}" ] && args+=(-t "${IMAGE}:${tag}")
+        done <<< "${TAGS}"
+
+        if [ "${#args[@]}" -eq 0 ]; then
+          echo "::error::No tags given for ${IMAGE}@${DIGEST}"
+          exit 1
+        fi
+
+        docker buildx imagetools create --prefer-index=false "${args[@]}" "${IMAGE}@${DIGEST}"
+
+        while IFS= read -r tag; do
+          [ -z "${tag}" ] && continue
+          got="$(docker buildx imagetools inspect "${IMAGE}:${tag}" --format '{{.Manifest.Digest}}')"
+          if [ "${got}" != "${DIGEST}" ]; then
+            echo "::error::${IMAGE}:${tag} is ${got}, expected ${DIGEST}"
+            exit 1
+          fi
+          echo "✓ ${IMAGE}:${tag} → ${DIGEST}"
+        done <<< "${TAGS}"

@@ -1,0 +1,67 @@
+---
+name: 🧹 Cleanup images
+
+on:
+  schedule:
+    - cron: '17 3 * * 0'
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: List what would be deleted without deleting it
+        type: boolean
+        default: true
+      probe:
+        description: Only report the token's scopes and package access
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    name: 🧹 Cleanup GHCR versions
+    runs-on: ubuntu-26.04
+    timeout-minutes: 30
+
+    steps:
+      - name: 📥 Checkout ws-meta
+        uses: actions/checkout@v7
+
+      - name: 🔍 Probe the token
+        if: inputs.probe
+        env:
+          GH_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+        run: |
+          scopes="$(gh api --include /user | tr -d '\r' | sed -n 's/^[Xx]-[Oo]auth-[Ss]copes: *//p')"
+          echo "Token scopes: ${scopes:-none reported}"
+
+          unreadable=0
+          for package in ws-server ws-server/testbench ws-server/cache workspace; do
+            if gh api "/orgs/kloudkit/packages/container/${package//\//%2F}" \
+              --jq '"✓ \(.name): \(.visibility), \(.version_count) versions"'; then
+              continue
+            fi
+            echo "::error::${package} is not readable with this token"
+            unreadable=1
+          done
+          exit "${unreadable}"
+
+      - name: 🔑 Login to GHCR
+        if: ${{ !inputs.probe }}
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+
+      - name: 🧹 Cleanup
+        if: ${{ !inputs.probe }}
+        env:
+          GH_TOKEN: ${{ secrets.KLOUD_BOT_ORG_PAT }}
+          DRY_RUN: ${{ github.event_name == 'schedule' || inputs.dry-run }}
+        run: scripts/cleanup-images.sh

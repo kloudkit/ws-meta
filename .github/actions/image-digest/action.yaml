@@ -1,0 +1,47 @@
+---
+name: 🔎 Image digest
+description: Resolve a tag to its digest; empty when the tag is missing or the lookup fails
+inputs:
+  image:
+    description: Image repository without a tag (e.g. ghcr.io/kloudkit/ws-server)
+    required: true
+  tag:
+    description: Tag to resolve
+    required: true
+outputs:
+  digest:
+    description: The tag's sha256 digest, or empty
+    value: ${{ steps.resolve.outputs.digest }}
+
+runs:
+  using: composite
+  steps:
+    - name: 🔎 Resolve ${{ inputs.tag }}
+      id: resolve
+      shell: bash
+      env:
+        IMAGE: ${{ inputs.image }}
+        TAG: ${{ inputs.tag }}
+      run: |
+        ref="${IMAGE}:${TAG}"
+        digest=""
+
+        err="$(mktemp)"
+
+        if out="$(timeout 120 docker buildx imagetools inspect "${ref}" \
+          --format '{{.Manifest.Digest}}' 2> "${err}")"; then
+          if [[ "${out}" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            digest="${out}"
+            echo "✓ ${ref} → ${digest}"
+          else
+            echo "::warning::${ref}: unexpected digest '${out}'"
+          fi
+        elif grep -qi "not found" "${err}"; then
+          echo "${ref} not found"
+        else
+          echo "::warning::${ref} lookup failed: $(cat "${err}")"
+        fi
+
+        rm -f "${err}"
+
+        echo "digest=${digest}" >> "${GITHUB_OUTPUT}"

@@ -1,0 +1,46 @@
+---
+name: 🧹 Prepare the runner
+description: Free disk, move Docker's root to /mnt when it is mounted, and add swap; safe to run twice
+inputs:
+  swap:
+    description: Swap file size for fallocate (e.g. 12G); empty skips swap
+    default: 12G
+
+runs:
+  using: composite
+  steps:
+    - name: 🧹 Free disk, move the Docker root, add swap
+      shell: bash
+      env:
+        SWAP: ${{ inputs.swap }}
+      run: |
+        sudo rm -rf /usr/lib/jvm /usr/local/.ghcup /usr/local/lib/android \
+          /usr/local/share/powershell /usr/share/dotnet /usr/share/swift \
+          /opt/ghc "${AGENT_TOOLSDIRECTORY:-/nonexistent}"
+        sudo apt-get clean
+
+        scratch=/
+        if mountpoint -q /mnt; then
+          scratch=/mnt
+          if [ ! -L /var/lib/docker ]; then
+            sudo timeout 120 systemctl stop docker docker.socket
+            sudo mv /var/lib/docker /mnt/docker
+            sudo ln -s /mnt/docker /var/lib/docker
+            sudo timeout 120 systemctl start docker
+          fi
+        fi
+
+        swapfile="${scratch%/}/ws-swapfile"
+        active="$(swapon --show=NAME --noheadings)"
+        if [ -n "${SWAP}" ] && ! grep -qxF "${swapfile}" <<< "${active}"; then
+          sudo swapoff -a
+          sudo rm -f /swapfile "${swapfile}"
+          sudo fallocate -l "${SWAP}" "${swapfile}"
+          sudo chmod 600 "${swapfile}"
+          sudo mkswap "${swapfile}"
+          sudo swapon "${swapfile}"
+        fi
+
+        echo "Docker root: $(readlink -f /var/lib/docker)"
+        swapon --show
+        if mountpoint -q /mnt; then df -h / /mnt; else df -h /; fi
