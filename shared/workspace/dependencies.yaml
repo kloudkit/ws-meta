@@ -55,7 +55,7 @@ dependencies:
     home: https://github.com/docker/buildx
     license: Apache 2
     package: docker/buildx
-    version: 0.38.0
+    version: 0.38.1
 
   catppuccin:
     datasource: pypi
@@ -70,7 +70,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.296
+    version: 2.1.316
 
   community.docker:
     datasource: galaxy-collection
@@ -171,7 +171,7 @@ dependencies:
     home: https://github.com/docker/compose
     license: Apache 2
     package: docker/compose
-    version: 5.6.0
+    version: 5.6.1
 
   docker-py:
     datasource: pypi
@@ -302,7 +302,7 @@ dependencies:
     home: https://github.com/helm/helm
     license: Apache 2
     package: helm/helm
-    version: 4.3.0
+    version: 4.3.1
 
   htop:
     cmd: htop --version
@@ -654,7 +654,7 @@ dependencies:
     home: https://starship.rs
     license: ISC
     package: starship/starship
-    version: 1.26.0
+    version: 1.27.0
 
   staticcheck:
     datasource: go
@@ -700,7 +700,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.13.0
+    version: 0.13.6
 
   vim:
     cmd: vim --version
