@@ -421,6 +421,7 @@ commands:
         - name: ws-cli serve metrics
           since: 0.2.0
           synopsis: Start the Prometheus metrics server
+          description: Serve workspace and container metrics in the Prometheus exposition format, from the collectors chosen with --collectors.
           usage: ws-cli serve metrics [flags]
           options:
             - name: collectors
