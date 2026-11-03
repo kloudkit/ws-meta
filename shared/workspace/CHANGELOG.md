@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.5.4] — 2026-11-03
+
+### Changed
+
+- ⌨️ Let Ctrl+G reach the terminal on Windows and Linux, instead of opening Go to Recent Directory
+- 🔧 Enable Python Environments so the Ansible extension stops prompting
+
+### Dependencies
+
+- 🔒 Build k9s, kube-linter, gotests, impl and task from source to clear their high and critical CVEs
+- 🔒 Raise VS Code's bundled undici to 7.30.1 *(ws-server)*
+- ⬆️ Bump ansible-core to 2.22.0
+- ⬆️ Bump claude-code to 2.1.317, uv to 0.13.7, buildx to 0.38.1, compose to 5.7.0, helm to 4.3.1 and starship to 1.27.0
+
 ## [0.5.3] — 2026-11-01
 
 ### Added

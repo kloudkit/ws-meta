@@ -23,7 +23,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible/ansible
     license: GPL 3
-    version: 2.21.5
+    version: 2.22.0
 
   ansible-lint:
     cmd: ansible-lint --version
@@ -70,7 +70,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.316
+    version: 2.1.317
 
   community.docker:
     datasource: galaxy-collection
@@ -171,7 +171,7 @@ dependencies:
     home: https://github.com/docker/compose
     license: Apache 2
     package: docker/compose
-    version: 5.6.1
+    version: 5.7.0
 
   docker-py:
     datasource: pypi
@@ -591,7 +591,7 @@ dependencies:
     home: https://gitlab.com/procps-ng/procps
     license: GPL 2
     package: procps
-    version: 4.0.2
+    version: 4.0.4
 
   pylint:
     cmd: pylint --version
@@ -664,7 +664,7 @@ dependencies:
     datasource: deb
     home: https://github.com/rootless-containers/slirp4netns
     license: GPL 2
-    version: 1.2.0
+    version: 1.2.1
 
   ssh:
     cmd: (ssh -V) > >(cat) 2>&1
@@ -708,12 +708,18 @@ dependencies:
     version: 1.9.16
 
   taskfile:
+    build:
+      main: ./cmd/task
+      module: github.com/go-task/task/v3
+      upgrade:
+        github.com/go-jose/go-jose/v4: 4.1.6
+        golang.org/x/net: 0.60.0
     cmd: task --version
-    datasource: npm
+    datasource: github-releases
     group: CLI Tools
     home: https://github.com/go-task/task
     license: MIT
-    package: "@go-task/cli"
+    package: go-task/task
     version: 3.54.0
 
   uidmap:
@@ -736,7 +742,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.13.6
+    version: 0.13.7
 
   vim:
     cmd: vim --version
