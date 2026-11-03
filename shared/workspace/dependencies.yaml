@@ -279,6 +279,11 @@ dependencies:
     version: 0.24.0
 
   gotests:
+    build:
+      main: ./gotests
+      module: github.com/cweill/gotests
+      upgrade:
+        golang.org/x/mod: 0.40.0
     datasource: go
     group: Go
     home: https://github.com/cweill/gotests/gotests
@@ -313,6 +318,10 @@ dependencies:
     version: 3.4.1
 
   impl:
+    build:
+      module: github.com/josharian/impl
+      upgrade:
+        golang.org/x/mod: 0.40.0
     datasource: go
     group: Go
     home: https://github.com/josharian/impl
@@ -338,6 +347,21 @@ dependencies:
     version: 1.8.1
 
   k9s:
+    build:
+      ldflags: -X github.com/derailed/k9s/cmd.version=v{version}
+      module: github.com/derailed/k9s
+      upgrade:
+        github.com/containerd/containerd: 1.7.33
+        github.com/containerd/containerd/v2: 2.2.7
+        github.com/go-git/go-git/v5: 5.19.2
+        github.com/go-jose/go-jose/v4: 4.1.6
+        github.com/klauspost/compress: 1.18.7
+        golang.org/x/crypto: 0.55.0
+        golang.org/x/mod: 0.40.0
+        golang.org/x/net: 0.60.0
+        golang.org/x/text: 0.41.0
+        google.golang.org/grpc: 1.83.2
+        oras.land/oras-go/v2: 2.6.2
     cmd: k9s version
     datasource: github-releases
     group: Docker & Kubernetes
@@ -356,6 +380,18 @@ dependencies:
     version: 0.33.0
 
   kube-linter:
+    build:
+      ldflags: -X golang.stackrox.io/kube-linter/internal/version.version={version}
+      main: ./cmd/kube-linter
+      module: golang.stackrox.io/kube-linter
+      upgrade:
+        github.com/containerd/containerd: 1.7.33
+        github.com/klauspost/compress: 1.18.7
+        golang.org/x/crypto: 0.55.0
+        golang.org/x/net: 0.60.0
+        golang.org/x/text: 0.41.0
+        google.golang.org/grpc: 1.83.2
+        oras.land/oras-go/v2: 2.6.2
     cmd: kube-linter version
     datasource: github-releases
     group: Docker & Kubernetes
