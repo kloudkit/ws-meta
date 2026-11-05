@@ -273,7 +273,7 @@ commands:
     - name: ws-cli logs
       since: 0.2.0
       synopsis: Retrieve workspace logs
-      description: Read a workspace daemon's log — the main log by default, or --target metrics|docker|auth_proxy|cloudflared. Filter by --level, limit with --tail, or stream live with --follow.
+      description: Read a workspace daemon's log — the main log by default, or --target metrics|docker|cloudflared. Filter by --level, limit with --tail, or stream live with --follow.
       usage: ws-cli logs [flags]
       example: |-
         # Stream errors live, starting from the last 100 lines
@@ -295,7 +295,7 @@ commands:
           usage: Number of lines to show from the end (0 for all)
         - name: target
           default: main
-          usage: Log target to read (main|metrics|docker|auth_proxy|cloudflared)
+          usage: Log target to read (main|metrics|docker|cloudflared)
     - name: ws-cli secrets
       since: 0.2.0
       synopsis: Manage encryption and decryption of secrets
