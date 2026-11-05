@@ -32,7 +32,7 @@ dependencies:
     home: https://github.com/ansible/ansible-lint
     license: MIT
     tool: true
-    version: 26.10.1
+    version: 26.11.0
 
   bat:
     cmd: bat --version
@@ -55,7 +55,7 @@ dependencies:
     home: https://github.com/docker/buildx
     license: Apache 2
     package: docker/buildx
-    version: 0.38.1
+    version: 0.38.2
 
   catppuccin:
     datasource: pypi
@@ -70,7 +70,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.317
+    version: 2.1.318
 
   community.docker:
     datasource: galaxy-collection
@@ -84,7 +84,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible-collections/community.general
     license: GPL 3
-    version: 13.5.0
+    version: 14.0.0
 
   containerd.io:
     cmd: containerd --version
@@ -500,15 +500,6 @@ dependencies:
     package: npm/cli
     version: 11.19.1
 
-  oauth2-proxy:
-    cmd: oauth2-proxy --version
-    datasource: github-releases
-    group: Networking Tools
-    home: https://github.com/oauth2-proxy/oauth2-proxy
-    license: MIT
-    package: oauth2-proxy/oauth2-proxy
-    version: 7.15.5
-
   oh-my-zsh:
     datasource: github-releases
     group: Terminal
@@ -525,7 +516,7 @@ dependencies:
     license: Proprietary
     package: 1password-cli
     track: false
-    version: 2.41.0
+    version: 2.42.0
 
   openssh-server:
     datasource: deb
@@ -556,6 +547,15 @@ dependencies:
     license: MIT
     package: python3-pip
     version: 25.1.1
+
+  pixi:
+    cmd: pixi --version
+    datasource: github-releases
+    group: Python
+    home: https://pixi.sh
+    license: BSD 3
+    package: prefix-dev/pixi
+    version: 0.84.1
 
   pnpm:
     cmd: pnpm --version
@@ -609,7 +609,7 @@ dependencies:
     home: https://github.com/facebook/pyrefly
     license: MIT
     tool: true
-    version: 1.4.0
+    version: 1.4.1
 
   Python:
     cmd: python3 --version
@@ -762,7 +762,7 @@ dependencies:
 
   ws-cli:
     cmd: ws-cli --version
-    currentDigest: a07bfabb1dbdc8a2c4599c2de963e7e3a7c4cebc
+    currentDigest: 2217c0463a528c0e03769a2a1f2f060bf343472c
     currentValue: main
     datasource: git-refs
     home: https://github.com/kloudkit/ws-cli
