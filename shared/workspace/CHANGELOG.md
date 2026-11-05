@@ -1,5 +1,41 @@
 # Changelog
 
+## [0.6.0] — 2026-11-05
+
+### Added
+
+- ✨ Sign in with OIDC in the editor itself, limited to `WS_AUTH_OIDC_ALLOWED_EMAILS` *(ws-server)*
+- ✨ Take one `WS_AUTH_OIDC_REDIRECT_URL` per proxy domain *(ws-server)*
+- ✨ Add `pixi`, with its global installs and credentials under `~/.local/pixi`
+
+### Breaking
+
+- 💥 Publish `WS_SERVER_PORT` *(8080)* in OIDC mode; the sign-in proxy on 38080 and `WS_SERVER_AUTH_PROXY_PORT` are gone
+- 💥 Require `WS_AUTH_OIDC_ALLOWED_EMAILS` in OIDC mode, and refuse to start while `WS_AUTH_OIDC_ALLOWED_GROUPS` is set
+- 💥 End an OIDC session `WS_AUTH_SESSION_TTL` *(24 hours by default)* after sign-in, instead of after 7 days
+- 💥 Drop `WS_AUTH_OIDC_FORBIDDEN_MESSAGE`, `WS_AUTH_OIDC_SESSION_REFRESH` and `WS_LOGGING_AUTH_PROXY_FILE`
+- 💥 Drop `ws-cli logs --target auth_proxy`
+
+### Changed
+
+- ♻️ Let a signed-in forwarded port serve its own `/login` and `/logout`, in both auth modes *(ws-server)*
+- ♻️ Honour `?to=` and set `Secure` behind a TLS terminator in both auth modes *(ws-server)*
+- ♻️ Share the session cookie across a templated proxy domain, using the most specific matching domain *(ws-server)*
+
+### Dependencies
+
+- ⬆️ Bump community.general to 14.0.0, doctl to 2.3.0, jf to 2.131.0, glab to 1.128.0 and syft to 1.56.0
+- ⬆️ Bump grype to 0.121.1, pyrefly to 1.4.1, buildx to 0.38.2 and claude-code to 2.1.318
+- ⬆️ Bump `op` to 2.42.0, ansible-lint to 26.11.0, the Ruff extension to 2026.92.0 and ws-cli to `2217c04`
+
+### Removed
+
+- 🔥 Remove oauth2-proxy, its access-denied page, logout helper and s6 service *(#835)*
+
+### Security
+
+- 🔒 Refuse `/\` and control characters in login return targets, closing an open redirect *(ws-server)*
+
 ## [0.5.4] — 2026-11-03
 
 ### Changed
