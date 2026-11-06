@@ -1,32 +1,74 @@
 {
-  "built": "2026-05-25T09:18:52Z",
+  "built": "2026-11-01T05:18:23Z",
   "packages": [
     {
       "name": "apache2-bin",
-      "version": "2.4.67-1~deb13u2",
+      "version": "2.4.68-1~deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/a/apache2/apache2-bin_2.4.67-1~deb13u2_amd64.deb",
+      "link": "pool/main/a/apache2/apache2-bin_2.4.68-1~deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "apache2-bin",
-      "version": "2.4.67-1~deb13u2",
+      "version": "2.4.68-1~deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/a/apache2/apache2-bin_2.4.67-1~deb13u2_arm64.deb",
+      "link": "pool/main/a/apache2/apache2-bin_2.4.68-1~deb13u1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "aspnetcore-runtime-10.0",
+      "version": "10.0.14-1",
+      "architecture": "amd64",
+      "link": "pool/main/a/aspnetcore-runtime-10.0/aspnetcore-runtime-10.0_10.0.14-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "aspnetcore-runtime-10.0",
+      "version": "10.0.14-1",
+      "architecture": "arm64",
+      "link": "pool/main/a/aspnetcore-runtime-10.0/aspnetcore-runtime-10.0_10.0.14-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "aspnetcore-runtime-8.0",
+      "version": "8.0.33-1",
+      "architecture": "amd64",
+      "link": "pool/main/a/aspnetcore-runtime-8.0/aspnetcore-runtime-8.0_8.0.33-1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "aspnetcore-runtime-9.0",
-      "version": "9.0.16-1",
+      "version": "9.0.22-1",
       "architecture": "amd64",
-      "link": "pool/main/a/aspnetcore-runtime-9.0/aspnetcore-runtime-9.0_9.0.16-1_amd64.deb",
+      "link": "pool/main/a/aspnetcore-runtime-9.0/aspnetcore-runtime-9.0_9.0.22-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "aspnetcore-targeting-pack-10.0",
+      "version": "10.0.14-1",
+      "architecture": "amd64",
+      "link": "pool/main/a/aspnetcore-targeting-pack-10.0/aspnetcore-targeting-pack-10.0_10.0.14-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "aspnetcore-targeting-pack-10.0",
+      "version": "10.0.14-1",
+      "architecture": "arm64",
+      "link": "pool/main/a/aspnetcore-targeting-pack-10.0/aspnetcore-targeting-pack-10.0_10.0.14-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "aspnetcore-targeting-pack-8.0",
+      "version": "8.0.33-1",
+      "architecture": "amd64",
+      "link": "pool/main/a/aspnetcore-targeting-pack-8.0/aspnetcore-targeting-pack-8.0_8.0.33-1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "aspnetcore-targeting-pack-9.0",
-      "version": "9.0.16-1",
+      "version": "9.0.22-1",
       "architecture": "amd64",
-      "link": "pool/main/a/aspnetcore-targeting-pack-9.0/aspnetcore-targeting-pack-9.0_9.0.16-1_amd64.deb",
+      "link": "pool/main/a/aspnetcore-targeting-pack-9.0/aspnetcore-targeting-pack-9.0_9.0.22-1_amd64.deb",
       "type": "apt"
     },
     {
@@ -220,17 +262,17 @@
     },
     {
       "name": "cloudflared",
-      "version": "2026.5.0",
+      "version": "2026.10.0",
       "architecture": "amd64",
-      "link": "pool/main/c/cloudflared/cloudflared_2026.5.0_amd64.deb",
-      "type": "apt"
+      "link": "artifacts/cloudflared/amd64",
+      "type": "artifact"
     },
     {
       "name": "cloudflared",
-      "version": "2026.5.0",
+      "version": "2026.10.0",
       "architecture": "arm64",
-      "link": "pool/main/c/cloudflared/cloudflared_2026.5.0_arm64.deb",
-      "type": "apt"
+      "link": "artifacts/cloudflared/arm64",
+      "type": "artifact"
     },
     {
       "name": "cmake",
@@ -373,59 +415,185 @@
       "type": "apt"
     },
     {
-      "name": "dotnet-apphost-pack-9.0",
-      "version": "9.0.16-1",
+      "name": "dotnet-apphost-pack-10.0",
+      "version": "10.0.14-1",
       "architecture": "amd64",
-      "link": "pool/main/d/dotnet-apphost-pack-9.0/dotnet-apphost-pack-9.0_9.0.16-1_amd64.deb",
+      "link": "pool/main/d/dotnet-apphost-pack-10.0/dotnet-apphost-pack-10.0_10.0.14-1_amd64.deb",
       "type": "apt"
     },
     {
-      "name": "dotnet-host",
-      "version": "10.0.8",
-      "architecture": "amd64",
-      "link": "pool/main/d/dotnet-host/dotnet-host_10.0.8_amd64.deb",
-      "type": "apt"
-    },
-    {
-      "name": "dotnet-host",
-      "version": "10.0.8",
+      "name": "dotnet-apphost-pack-10.0",
+      "version": "10.0.14-1",
       "architecture": "arm64",
-      "link": "pool/main/d/dotnet-host/dotnet-host_10.0.8_arm64.deb",
+      "link": "pool/main/d/dotnet-apphost-pack-10.0/dotnet-apphost-pack-10.0_10.0.14-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-apphost-pack-8.0",
+      "version": "8.0.33-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-apphost-pack-8.0/dotnet-apphost-pack-8.0_8.0.33-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-apphost-pack-9.0",
+      "version": "9.0.22-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-apphost-pack-9.0/dotnet-apphost-pack-9.0_9.0.22-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-host",
+      "version": "10.0.14-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-host/dotnet-host_10.0.14-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-host",
+      "version": "10.0.14-1",
+      "architecture": "arm64",
+      "link": "pool/main/d/dotnet-host/dotnet-host_10.0.14-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-hostfxr-10.0",
+      "version": "10.0.14-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-hostfxr-10.0/dotnet-hostfxr-10.0_10.0.14-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-hostfxr-10.0",
+      "version": "10.0.14-1",
+      "architecture": "arm64",
+      "link": "pool/main/d/dotnet-hostfxr-10.0/dotnet-hostfxr-10.0_10.0.14-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-hostfxr-8.0",
+      "version": "8.0.33-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-hostfxr-8.0/dotnet-hostfxr-8.0_8.0.33-1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "dotnet-hostfxr-9.0",
-      "version": "9.0.16-1",
+      "version": "9.0.22-1",
       "architecture": "amd64",
-      "link": "pool/main/d/dotnet-hostfxr-9.0/dotnet-hostfxr-9.0_9.0.16-1_amd64.deb",
+      "link": "pool/main/d/dotnet-hostfxr-9.0/dotnet-hostfxr-9.0_9.0.22-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-runtime-10.0",
+      "version": "10.0.14-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-runtime-10.0/dotnet-runtime-10.0_10.0.14-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-runtime-10.0",
+      "version": "10.0.14-1",
+      "architecture": "arm64",
+      "link": "pool/main/d/dotnet-runtime-10.0/dotnet-runtime-10.0_10.0.14-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-runtime-8.0",
+      "version": "8.0.33-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-runtime-8.0/dotnet-runtime-8.0_8.0.33-1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "dotnet-runtime-9.0",
-      "version": "9.0.16-1",
+      "version": "9.0.22-1",
       "architecture": "amd64",
-      "link": "pool/main/d/dotnet-runtime-9.0/dotnet-runtime-9.0_9.0.16-1_amd64.deb",
+      "link": "pool/main/d/dotnet-runtime-9.0/dotnet-runtime-9.0_9.0.22-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-runtime-deps-10.0",
+      "version": "10.0.14-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-runtime-deps-10.0/dotnet-runtime-deps-10.0_10.0.14-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-runtime-deps-10.0",
+      "version": "10.0.14-1",
+      "architecture": "arm64",
+      "link": "pool/main/d/dotnet-runtime-deps-10.0/dotnet-runtime-deps-10.0_10.0.14-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-runtime-deps-8.0",
+      "version": "8.0.33-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-runtime-deps-8.0/dotnet-runtime-deps-8.0_8.0.33-1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "dotnet-runtime-deps-9.0",
-      "version": "9.0.16-1",
+      "version": "9.0.22-1",
       "architecture": "amd64",
-      "link": "pool/main/d/dotnet-runtime-deps-9.0/dotnet-runtime-deps-9.0_9.0.16-1_amd64.deb",
+      "link": "pool/main/d/dotnet-runtime-deps-9.0/dotnet-runtime-deps-9.0_9.0.22-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-sdk-10.0",
+      "version": "10.0.403-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-sdk-10.0/dotnet-sdk-10.0_10.0.403-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-sdk-10.0",
+      "version": "10.0.403-1",
+      "architecture": "arm64",
+      "link": "pool/main/d/dotnet-sdk-10.0/dotnet-sdk-10.0_10.0.403-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-sdk-8.0",
+      "version": "8.0.427-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-sdk-8.0/dotnet-sdk-8.0_8.0.427-1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "dotnet-sdk-9.0",
-      "version": "9.0.314-1",
+      "version": "9.0.320-1",
       "architecture": "amd64",
-      "link": "pool/main/d/dotnet-sdk-9.0/dotnet-sdk-9.0_9.0.314-1_amd64.deb",
+      "link": "pool/main/d/dotnet-sdk-9.0/dotnet-sdk-9.0_9.0.320-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-targeting-pack-10.0",
+      "version": "10.0.14-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-targeting-pack-10.0/dotnet-targeting-pack-10.0_10.0.14-1_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-targeting-pack-10.0",
+      "version": "10.0.14-1",
+      "architecture": "arm64",
+      "link": "pool/main/d/dotnet-targeting-pack-10.0/dotnet-targeting-pack-10.0_10.0.14-1_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "dotnet-targeting-pack-8.0",
+      "version": "8.0.33-1",
+      "architecture": "amd64",
+      "link": "pool/main/d/dotnet-targeting-pack-8.0/dotnet-targeting-pack-8.0_8.0.33-1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "dotnet-targeting-pack-9.0",
-      "version": "9.0.16-1",
+      "version": "9.0.22-1",
       "architecture": "amd64",
-      "link": "pool/main/d/dotnet-targeting-pack-9.0/dotnet-targeting-pack-9.0_9.0.16-1_amd64.deb",
+      "link": "pool/main/d/dotnet-targeting-pack-9.0/dotnet-targeting-pack-9.0_9.0.22-1_amd64.deb",
       "type": "apt"
     },
     {
@@ -703,38 +871,17 @@
     },
     {
       "name": "gh",
-      "version": "2.92.0",
+      "version": "2.102.0",
       "architecture": "amd64",
-      "link": "pool/main/g/gh/gh_2.92.0_amd64.deb",
-      "type": "apt"
+      "link": "artifacts/gh/amd64.tar.gz",
+      "type": "artifact"
     },
     {
       "name": "gh",
-      "version": "2.92.0",
+      "version": "2.102.0",
       "architecture": "arm64",
-      "link": "pool/main/g/gh/gh_2.92.0_arm64.deb",
-      "type": "apt"
-    },
-    {
-      "name": "git",
-      "version": "1:2.47.3-0+deb13u1",
-      "architecture": "amd64",
-      "link": "pool/main/g/git/git_2.47.3-0+deb13u1_amd64.deb",
-      "type": "apt"
-    },
-    {
-      "name": "git",
-      "version": "1:2.47.3-0+deb13u1",
-      "architecture": "arm64",
-      "link": "pool/main/g/git/git_2.47.3-0+deb13u1_arm64.deb",
-      "type": "apt"
-    },
-    {
-      "name": "git-man",
-      "version": "1:2.47.3-0+deb13u1",
-      "architecture": "all",
-      "link": "pool/main/g/git/git-man_2.47.3-0+deb13u1_all.deb",
-      "type": "apt"
+      "link": "artifacts/gh/arm64.tar.gz",
+      "type": "artifact"
     },
     {
       "name": "glab",
@@ -752,16 +899,16 @@
     },
     {
       "name": "google-cloud-cli",
-      "version": "569.0.0-0",
+      "version": "591.0.0-0",
       "architecture": "amd64",
-      "link": "pool/main/g/google-cloud-cli/google-cloud-cli_569.0.0-0_amd64_ac60c09d238acc2eaf7b968c6f52fb79.deb",
+      "link": "pool/main/g/google-cloud-cli/google-cloud-cli_591.0.0-0_amd64_a9222e6bee57d1c0f6eb73c93218c714.deb",
       "type": "apt"
     },
     {
       "name": "google-cloud-cli",
-      "version": "569.0.0-0",
+      "version": "591.0.0-0",
       "architecture": "arm64",
-      "link": "pool/main/g/google-cloud-cli/google-cloud-cli_569.0.0-0_arm64_877a5d7b84e6e2de1c520cd5fff590be.deb",
+      "link": "pool/main/g/google-cloud-cli/google-cloud-cli_591.0.0-0_arm64_bbdb386a2b6fb524ff50882f0af9688b.deb",
       "type": "apt"
     },
     {
@@ -800,11 +947,18 @@
       "type": "apt"
     },
     {
-      "name": "jfrog-cli-v2-jf",
-      "version": "2.104.1",
+      "name": "jf",
+      "version": "2.124.0",
       "architecture": "amd64",
-      "link": "pool/main/j/jfrog-cli-v2-jf/jfrog-cli-2.104.1.x86_64.deb",
-      "type": "apt"
+      "link": "artifacts/jf/amd64",
+      "type": "artifact"
+    },
+    {
+      "name": "jf",
+      "version": "2.124.0",
+      "architecture": "arm64",
+      "link": "artifacts/jf/arm64",
+      "type": "artifact"
     },
     {
       "name": "libabsl20240722",
@@ -836,23 +990,30 @@
     },
     {
       "name": "libaom3",
-      "version": "3.12.1-1",
+      "version": "3.12.1-1+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/a/aom/libaom3_3.12.1-1_amd64.deb",
+      "link": "pool/main/a/aom/libaom3_3.12.1-1+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libaom3",
-      "version": "3.12.1-1",
+      "version": "3.12.1-1+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/a/aom/libaom3_3.12.1-1_arm64.deb",
+      "link": "pool/main/a/aom/libaom3_3.12.1-1+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libapache2-mod-php8.5",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/libapache2-mod-php8.5_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/libapache2-mod-php8.5_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "libapache2-mod-php8.5",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/libapache2-mod-php8.5_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
@@ -871,44 +1032,44 @@
     },
     {
       "name": "libaprutil1-dbd-sqlite3",
-      "version": "1.6.3-3+b1",
+      "version": "1.6.3-3+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/a/apr-util/libaprutil1-dbd-sqlite3_1.6.3-3+b1_amd64.deb",
+      "link": "pool/main/a/apr-util/libaprutil1-dbd-sqlite3_1.6.3-3+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libaprutil1-dbd-sqlite3",
-      "version": "1.6.3-3+b1",
+      "version": "1.6.3-3+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/a/apr-util/libaprutil1-dbd-sqlite3_1.6.3-3+b1_arm64.deb",
+      "link": "pool/main/a/apr-util/libaprutil1-dbd-sqlite3_1.6.3-3+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libaprutil1-ldap",
-      "version": "1.6.3-3+b1",
+      "version": "1.6.3-3+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/a/apr-util/libaprutil1-ldap_1.6.3-3+b1_amd64.deb",
+      "link": "pool/main/a/apr-util/libaprutil1-ldap_1.6.3-3+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libaprutil1-ldap",
-      "version": "1.6.3-3+b1",
+      "version": "1.6.3-3+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/a/apr-util/libaprutil1-ldap_1.6.3-3+b1_arm64.deb",
+      "link": "pool/main/a/apr-util/libaprutil1-ldap_1.6.3-3+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libaprutil1t64",
-      "version": "1.6.3-3+b1",
+      "version": "1.6.3-3+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/a/apr-util/libaprutil1t64_1.6.3-3+b1_amd64.deb",
+      "link": "pool/main/a/apr-util/libaprutil1t64_1.6.3-3+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libaprutil1t64",
-      "version": "1.6.3-3+b1",
+      "version": "1.6.3-3+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/a/apr-util/libaprutil1t64_1.6.3-3+b1_arm64.deb",
+      "link": "pool/main/a/apr-util/libaprutil1t64_1.6.3-3+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -1011,16 +1172,16 @@
     },
     {
       "name": "libbcg729-0",
-      "version": "1.1.1-3",
+      "version": "1.1.1-3+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/b/bcg729/libbcg729-0_1.1.1-3_amd64.deb",
+      "link": "pool/main/b/bcg729/libbcg729-0_1.1.1-3+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libbcg729-0",
-      "version": "1.1.1-3",
+      "version": "1.1.1-3+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/b/bcg729/libbcg729-0_1.1.1-3_arm64.deb",
+      "link": "pool/main/b/bcg729/libbcg729-0_1.1.1-3+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -1039,16 +1200,16 @@
     },
     {
       "name": "libblkid1",
-      "version": "2.41-5",
+      "version": "2.41.5-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/u/util-linux/libblkid1_2.41-5_amd64.deb",
+      "link": "pool/main/u/util-linux/libblkid1_2.41.5-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libblkid1",
-      "version": "2.41-5",
+      "version": "2.41.5-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/u/util-linux/libblkid1_2.41-5_arm64.deb",
+      "link": "pool/main/u/util-linux/libblkid1_2.41.5-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -1095,72 +1256,72 @@
     },
     {
       "name": "libc-dev-bin",
-      "version": "2.41-12+deb13u3",
+      "version": "2.41-12+deb13u4",
       "architecture": "amd64",
-      "link": "pool/main/g/glibc/libc-dev-bin_2.41-12+deb13u3_amd64.deb",
+      "link": "pool/main/g/glibc/libc-dev-bin_2.41-12+deb13u4_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libc-dev-bin",
-      "version": "2.41-12+deb13u3",
+      "version": "2.41-12+deb13u4",
       "architecture": "arm64",
-      "link": "pool/main/g/glibc/libc-dev-bin_2.41-12+deb13u3_arm64.deb",
+      "link": "pool/main/g/glibc/libc-dev-bin_2.41-12+deb13u4_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libc6",
-      "version": "2.41-12+deb13u3",
+      "version": "2.41-12+deb13u4",
       "architecture": "amd64",
-      "link": "pool/main/g/glibc/libc6_2.41-12+deb13u3_amd64.deb",
+      "link": "pool/main/g/glibc/libc6_2.41-12+deb13u4_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libc6",
-      "version": "2.41-12+deb13u3",
+      "version": "2.41-12+deb13u4",
       "architecture": "arm64",
-      "link": "pool/main/g/glibc/libc6_2.41-12+deb13u3_arm64.deb",
+      "link": "pool/main/g/glibc/libc6_2.41-12+deb13u4_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libc6-dev",
-      "version": "2.41-12+deb13u3",
+      "version": "2.41-12+deb13u4",
       "architecture": "amd64",
-      "link": "pool/main/g/glibc/libc6-dev_2.41-12+deb13u3_amd64.deb",
+      "link": "pool/main/g/glibc/libc6-dev_2.41-12+deb13u4_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libc6-dev",
-      "version": "2.41-12+deb13u3",
+      "version": "2.41-12+deb13u4",
       "architecture": "arm64",
-      "link": "pool/main/g/glibc/libc6-dev_2.41-12+deb13u3_arm64.deb",
+      "link": "pool/main/g/glibc/libc6-dev_2.41-12+deb13u4_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libcap2",
-      "version": "1:2.75-10+deb13u1+b1",
+      "version": "1:2.75-10+deb13u1+b3",
       "architecture": "amd64",
-      "link": "pool/main/libc/libcap2/libcap2_2.75-10+deb13u1+b1_amd64.deb",
+      "link": "pool/main/libc/libcap2/libcap2_2.75-10+deb13u1+b3_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libcap2",
-      "version": "1:2.75-10+deb13u1+b1",
+      "version": "1:2.75-10+deb13u1+b3",
       "architecture": "arm64",
-      "link": "pool/main/libc/libcap2/libcap2_2.75-10+deb13u1+b1_arm64.deb",
+      "link": "pool/main/libc/libcap2/libcap2_2.75-10+deb13u1+b3_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libcap2-bin",
-      "version": "1:2.75-10+deb13u1+b1",
+      "version": "1:2.75-10+deb13u1+b3",
       "architecture": "amd64",
-      "link": "pool/main/libc/libcap2/libcap2-bin_2.75-10+deb13u1+b1_amd64.deb",
+      "link": "pool/main/libc/libcap2/libcap2-bin_2.75-10+deb13u1+b3_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libcap2-bin",
-      "version": "1:2.75-10+deb13u1+b1",
+      "version": "1:2.75-10+deb13u1+b3",
       "architecture": "arm64",
-      "link": "pool/main/libc/libcap2/libcap2-bin_2.75-10+deb13u1+b1_arm64.deb",
+      "link": "pool/main/libc/libcap2/libcap2-bin_2.75-10+deb13u1+b3_arm64.deb",
       "type": "apt"
     },
     {
@@ -1235,16 +1396,16 @@
     },
     {
       "name": "libcom-err2",
-      "version": "1.47.2-3+b11",
+      "version": "1.47.2-3+b12",
       "architecture": "amd64",
-      "link": "pool/main/e/e2fsprogs/libcom-err2_1.47.2-3+b11_amd64.deb",
+      "link": "pool/main/e/e2fsprogs/libcom-err2_1.47.2-3+b12_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libcom-err2",
-      "version": "1.47.2-3+b11",
+      "version": "1.47.2-3+b12",
       "architecture": "arm64",
-      "link": "pool/main/e/e2fsprogs/libcom-err2_1.47.2-3+b11_arm64.deb",
+      "link": "pool/main/e/e2fsprogs/libcom-err2_1.47.2-3+b12_arm64.deb",
       "type": "apt"
     },
     {
@@ -1305,30 +1466,30 @@
     },
     {
       "name": "libcurl3t64-gnutls",
-      "version": "8.14.1-2+deb13u3",
+      "version": "8.14.1-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/c/curl/libcurl3t64-gnutls_8.14.1-2+deb13u3_amd64.deb",
+      "link": "pool/main/c/curl/libcurl3t64-gnutls_8.14.1-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libcurl3t64-gnutls",
-      "version": "8.14.1-2+deb13u3",
+      "version": "8.14.1-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/c/curl/libcurl3t64-gnutls_8.14.1-2+deb13u3_arm64.deb",
+      "link": "pool/main/c/curl/libcurl3t64-gnutls_8.14.1-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libcurl4t64",
-      "version": "8.14.1-2+deb13u3",
+      "version": "8.14.1-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/c/curl/libcurl4t64_8.14.1-2+deb13u3_amd64.deb",
+      "link": "pool/main/c/curl/libcurl4t64_8.14.1-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libcurl4t64",
-      "version": "8.14.1-2+deb13u3",
+      "version": "8.14.1-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/c/curl/libcurl4t64_8.14.1-2+deb13u3_arm64.deb",
+      "link": "pool/main/c/curl/libcurl4t64_8.14.1-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
@@ -1375,16 +1536,16 @@
     },
     {
       "name": "libde265-0",
-      "version": "1.0.15-1+b3",
+      "version": "1.0.15-1+deb13u2",
       "architecture": "amd64",
-      "link": "pool/main/libd/libde265/libde265-0_1.0.15-1+b3_amd64.deb",
+      "link": "pool/main/libd/libde265/libde265-0_1.0.15-1+deb13u2_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libde265-0",
-      "version": "1.0.15-1+b3",
+      "version": "1.0.15-1+deb13u2",
       "architecture": "arm64",
-      "link": "pool/main/libd/libde265/libde265-0_1.0.15-1+b3_arm64.deb",
+      "link": "pool/main/libd/libde265/libde265-0_1.0.15-1+deb13u2_arm64.deb",
       "type": "apt"
     },
     {
@@ -1472,38 +1633,31 @@
       "type": "apt"
     },
     {
-      "name": "liberror-perl",
-      "version": "0.17030-1",
-      "architecture": "all",
-      "link": "pool/main/libe/liberror-perl/liberror-perl_0.17030-1_all.deb",
+      "name": "libexpat1",
+      "version": "2.8.3-1~deb13u1",
+      "architecture": "amd64",
+      "link": "pool/main/e/expat/libexpat1_2.8.3-1~deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libexpat1",
-      "version": "2.7.1-2",
-      "architecture": "amd64",
-      "link": "pool/main/e/expat/libexpat1_2.7.1-2_amd64.deb",
-      "type": "apt"
-    },
-    {
-      "name": "libexpat1",
-      "version": "2.7.1-2",
+      "version": "2.8.3-1~deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/e/expat/libexpat1_2.7.1-2_arm64.deb",
+      "link": "pool/main/e/expat/libexpat1_2.8.3-1~deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libexpat1-dev",
-      "version": "2.7.1-2",
+      "version": "2.8.3-1~deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/e/expat/libexpat1-dev_2.7.1-2_amd64.deb",
+      "link": "pool/main/e/expat/libexpat1-dev_2.8.3-1~deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libexpat1-dev",
-      "version": "2.7.1-2",
+      "version": "2.8.3-1~deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/e/expat/libexpat1-dev_2.7.1-2_arm64.deb",
+      "link": "pool/main/e/expat/libexpat1-dev_2.8.3-1~deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -1620,30 +1774,30 @@
     },
     {
       "name": "libgcrypt20",
-      "version": "1.11.0-7",
+      "version": "1.11.0-7+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/libg/libgcrypt20/libgcrypt20_1.11.0-7_amd64.deb",
+      "link": "pool/main/libg/libgcrypt20/libgcrypt20_1.11.0-7+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libgcrypt20",
-      "version": "1.11.0-7",
+      "version": "1.11.0-7+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/libg/libgcrypt20/libgcrypt20_1.11.0-7_arm64.deb",
+      "link": "pool/main/libg/libgcrypt20/libgcrypt20_1.11.0-7+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libgd3",
-      "version": "2.3.3-13+0~20260506.19+debian13~1.gbp4c9a22",
+      "version": "2.3.3-14+0~20260731.21+debian13~1.gbp938f32",
       "architecture": "amd64",
-      "link": "pool/main/libg/libgd2/libgd3_2.3.3-13+0~20260506.19+debian13~1.gbp4c9a22_amd64.deb",
+      "link": "pool/main/libg/libgd2/libgd3_2.3.3-14+0~20260731.21+debian13~1.gbp938f32_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libgd3",
-      "version": "2.3.3-13+0~20260506.19+debian13~1.gbp4c9a22",
+      "version": "2.3.3-14+0~20260731.21+debian13~1.gbp938f32",
       "architecture": "arm64",
-      "link": "pool/main/libg/libgd2/libgd3_2.3.3-13+0~20260506.19+debian13~1.gbp4c9a22_arm64.deb",
+      "link": "pool/main/libg/libgd2/libgd3_2.3.3-14+0~20260731.21+debian13~1.gbp938f32_arm64.deb",
       "type": "apt"
     },
     {
@@ -1676,16 +1830,16 @@
     },
     {
       "name": "libglib2.0-0t64",
-      "version": "2.84.4-3~deb13u3",
+      "version": "2.84.4-3~deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/g/glib2.0/libglib2.0-0t64_2.84.4-3~deb13u3_amd64.deb",
+      "link": "pool/main/g/glib2.0/libglib2.0-0t64_2.84.4-3~deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libglib2.0-0t64",
-      "version": "2.84.4-3~deb13u3",
+      "version": "2.84.4-3~deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/g/glib2.0/libglib2.0-0t64_2.84.4-3~deb13u3_arm64.deb",
+      "link": "pool/main/g/glib2.0/libglib2.0-0t64_2.84.4-3~deb13u5_arm64.deb",
       "type": "apt"
     },
     {
@@ -1704,16 +1858,16 @@
     },
     {
       "name": "libgnutls30t64",
-      "version": "3.8.9-3+deb13u3",
+      "version": "3.8.9-3+deb13u4",
       "architecture": "amd64",
-      "link": "pool/main/g/gnutls28/libgnutls30t64_3.8.9-3+deb13u3_amd64.deb",
+      "link": "pool/main/g/gnutls28/libgnutls30t64_3.8.9-3+deb13u4_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libgnutls30t64",
-      "version": "3.8.9-3+deb13u3",
+      "version": "3.8.9-3+deb13u4",
       "architecture": "arm64",
-      "link": "pool/main/g/gnutls28/libgnutls30t64_3.8.9-3+deb13u3_arm64.deb",
+      "link": "pool/main/g/gnutls28/libgnutls30t64_3.8.9-3+deb13u4_arm64.deb",
       "type": "apt"
     },
     {
@@ -1760,58 +1914,58 @@
     },
     {
       "name": "libgssapi-krb5-2",
-      "version": "1.21.3-5",
+      "version": "1.21.3-5+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/k/krb5/libgssapi-krb5-2_1.21.3-5_amd64.deb",
+      "link": "pool/main/k/krb5/libgssapi-krb5-2_1.21.3-5+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libgssapi-krb5-2",
-      "version": "1.21.3-5",
+      "version": "1.21.3-5+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/k/krb5/libgssapi-krb5-2_1.21.3-5_arm64.deb",
+      "link": "pool/main/k/krb5/libgssapi-krb5-2_1.21.3-5+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libheif-plugin-dav1d",
-      "version": "1.19.8-1",
+      "version": "1.19.8-1+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/libh/libheif/libheif-plugin-dav1d_1.19.8-1_amd64.deb",
+      "link": "pool/main/libh/libheif/libheif-plugin-dav1d_1.19.8-1+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libheif-plugin-dav1d",
-      "version": "1.19.8-1",
+      "version": "1.19.8-1+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/libh/libheif/libheif-plugin-dav1d_1.19.8-1_arm64.deb",
+      "link": "pool/main/libh/libheif/libheif-plugin-dav1d_1.19.8-1+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libheif-plugin-libde265",
-      "version": "1.19.8-1",
+      "version": "1.19.8-1+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/libh/libheif/libheif-plugin-libde265_1.19.8-1_amd64.deb",
+      "link": "pool/main/libh/libheif/libheif-plugin-libde265_1.19.8-1+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libheif-plugin-libde265",
-      "version": "1.19.8-1",
+      "version": "1.19.8-1+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/libh/libheif/libheif-plugin-libde265_1.19.8-1_arm64.deb",
+      "link": "pool/main/libh/libheif/libheif-plugin-libde265_1.19.8-1+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libheif1",
-      "version": "1.19.8-1",
+      "version": "1.19.8-1+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/libh/libheif/libheif1_1.19.8-1_amd64.deb",
+      "link": "pool/main/libh/libheif/libheif1_1.19.8-1+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libheif1",
-      "version": "1.19.8-1",
+      "version": "1.19.8-1+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/libh/libheif/libheif1_1.19.8-1_arm64.deb",
+      "link": "pool/main/libh/libheif/libheif1_1.19.8-1+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -2012,16 +2166,16 @@
     },
     {
       "name": "libk5crypto3",
-      "version": "1.21.3-5",
+      "version": "1.21.3-5+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/k/krb5/libk5crypto3_1.21.3-5_amd64.deb",
+      "link": "pool/main/k/krb5/libk5crypto3_1.21.3-5+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libk5crypto3",
-      "version": "1.21.3-5",
+      "version": "1.21.3-5+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/k/krb5/libk5crypto3_1.21.3-5_arm64.deb",
+      "link": "pool/main/k/krb5/libk5crypto3_1.21.3-5+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -2040,30 +2194,30 @@
     },
     {
       "name": "libkrb5-3",
-      "version": "1.21.3-5",
+      "version": "1.21.3-5+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/k/krb5/libkrb5-3_1.21.3-5_amd64.deb",
+      "link": "pool/main/k/krb5/libkrb5-3_1.21.3-5+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libkrb5-3",
-      "version": "1.21.3-5",
+      "version": "1.21.3-5+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/k/krb5/libkrb5-3_1.21.3-5_arm64.deb",
+      "link": "pool/main/k/krb5/libkrb5-3_1.21.3-5+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libkrb5support0",
-      "version": "1.21.3-5",
+      "version": "1.21.3-5+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/k/krb5/libkrb5support0_1.21.3-5_amd64.deb",
+      "link": "pool/main/k/krb5/libkrb5support0_1.21.3-5+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libkrb5support0",
-      "version": "1.21.3-5",
+      "version": "1.21.3-5+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/k/krb5/libkrb5support0_1.21.3-5_arm64.deb",
+      "link": "pool/main/k/krb5/libkrb5support0_1.21.3-5+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -2166,16 +2320,16 @@
     },
     {
       "name": "liblzma5",
-      "version": "5.8.1-1",
+      "version": "5.8.1-1+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/x/xz-utils/liblzma5_5.8.1-1_amd64.deb",
+      "link": "pool/main/x/xz-utils/liblzma5_5.8.1-1+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "liblzma5",
-      "version": "5.8.1-1",
+      "version": "5.8.1-1+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/x/xz-utils/liblzma5_5.8.1-1_arm64.deb",
+      "link": "pool/main/x/xz-utils/liblzma5_5.8.1-1+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -2208,16 +2362,16 @@
     },
     {
       "name": "libmount1",
-      "version": "2.41-5",
+      "version": "2.41.5-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/u/util-linux/libmount1_2.41-5_amd64.deb",
+      "link": "pool/main/u/util-linux/libmount1_2.41.5-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libmount1",
-      "version": "2.41-5",
+      "version": "2.41.5-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/u/util-linux/libmount1_2.41-5_arm64.deb",
+      "link": "pool/main/u/util-linux/libmount1_2.41.5-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -2292,16 +2446,16 @@
     },
     {
       "name": "libnghttp2-14",
-      "version": "1.64.0-1.1",
+      "version": "1.64.0-1.1+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/n/nghttp2/libnghttp2-14_1.64.0-1.1_amd64.deb",
+      "link": "pool/main/n/nghttp2/libnghttp2-14_1.64.0-1.1+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libnghttp2-14",
-      "version": "1.64.0-1.1",
+      "version": "1.64.0-1.1+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/n/nghttp2/libnghttp2-14_1.64.0-1.1_arm64.deb",
+      "link": "pool/main/n/nghttp2/libnghttp2-14_1.64.0-1.1+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -2488,30 +2642,30 @@
     },
     {
       "name": "libpcre2-8-0",
-      "version": "10.46-1~deb13u1",
+      "version": "10.46-1~deb13u2",
       "architecture": "amd64",
-      "link": "pool/main/p/pcre2/libpcre2-8-0_10.46-1~deb13u1_amd64.deb",
+      "link": "pool/main/p/pcre2/libpcre2-8-0_10.46-1~deb13u2_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libpcre2-8-0",
-      "version": "10.46-1~deb13u1",
+      "version": "10.46-1~deb13u2",
       "architecture": "arm64",
-      "link": "pool/main/p/pcre2/libpcre2-8-0_10.46-1~deb13u1_arm64.deb",
+      "link": "pool/main/p/pcre2/libpcre2-8-0_10.46-1~deb13u2_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libperl5.40",
-      "version": "5.40.1-6",
+      "version": "5.40.1-6+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/p/perl/libperl5.40_5.40.1-6_amd64.deb",
+      "link": "pool/main/p/perl/libperl5.40_5.40.1-6+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libperl5.40",
-      "version": "5.40.1-6",
+      "version": "5.40.1-6+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/p/perl/libperl5.40_5.40.1-6_arm64.deb",
+      "link": "pool/main/p/perl/libperl5.40_5.40.1-6+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -2530,16 +2684,16 @@
     },
     {
       "name": "libpq5",
-      "version": "17.9-0+deb13u1",
+      "version": "17.11-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/p/postgresql-17/libpq5_17.9-0+deb13u1_amd64.deb",
+      "link": "pool/main/p/postgresql-17/libpq5_17.11-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libpq5",
-      "version": "17.9-0+deb13u1",
+      "version": "17.11-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/p/postgresql-17/libpq5_17.9-0+deb13u1_arm64.deb",
+      "link": "pool/main/p/postgresql-17/libpq5_17.11-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -2600,58 +2754,58 @@
     },
     {
       "name": "libpython3.13",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/p/python3.13/libpython3.13_3.13.5-2+deb13u2_amd64.deb",
+      "link": "pool/main/p/python3.13/libpython3.13_3.13.5-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libpython3.13",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/p/python3.13/libpython3.13_3.13.5-2+deb13u2_arm64.deb",
+      "link": "pool/main/p/python3.13/libpython3.13_3.13.5-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libpython3.13-dev",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/p/python3.13/libpython3.13-dev_3.13.5-2+deb13u2_amd64.deb",
+      "link": "pool/main/p/python3.13/libpython3.13-dev_3.13.5-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libpython3.13-dev",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/p/python3.13/libpython3.13-dev_3.13.5-2+deb13u2_arm64.deb",
+      "link": "pool/main/p/python3.13/libpython3.13-dev_3.13.5-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libpython3.13-minimal",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/p/python3.13/libpython3.13-minimal_3.13.5-2+deb13u2_amd64.deb",
+      "link": "pool/main/p/python3.13/libpython3.13-minimal_3.13.5-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libpython3.13-minimal",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/p/python3.13/libpython3.13-minimal_3.13.5-2+deb13u2_arm64.deb",
+      "link": "pool/main/p/python3.13/libpython3.13-minimal_3.13.5-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libpython3.13-stdlib",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/p/python3.13/libpython3.13-stdlib_3.13.5-2+deb13u2_amd64.deb",
+      "link": "pool/main/p/python3.13/libpython3.13-stdlib_3.13.5-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libpython3.13-stdlib",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/p/python3.13/libpython3.13-stdlib_3.13.5-2+deb13u2_arm64.deb",
+      "link": "pool/main/p/python3.13/libpython3.13-stdlib_3.13.5-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
@@ -2894,58 +3048,58 @@
     },
     {
       "name": "libsqlite3-0",
-      "version": "3.46.1-7+deb13u1",
+      "version": "3.46.1-7+deb13u2",
       "architecture": "amd64",
-      "link": "pool/main/s/sqlite3/libsqlite3-0_3.46.1-7+deb13u1_amd64.deb",
+      "link": "pool/main/s/sqlite3/libsqlite3-0_3.46.1-7+deb13u2_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libsqlite3-0",
-      "version": "3.46.1-7+deb13u1",
+      "version": "3.46.1-7+deb13u2",
       "architecture": "arm64",
-      "link": "pool/main/s/sqlite3/libsqlite3-0_3.46.1-7+deb13u1_arm64.deb",
+      "link": "pool/main/s/sqlite3/libsqlite3-0_3.46.1-7+deb13u2_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libssh-4",
-      "version": "0.11.2-1+deb13u1",
+      "version": "0.11.5-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/libs/libssh/libssh-4_0.11.2-1+deb13u1_amd64.deb",
+      "link": "pool/main/libs/libssh/libssh-4_0.11.5-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libssh-4",
-      "version": "0.11.2-1+deb13u1",
+      "version": "0.11.5-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/libs/libssh/libssh-4_0.11.2-1+deb13u1_arm64.deb",
+      "link": "pool/main/libs/libssh/libssh-4_0.11.5-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libssh2-1t64",
-      "version": "1.11.1-1",
+      "version": "1.11.1-1+deb13u2",
       "architecture": "amd64",
-      "link": "pool/main/libs/libssh2/libssh2-1t64_1.11.1-1_amd64.deb",
+      "link": "pool/main/libs/libssh2/libssh2-1t64_1.11.1-1+deb13u2_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libssh2-1t64",
-      "version": "1.11.1-1",
+      "version": "1.11.1-1+deb13u2",
       "architecture": "arm64",
-      "link": "pool/main/libs/libssh2/libssh2-1t64_1.11.1-1_arm64.deb",
+      "link": "pool/main/libs/libssh2/libssh2-1t64_1.11.1-1+deb13u2_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libssl3t64",
-      "version": "3.5.6-1~deb13u1",
+      "version": "3.5.7-1~deb13u2",
       "architecture": "amd64",
-      "link": "pool/main/o/openssl/libssl3t64_3.5.6-1~deb13u1_amd64.deb",
+      "link": "pool/main/o/openssl/libssl3t64_3.5.7-1~deb13u2_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libssl3t64",
-      "version": "3.5.6-1~deb13u1",
+      "version": "3.5.7-1~deb13u2",
       "architecture": "arm64",
-      "link": "pool/main/o/openssl/libssl3t64_3.5.6-1~deb13u1_arm64.deb",
+      "link": "pool/main/o/openssl/libssl3t64_3.5.7-1~deb13u2_arm64.deb",
       "type": "apt"
     },
     {
@@ -3020,16 +3174,16 @@
     },
     {
       "name": "libtasn1-6",
-      "version": "4.20.0-2",
+      "version": "4.20.0-2+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/libt/libtasn1-6/libtasn1-6_4.20.0-2_amd64.deb",
+      "link": "pool/main/libt/libtasn1-6/libtasn1-6_4.20.0-2+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libtasn1-6",
-      "version": "4.20.0-2",
+      "version": "4.20.0-2+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/libt/libtasn1-6/libtasn1-6_4.20.0-2_arm64.deb",
+      "link": "pool/main/libt/libtasn1-6/libtasn1-6_4.20.0-2+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -3055,16 +3209,16 @@
     },
     {
       "name": "libtiff6",
-      "version": "4.7.0-3+deb13u2",
+      "version": "4.7.0-3+deb13u3",
       "architecture": "amd64",
-      "link": "pool/main/t/tiff/libtiff6_4.7.0-3+deb13u2_amd64.deb",
+      "link": "pool/main/t/tiff/libtiff6_4.7.0-3+deb13u3_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libtiff6",
-      "version": "4.7.0-3+deb13u2",
+      "version": "4.7.0-3+deb13u3",
       "architecture": "arm64",
-      "link": "pool/main/t/tiff/libtiff6_4.7.0-3+deb13u2_arm64.deb",
+      "link": "pool/main/t/tiff/libtiff6_4.7.0-3+deb13u3_arm64.deb",
       "type": "apt"
     },
     {
@@ -3139,16 +3293,16 @@
     },
     {
       "name": "libuuid1",
-      "version": "2.41-5",
+      "version": "2.41.5-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/u/util-linux/libuuid1_2.41-5_amd64.deb",
+      "link": "pool/main/u/util-linux/libuuid1_2.41.5-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libuuid1",
-      "version": "2.41-5",
+      "version": "2.41.5-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/u/util-linux/libuuid1_2.41-5_arm64.deb",
+      "link": "pool/main/u/util-linux/libuuid1_2.41.5-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -3181,51 +3335,51 @@
     },
     {
       "name": "libwireshark-data",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "all",
-      "link": "pool/main/w/wireshark/libwireshark-data_4.4.15-0+deb13u1_all.deb",
+      "link": "pool/main/w/wireshark/libwireshark-data_4.4.18-0+deb13u1_all.deb",
       "type": "apt"
     },
     {
       "name": "libwireshark18",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/w/wireshark/libwireshark18_4.4.15-0+deb13u1_amd64.deb",
+      "link": "pool/main/w/wireshark/libwireshark18_4.4.18-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libwireshark18",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/w/wireshark/libwireshark18_4.4.15-0+deb13u1_arm64.deb",
+      "link": "pool/main/w/wireshark/libwireshark18_4.4.18-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libwiretap15",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/w/wireshark/libwiretap15_4.4.15-0+deb13u1_amd64.deb",
+      "link": "pool/main/w/wireshark/libwiretap15_4.4.18-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libwiretap15",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/w/wireshark/libwiretap15_4.4.15-0+deb13u1_arm64.deb",
+      "link": "pool/main/w/wireshark/libwiretap15_4.4.18-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libwsutil16",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/w/wireshark/libwsutil16_4.4.15-0+deb13u1_amd64.deb",
+      "link": "pool/main/w/wireshark/libwsutil16_4.4.18-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libwsutil16",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/w/wireshark/libwsutil16_4.4.15-0+deb13u1_arm64.deb",
+      "link": "pool/main/w/wireshark/libwsutil16_4.4.18-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -3293,30 +3447,30 @@
     },
     {
       "name": "libxml2",
-      "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u2",
+      "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
       "architecture": "amd64",
-      "link": "pool/main/libx/libxml2/libxml2_2.12.7+dfsg+really2.9.14-2.1+deb13u2_amd64.deb",
+      "link": "pool/main/libx/libxml2/libxml2_2.12.7+dfsg+really2.9.14-2.1+deb13u3_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libxml2",
-      "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u2",
+      "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
       "architecture": "arm64",
-      "link": "pool/main/libx/libxml2/libxml2_2.12.7+dfsg+really2.9.14-2.1+deb13u2_arm64.deb",
+      "link": "pool/main/libx/libxml2/libxml2_2.12.7+dfsg+really2.9.14-2.1+deb13u3_arm64.deb",
       "type": "apt"
     },
     {
       "name": "libxpm4",
-      "version": "1:3.5.17-1+b3",
+      "version": "1:3.5.17-1+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/libx/libxpm/libxpm4_3.5.17-1+b3_amd64.deb",
+      "link": "pool/main/libx/libxpm/libxpm4_3.5.17-1+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "libxpm4",
-      "version": "1:3.5.17-1+b3",
+      "version": "1:3.5.17-1+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/libx/libxpm/libxpm4_3.5.17-1+b3_arm64.deb",
+      "link": "pool/main/libx/libxpm/libxpm4_3.5.17-1+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
@@ -3419,9 +3573,9 @@
     },
     {
       "name": "linux-libc-dev",
-      "version": "6.12.86-1",
+      "version": "6.12.107-1",
       "architecture": "all",
-      "link": "pool/main/l/linux/linux-libc-dev_6.12.86-1_all.deb",
+      "link": "pool/main/l/linux/linux-libc-dev_6.12.107-1_all.deb",
       "type": "apt"
     },
     {
@@ -3545,30 +3699,30 @@
     },
     {
       "name": "openssl",
-      "version": "3.5.6-1~deb13u1",
+      "version": "3.5.7-1~deb13u2",
       "architecture": "amd64",
-      "link": "pool/main/o/openssl/openssl_3.5.6-1~deb13u1_amd64.deb",
+      "link": "pool/main/o/openssl/openssl_3.5.7-1~deb13u2_amd64.deb",
       "type": "apt"
     },
     {
       "name": "openssl",
-      "version": "3.5.6-1~deb13u1",
+      "version": "3.5.7-1~deb13u2",
       "architecture": "arm64",
-      "link": "pool/main/o/openssl/openssl_3.5.6-1~deb13u1_arm64.deb",
+      "link": "pool/main/o/openssl/openssl_3.5.7-1~deb13u2_arm64.deb",
       "type": "apt"
     },
     {
       "name": "openssl-provider-legacy",
-      "version": "3.5.6-1~deb13u1",
+      "version": "3.5.7-1~deb13u2",
       "architecture": "amd64",
-      "link": "pool/main/o/openssl/openssl-provider-legacy_3.5.6-1~deb13u1_amd64.deb",
+      "link": "pool/main/o/openssl/openssl-provider-legacy_3.5.7-1~deb13u2_amd64.deb",
       "type": "apt"
     },
     {
       "name": "openssl-provider-legacy",
-      "version": "3.5.6-1~deb13u1",
+      "version": "3.5.7-1~deb13u2",
       "architecture": "arm64",
-      "link": "pool/main/o/openssl/openssl-provider-legacy_3.5.6-1~deb13u1_arm64.deb",
+      "link": "pool/main/o/openssl/openssl-provider-legacy_3.5.7-1~deb13u2_arm64.deb",
       "type": "apt"
     },
     {
@@ -3587,149 +3741,233 @@
     },
     {
       "name": "perl",
-      "version": "5.40.1-6",
+      "version": "5.40.1-6+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/p/perl/perl_5.40.1-6_amd64.deb",
+      "link": "pool/main/p/perl/perl_5.40.1-6+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "perl",
-      "version": "5.40.1-6",
+      "version": "5.40.1-6+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/p/perl/perl_5.40.1-6_arm64.deb",
+      "link": "pool/main/p/perl/perl_5.40.1-6+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "perl-base",
-      "version": "5.40.1-6",
+      "version": "5.40.1-6+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/p/perl/perl-base_5.40.1-6_amd64.deb",
+      "link": "pool/main/p/perl/perl-base_5.40.1-6+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "perl-base",
-      "version": "5.40.1-6",
+      "version": "5.40.1-6+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/p/perl/perl-base_5.40.1-6_arm64.deb",
+      "link": "pool/main/p/perl/perl-base_5.40.1-6+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "perl-modules-5.40",
-      "version": "5.40.1-6",
+      "version": "5.40.1-6+deb13u1",
       "architecture": "all",
-      "link": "pool/main/p/perl/perl-modules-5.40_5.40.1-6_all.deb",
+      "link": "pool/main/p/perl/perl-modules-5.40_5.40.1-6+deb13u1_all.deb",
       "type": "apt"
     },
     {
       "name": "php-common",
-      "version": "2:101~+0~20260503.72+debian13~1.gbp7da167",
+      "version": "2:101+0~20261021.78+debian13~1.gbp53f25f",
       "architecture": "all",
-      "link": "pool/main/p/php-defaults/php-common_101~+0~20260503.72+debian13~1.gbp7da167_all.deb",
+      "link": "pool/main/p/php-defaults/php-common_101+0~20261021.78+debian13~1.gbp53f25f_all.deb",
       "type": "apt"
     },
     {
       "name": "php8.5",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "all",
-      "link": "pool/main/p/php8.5/php8.5_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_all.deb",
+      "link": "pool/main/p/php8.5/php8.5_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_all.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-bcmath",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-bcmath_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-bcmath_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-bcmath",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-bcmath_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-cli",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-cli_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-cli_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-cli",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-cli_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-common",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-common_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-common_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-common",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-common_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-curl",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-curl_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-curl_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-curl",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-curl_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-gd",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-gd_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-gd_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-gd",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-gd_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-intl",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-intl_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-intl_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-intl",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-intl_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-mbstring",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-mbstring_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-mbstring_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
       "type": "apt"
     },
     {
-      "name": "php8.5-pcov",
-      "version": "1.0.12-2+0~20251124.33+debian13~1.gbp5b3479",
-      "architecture": "amd64",
-      "link": "pool/main/p/php-pcov/php8.5-pcov_1.0.12-2+0~20251124.33+debian13~1.gbp5b3479_amd64.deb",
-      "type": "apt"
-    },
-    {
-      "name": "php8.5-pcov",
-      "version": "1.0.12-2+0~20251124.33+debian13~1.gbp5b3479",
+      "name": "php8.5-mbstring",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "arm64",
-      "link": "pool/main/p/php-pcov/php8.5-pcov_1.0.12-2+0~20251124.33+debian13~1.gbp5b3479_arm64.deb",
+      "link": "pool/main/p/php8.5/php8.5-mbstring_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-pcov",
+      "version": "1.0.12-2+0~20260622.34+debian13~1.gbp5b3479",
+      "architecture": "amd64",
+      "link": "pool/main/p/php-pcov/php8.5-pcov_1.0.12-2+0~20260622.34+debian13~1.gbp5b3479_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-pcov",
+      "version": "1.0.12-2+0~20260622.34+debian13~1.gbp5b3479",
+      "architecture": "arm64",
+      "link": "pool/main/p/php-pcov/php8.5-pcov_1.0.12-2+0~20260622.34+debian13~1.gbp5b3479_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-pgsql",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-pgsql_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-pgsql_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-pgsql",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-pgsql_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-readline",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-readline_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-readline_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-readline",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-readline_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-sqlite3",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-sqlite3_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-sqlite3_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-sqlite3",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-sqlite3_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-xml",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-xml_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-xml_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-xml",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-xml_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
       "name": "php8.5-zip",
-      "version": "8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
       "architecture": "amd64",
-      "link": "pool/main/p/php8.5/php8.5-zip_8.5.6-3+0~20260514.18+debian13~1.gbpe4e1f6_amd64.deb",
+      "link": "pool/main/p/php8.5/php8.5-zip_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_amd64.deb",
+      "type": "apt"
+    },
+    {
+      "name": "php8.5-zip",
+      "version": "8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a",
+      "architecture": "arm64",
+      "link": "pool/main/p/php8.5/php8.5-zip_8.5.12-1+0~20261021.27+debian13~1.gbp1a3e8a_arm64.deb",
       "type": "apt"
     },
     {
@@ -3902,73 +4140,73 @@
     },
     {
       "name": "python3.13",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/p/python3.13/python3.13_3.13.5-2+deb13u2_amd64.deb",
+      "link": "pool/main/p/python3.13/python3.13_3.13.5-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "python3.13",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/p/python3.13/python3.13_3.13.5-2+deb13u2_arm64.deb",
+      "link": "pool/main/p/python3.13/python3.13_3.13.5-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
       "name": "python3.13-dev",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/p/python3.13/python3.13-dev_3.13.5-2+deb13u2_amd64.deb",
+      "link": "pool/main/p/python3.13/python3.13-dev_3.13.5-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "python3.13-dev",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/p/python3.13/python3.13-dev_3.13.5-2+deb13u2_arm64.deb",
+      "link": "pool/main/p/python3.13/python3.13-dev_3.13.5-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
       "name": "python3.13-minimal",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/p/python3.13/python3.13-minimal_3.13.5-2+deb13u2_amd64.deb",
+      "link": "pool/main/p/python3.13/python3.13-minimal_3.13.5-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "python3.13-minimal",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/p/python3.13/python3.13-minimal_3.13.5-2+deb13u2_arm64.deb",
+      "link": "pool/main/p/python3.13/python3.13-minimal_3.13.5-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
       "name": "python3.13-venv",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "amd64",
-      "link": "pool/main/p/python3.13/python3.13-venv_3.13.5-2+deb13u2_amd64.deb",
+      "link": "pool/main/p/python3.13/python3.13-venv_3.13.5-2+deb13u5_amd64.deb",
       "type": "apt"
     },
     {
       "name": "python3.13-venv",
-      "version": "3.13.5-2+deb13u2",
+      "version": "3.13.5-2+deb13u5",
       "architecture": "arm64",
-      "link": "pool/main/p/python3.13/python3.13-venv_3.13.5-2+deb13u2_arm64.deb",
+      "link": "pool/main/p/python3.13/python3.13-venv_3.13.5-2+deb13u5_arm64.deb",
       "type": "apt"
     },
     {
       "name": "rclone",
-      "version": "1.60.1+dfsg-4",
+      "version": "1.75.1",
       "architecture": "amd64",
-      "link": "pool/main/r/rclone/rclone_1.60.1+dfsg-4_amd64.deb",
-      "type": "apt"
+      "link": "artifacts/rclone/amd64.zip",
+      "type": "artifact"
     },
     {
       "name": "rclone",
-      "version": "1.60.1+dfsg-4",
+      "version": "1.75.1",
       "architecture": "arm64",
-      "link": "pool/main/r/rclone/rclone_1.60.1+dfsg-4_arm64.deb",
-      "type": "apt"
+      "link": "artifacts/rclone/arm64.zip",
+      "type": "artifact"
     },
     {
       "name": "readline-common",
@@ -3979,17 +4217,17 @@
     },
     {
       "name": "restic",
-      "version": "0.18.0-1+b4",
+      "version": "0.19.1",
       "architecture": "amd64",
-      "link": "pool/main/r/restic/restic_0.18.0-1+b4_amd64.deb",
-      "type": "apt"
+      "link": "artifacts/restic/amd64.bz2",
+      "type": "artifact"
     },
     {
       "name": "restic",
-      "version": "0.18.0-1+b4",
+      "version": "0.19.1",
       "architecture": "arm64",
-      "link": "pool/main/r/restic/restic_0.18.0-1+b4_arm64.deb",
-      "type": "apt"
+      "link": "artifacts/restic/arm64.bz2",
+      "type": "artifact"
     },
     {
       "name": "rpcsvc-proto",
@@ -4016,28 +4254,28 @@
       "name": "sops",
       "version": "3.11.0",
       "architecture": "amd64",
-      "link": "artifacts/sops/sops/amd64",
+      "link": "artifacts/sops/amd64",
       "type": "artifact"
     },
     {
       "name": "sops",
       "version": "3.11.0",
       "architecture": "arm64",
-      "link": "artifacts/sops/sops/arm64",
+      "link": "artifacts/sops/arm64",
       "type": "artifact"
     },
     {
       "name": "talos",
       "version": "1.12.4",
       "architecture": "amd64",
-      "link": "artifacts/talos/talosctl/amd64",
+      "link": "artifacts/talos/amd64",
       "type": "artifact"
     },
     {
       "name": "talos",
       "version": "1.12.4",
       "architecture": "arm64",
-      "link": "artifacts/talos/talosctl/arm64",
+      "link": "artifacts/talos/arm64",
       "type": "artifact"
     },
     {
@@ -4056,37 +4294,37 @@
     },
     {
       "name": "terraform",
-      "version": "1.15.4-1",
+      "version": "1.16.5",
       "architecture": "amd64",
-      "link": "pool/main/t/terraform/terraform_1.15.4-1_amd64.deb",
-      "type": "apt"
+      "link": "artifacts/terraform/amd64.zip",
+      "type": "artifact"
     },
     {
       "name": "terraform",
-      "version": "1.15.4-1",
+      "version": "1.16.5",
       "architecture": "arm64",
-      "link": "pool/main/t/terraform/terraform_1.15.4-1_arm64.deb",
-      "type": "apt"
+      "link": "artifacts/terraform/arm64.zip",
+      "type": "artifact"
     },
     {
       "name": "tshark",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/w/wireshark/tshark_4.4.15-0+deb13u1_amd64.deb",
+      "link": "pool/main/w/wireshark/tshark_4.4.18-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "tshark",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/w/wireshark/tshark_4.4.15-0+deb13u1_arm64.deb",
+      "link": "pool/main/w/wireshark/tshark_4.4.18-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "tzdata",
-      "version": "2026b-0+deb13u1",
+      "version": "2026c-0+deb13u1",
       "architecture": "all",
-      "link": "pool/main/t/tzdata/tzdata_2026b-0+deb13u1_all.deb",
+      "link": "pool/main/t/tzdata/tzdata_2026c-0+deb13u1_all.deb",
       "type": "apt"
     },
     {
@@ -4098,30 +4336,30 @@
     },
     {
       "name": "wireshark-common",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/w/wireshark/wireshark-common_4.4.15-0+deb13u1_amd64.deb",
+      "link": "pool/main/w/wireshark/wireshark-common_4.4.18-0+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "wireshark-common",
-      "version": "4.4.15-0+deb13u1",
+      "version": "4.4.18-0+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/w/wireshark/wireshark-common_4.4.15-0+deb13u1_arm64.deb",
+      "link": "pool/main/w/wireshark/wireshark-common_4.4.18-0+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
       "name": "xz-utils",
-      "version": "5.8.1-1",
+      "version": "5.8.1-1+deb13u1",
       "architecture": "amd64",
-      "link": "pool/main/x/xz-utils/xz-utils_5.8.1-1_amd64.deb",
+      "link": "pool/main/x/xz-utils/xz-utils_5.8.1-1+deb13u1_amd64.deb",
       "type": "apt"
     },
     {
       "name": "xz-utils",
-      "version": "5.8.1-1",
+      "version": "5.8.1-1+deb13u1",
       "architecture": "arm64",
-      "link": "pool/main/x/xz-utils/xz-utils_5.8.1-1_arm64.deb",
+      "link": "pool/main/x/xz-utils/xz-utils_5.8.1-1+deb13u1_arm64.deb",
       "type": "apt"
     },
     {
