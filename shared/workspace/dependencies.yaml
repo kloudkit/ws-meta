@@ -149,13 +149,14 @@ dependencies:
     version: 1.27.2
 
   docker:
+    cmd: dockerd --version
     datasource: deb
     group: Docker & Kubernetes
     home: https://docs.docker.com/engine
     license: Apache 2
     package: docker-ce
     track: false
-    version: 28.3.2
+    version: 29.9.3
 
   docker CLI:
     datasource: deb
