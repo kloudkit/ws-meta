@@ -17,6 +17,8 @@ runs:
   steps:
     - name: 📥 Checkout caller
       uses: actions/checkout@v6
+      with:
+        clean: false
 
     - name: 📥 Checkout ws-meta
       uses: actions/checkout@v6
