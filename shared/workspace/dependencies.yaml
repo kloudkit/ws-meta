@@ -763,7 +763,7 @@ dependencies:
 
   ws-cli:
     cmd: ws-cli --version
-    currentDigest: 1661a2551cf31d74e4fc0f4278c28942f587f9ec
+    currentDigest: 7438ab346ae6dd7dd57aabbb6996c8cd218e91b9
     currentValue: main
     datasource: git-refs
     home: https://github.com/kloudkit/ws-cli
