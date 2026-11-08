@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.6.1] — 2026-11-08
+
+### Added
+
+- ✨ Download a file or a zipped folder through the browser with `ws-cli editor download` *(ws-cli, ws-server)*
+- ✨ Reveal a file in the Explorer with `ws-cli editor reveal` *(ws-cli, ws-server)*
+- ✨ Open an editor terminal with `ws-cli editor terminal` *(ws-cli, ws-server)*
+- ✨ Open a file in a centered overlay with `ws-cli editor open --modal` *(ws-cli, ws-server)*
+
+### Fixed
+
+- 🐛 Keep the user `settings.json` when `WS_EDITOR_SETTINGS_OVERRIDE` holds invalid JSON
+- 🐛 Warn when `WS_EDITOR_SETTINGS_OVERRIDE_FILE` or `WS_EDITOR_SETTINGS_MERGE_FILE` is missing
+- 🐛 Install clippy with the Rust feature, so rust-analyzer's checks run
+- 🐛 Start the cloudflared tunnel after `ws feature install cloudflared` in a running workspace
+- 🐛 Fix `ws-cli feature store`, which returned 404 *(ws-cli)*
+- 🐛 Correct seven variable descriptions and the dead docs links in the env reference
+
+### Security
+
+- 🔒 Stop the container when a built-in startup script fails under `WS_STARTUP_FAIL_ON_ERROR`, not run on with sudo
+
+### Dependencies
+
+- ⬆️ Bump ws-cli to `7438ab3`
+
 ## [0.6.0] — 2026-11-05
 
 ### Added
