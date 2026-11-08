@@ -58,7 +58,7 @@ commands:
             - name: uri
               usage: Filter to a single file (URI or absolute path)
         - name: ws-cli editor download
-          since: next
+          since: 0.6.1
           synopsis: Download a file to your computer
           description: Ask the running editor window to download a file of any size to your computer through the browser. The editor asks first, naming the file with its full path and size; once you click Download it returns at once and the transfer shows in the browser's download bar. A folder is zipped first, as <folder>.zip (or --name) in its own temp folder, and the zip is downloaded; --zip zips without asking, a terminal is asked, and without either the folder is refused. The zip is deleted at once when the download does not start, and soon after it does, once the editor has opened it. Fails when file downloads are disabled (WS_EDITOR_DISABLE_FILE_DOWNLOADS), when the path is neither a regular file nor a folder, or when the prompt is cancelled or times out. Blocked over SSH.
           usage: ws-cli editor download <path> [flags]
@@ -105,7 +105,7 @@ commands:
             - name: selection
               usage: 'Select a range: LINE:COL[-LINE:COL] (1-based)'
         - name: ws-cli editor reveal
-          since: next
+          since: 0.6.1
           synopsis: Reveal a file or folder in the Explorer sidebar
           description: Show and select a workspace file or folder in the editor's Explorer sidebar without opening it, like the Reveal in Explorer View action. Blocked over SSH.
           usage: ws-cli editor reveal <path>
@@ -115,7 +115,7 @@ commands:
           description: 'Report the active editor''s current selection: file, range, and selected text. Empty when nothing is selected.'
           usage: ws-cli editor selection
         - name: ws-cli editor terminal
-          since: next
+          since: 0.6.1
           synopsis: Open a terminal session in the editor
           description: Open a new integrated terminal in the running editor window, in the current directory or --cwd, named with --name. Arguments after -- are joined with spaces and run in the new terminal. Blocked over SSH.
           usage: ws-cli editor terminal [-- command...] [flags]
