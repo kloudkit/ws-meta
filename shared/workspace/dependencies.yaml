@@ -575,6 +575,15 @@ dependencies:
     license: Apache 2
     version: 5.4.2
 
+  prek:
+    cmd: prek --version
+    datasource: github-releases
+    group: CLI Tools
+    home: https://github.com/j178/prek
+    license: MIT
+    package: j178/prek
+    version: 0.5.10
+
   pre-commit:
     cmd: pre-commit --version
     datasource: pypi
