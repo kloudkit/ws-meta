@@ -52,8 +52,13 @@ commands:
         - name: ws-cli editor diagnostics
           since: 0.5.0
           synopsis: Show language diagnostics for the workspace (or a single file)
-          description: Pull language-server diagnostics (errors, warnings) from the editor, across the whole workspace or a single file with --uri. Styled table by default, --raw for the JSON.
+          description: Pull language-server diagnostics (errors, warnings) from the editor, across the whole workspace or a single file with --uri.
           usage: ws-cli editor diagnostics [flags]
+          mcp:
+            name: editor_diagnostics
+            access: read
+            flags:
+                - uri
           options:
             - name: uri
               usage: Filter to a single file (URI or absolute path)
@@ -73,6 +78,9 @@ commands:
           synopsis: List the currently open editor tabs
           description: List the editor's open tabs, with each tab's path, language, and active or dirty state.
           usage: ws-cli editor list
+          mcp:
+            name: editor_list
+            access: read
         - name: ws-cli editor notify
           since: 0.5.0
           synopsis: Raise a notification in the editor
@@ -87,8 +95,14 @@ commands:
         - name: ws-cli editor open
           since: 0.5.0
           synopsis: Open a file in the editor
-          description: 'Open a file in the running editor window: a tab in the current window by default, a new window with --new-window, a centered overlay with --modal, jumping to a range with --selection. Fails fast over SSH, where there is no browser editor to open into.'
+          description: 'Open a file in the running editor window: a tab in the current window by default, a preview tab with --preview, jumping to a range with --selection. Fails fast over SSH, where there is no browser editor to open into.'
           usage: ws-cli editor open <file> [flags]
+          mcp:
+            name: editor_open
+            access: write
+            flags:
+                - selection
+                - preview
           options:
             - name: modal
               default: "false"
@@ -109,11 +123,17 @@ commands:
           synopsis: Reveal a file or folder in the Explorer sidebar
           description: Show and select a workspace file or folder in the editor's Explorer sidebar without opening it, like the Reveal in Explorer View action. Blocked over SSH.
           usage: ws-cli editor reveal <path>
+          mcp:
+            name: editor_reveal
+            access: write
         - name: ws-cli editor selection
           since: 0.5.0
           synopsis: Show the active editor's current selection
           description: 'Report the active editor''s current selection: file, range, and selected text. Empty when nothing is selected.'
           usage: ws-cli editor selection
+          mcp:
+            name: editor_selection
+            access: read
         - name: ws-cli editor terminal
           since: 0.6.1
           synopsis: Open a terminal session in the editor
@@ -142,8 +162,11 @@ commands:
         - name: ws-cli feature info
           since: 0.2.0
           synopsis: Show detailed information about a feature
-          description: Show a feature's description and the variables it accepts, so you know what --opt values install will take.
+          description: Show a feature's description and the variables it accepts when it is installed.
           usage: ws-cli feature info <name>
+          mcp:
+            name: feature_info
+            access: read
         - name: ws-cli feature install
           since: 0.2.0
           synopsis: Install additional pre-configured features
@@ -152,7 +175,7 @@ commands:
           options:
             - name: opt
               default: '[]'
-              usage: Optional variables to use during installation
+              usage: Optional variables to use during installation, from the ones feature info lists
             - name: skip-completion
               default: "false"
               usage: Skip configuring shell completion
@@ -169,6 +192,9 @@ commands:
           usage: ws-cli feature list
           aliases:
             - ls
+          mcp:
+            name: feature_list
+            access: read
         - name: ws-cli feature new
           since: 0.2.0
           synopsis: Print boilerplate for a custom feature playbook
@@ -182,6 +208,11 @@ commands:
           synopsis: List packages available in the feature store
           description: List the artifacts published to the feature store (WS_FEATURES_STORE_URL), the offline mirror that features install from when the network is locked down.
           usage: ws-cli feature store
+          mcp:
+            name: feature_store
+            access: read
+            when:
+                - features.store_url
     - name: ws-cli info
       since: 0.2.0
       synopsis: Display workspace information
@@ -203,11 +234,19 @@ commands:
           synopsis: Display installed extensions
           description: List the installed VS Code extensions with their versions.
           usage: ws-cli info extensions
+          mcp:
+            name: info_extensions
+            access: read
         - name: ws-cli info metrics
           since: 0.2.0
           synopsis: Display workspace metrics
           description: 'Show live resource usage: CPU, memory, disk, and file descriptors, plus GPU with --gpu.'
           usage: ws-cli info metrics [flags]
+          mcp:
+            name: info_metrics
+            access: read
+            flags:
+                - gpu
           options:
             - name: gpu
               default: "false"
@@ -217,11 +256,19 @@ commands:
           synopsis: Display the workspace uptime
           description: Show when the workspace session started and how long it has been running.
           usage: ws-cli info uptime
+          mcp:
+            name: info_uptime
+            access: read
         - name: ws-cli info version
           since: 0.2.0
           synopsis: Display installed workspace version
           description: 'Print the workspace version. --all expands to the full table: workspace, ws-cli, and VS Code.'
           usage: ws-cli info version [flags]
+          mcp:
+            name: info_version
+            access: read
+            flags:
+                - all
           options:
             - name: all
               default: "false"
@@ -306,7 +353,7 @@ commands:
     - name: ws-cli logs
       since: 0.2.0
       synopsis: Retrieve workspace logs
-      description: 'Read a workspace daemon''s log: the main log by default, or --target metrics|docker|cloudflared. Filter by --level, limit with --tail, or stream live with --follow.'
+      description: 'Read a workspace daemon''s log: the main log by default, or --target metrics|docker|cloudflared. Filter by --level and limit with --tail.'
       usage: ws-cli logs [flags]
       example: |-
         # Stream errors live, starting from the last 100 lines
@@ -314,6 +361,13 @@ commands:
 
         # Read a specific target instead of the main log
         ws-cli logs --target metrics
+      mcp:
+        name: logs
+        access: read
+        flags:
+            - tail
+            - level
+            - target
       options:
         - name: follow
           shorthand: f
@@ -417,6 +471,9 @@ commands:
           synopsis: List seed destinations and their behaviors
           description: 'List what apply would write, without touching the filesystem: each destination with its operation and whether it carries a secret or a template.'
           usage: ws-cli seed ls
+          mcp:
+            name: seed_ls
+            access: read
         - name: ws-cli seed rotate
           since: 0.5.0
           synopsis: Re-encrypt managed secrets under a new master key
@@ -430,33 +487,44 @@ commands:
     - name: ws-cli serve
       since: 0.2.0
       synopsis: Serve internal assets
-      description: Run a small HTTP server for the current directory on --port (default 38080).
+      description: 'Run a small local server: the current directory as a static site, the Prometheus metrics, or the workspace tools for AI agents over MCP.'
       example: |-
         # Serve the current directory
         ws-cli serve current
 
         # Serve on a custom port
         ws-cli serve current --port 38081
-      options:
-        - name: bind
-          default: 0.0.0.0
-          usage: Bind address
-        - name: port
-          shorthand: p
-          default: "38080"
-          usage: Port to serve assets on
+
+        # Serve the workspace tools to an AI agent over stdio
+        ws-cli serve mcp
       commands:
         - name: ws-cli serve current
           since: 0.2.0
           synopsis: Serve current directory as a static site
           description: Serve the current directory over HTTP as a static site, a quick way to preview built files.
-          usage: ws-cli serve current
+          usage: ws-cli serve current [flags]
+          options:
+            - name: bind
+              default: 0.0.0.0
+              usage: Bind address
+            - name: port
+              shorthand: p
+              default: "38080"
+              usage: Port to serve assets on
+        - name: ws-cli serve mcp
+          since: next
+          synopsis: Serve the workspace tools to AI agents over MCP
+          description: 'Run a Model Context Protocol server on stdin and stdout, for an AI agent in the workspace to start. Its tools are the ws-cli commands that opt in: read-only ones by default, the ones that act on the workspace too with WS_AI_MCP_ALLOW_WRITE, narrowed to the groups or tools named in WS_AI_MCP_TOOLS.'
+          usage: ws-cli serve mcp
         - name: ws-cli serve metrics
           since: 0.2.0
           synopsis: Start the Prometheus metrics server
           description: Serve workspace and container metrics in the Prometheus exposition format, from the collectors chosen with --collectors.
           usage: ws-cli serve metrics [flags]
           options:
+            - name: bind
+              default: 0.0.0.0
+              usage: Bind address
             - name: collectors
               default: '[*]'
               usage: Comma-separated list of collectors to enable (e.g., workspace,container.cpu,gpu)
@@ -482,14 +550,17 @@ commands:
         - name: ws-cli show env
           since: 0.2.0
           synopsis: Display the resolved value of a workspace environment variable
-          description: Resolve a setting by its dotted key (server.port) and print it with its source and description. --value emits just the value for scripts, --as bool|int|list validates the shape, --check tests whether it is set so a startup script can guard on it.
+          description: Resolve a setting by its dotted key (server.port) and print it with its source and description. The value of a secret setting is shown redacted.
           usage: ws-cli show env <KEY> [flags]
+          mcp:
+            name: show_env
+            access: read
           options:
             - name: as
-              usage: 'Validate and emit as one of: bool, int, list (mutex with --value)'
+              usage: 'Validate the shape and emit as one of: bool, int, list (mutex with --value)'
             - name: check
               default: "false"
-              usage: Check whether the variable (or its --deprecated alias) is set
+              usage: Check whether the variable (or its --deprecated alias) is set, so a startup script can guard on it
             - name: delimiter
               usage: Override delimiter for --as=list (defaults to YAML delimiter or space)
             - name: deprecated
@@ -501,7 +572,7 @@ commands:
               usage: Anchored regex each --as=list token must full-match; rejects fail-closed
             - name: value
               default: "false"
-              usage: Emit the raw resolved value as a single line
+              usage: Emit just the raw resolved value as a single line, for scripts
         - name: ws-cli show ip
           since: 0.2.0
           synopsis: Display IP addresses
@@ -512,11 +583,17 @@ commands:
               synopsis: Display the internal IP address
               description: Print the workspace container's internal IP address.
               usage: ws-cli show ip internal
+              mcp:
+                name: show_ip_internal
+                access: read
             - name: ws-cli show ip node
               since: 0.2.0
               synopsis: Display the node/host IP address
               description: Print the IP address of the node hosting the workspace.
               usage: ws-cli show ip node
+              mcp:
+                name: show_ip_node
+                access: read
         - name: ws-cli show path
           since: 0.2.0
           synopsis: Display various paths
@@ -527,11 +604,19 @@ commands:
               synopsis: Display the workspace home path
               description: Print the workspace home (server root) path.
               usage: ws-cli show path home
+              mcp:
+                name: show_path_home
+                access: read
             - name: ws-cli show path vscode-settings
               since: 0.2.0
               synopsis: Display the VS Code settings path
               description: 'Print the path to the VS Code settings file: the user file by default, or the folder''s with --workspace.'
               usage: ws-cli show path vscode-settings [flags]
+              mcp:
+                name: show_path_vscode_settings
+                access: read
+                flags:
+                    - workspace
               options:
                 - name: workspace
                   default: "false"
@@ -550,8 +635,13 @@ commands:
         - name: ws-cli template apply
           since: 0.2.0
           synopsis: Apply a configuration template to the current project
-          description: Copy a template, a shared config like ruff or markdownlint, into the project at --path (the current directory by default). --force overwrites an existing file.
+          description: Copy a template, a shared config like ruff or markdownlint, into the project at --path (the current directory by default). Fails when the file is already there.
           usage: ws-cli template apply <template> [flags]
+          mcp:
+            name: template_apply
+            access: write
+            flags:
+                - path
           options:
             - name: force
               shorthand: f
@@ -567,11 +657,19 @@ commands:
           usage: ws-cli template list
           aliases:
             - ls
+          mcp:
+            name: template_list
+            access: read
         - name: ws-cli template show
           since: 0.2.0
           synopsis: Display the contents of a configuration template
           description: 'Display the contents of a configuration template. Available templates: ansible, markdownlint, ruff, yamllint.'
           usage: ws-cli template show <template> [flags]
+          mcp:
+            name: template_show
+            access: read
+            flags:
+                - local
           options:
             - name: local
               default: "false"
