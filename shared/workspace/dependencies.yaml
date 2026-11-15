@@ -70,7 +70,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.318
+    version: 2.1.325
 
   community.docker:
     datasource: galaxy-collection
@@ -110,7 +110,7 @@ dependencies:
     group: CLI Tools
     home: https://github.com/streetsidesoftware/cspell
     license: MIT
-    version: 10.4.0
+    version: 10.5.1
 
   curl:
     cmd: curl --version
@@ -211,7 +211,7 @@ dependencies:
     home: https://github.com/junegunn/fzf
     license: MIT
     package: junegunn/fzf
-    version: 0.74.5
+    version: 0.75.0
 
   gettext:
     cmd: gettext -V
@@ -416,7 +416,7 @@ dependencies:
     home: https://github.com/kubernetes-client/python
     license: Apache
     package: kubernetes
-    version: 37.0.1
+    version: 37.0.2
 
   kubernetes.core:
     datasource: galaxy-collection
@@ -565,7 +565,7 @@ dependencies:
     home: https://github.com/pnpm/pnpm
     license: MIT
     package: pnpm
-    version: 12.16.1
+    version: 12.21.0
 
   podman:
     cmd: podman --version
@@ -574,15 +574,6 @@ dependencies:
     home: https://github.com/containers/podman
     license: Apache 2
     version: 5.4.2
-
-  prek:
-    cmd: prek --version
-    datasource: github-releases
-    group: CLI Tools
-    home: https://github.com/j178/prek
-    license: MIT
-    package: j178/prek
-    version: 0.5.10
 
   pre-commit:
     cmd: pre-commit --version
@@ -593,6 +584,15 @@ dependencies:
     package: pre-commit
     tool: true
     version: 4.7.0
+
+  prek:
+    cmd: prek --version
+    datasource: github-releases
+    group: CLI Tools
+    home: https://github.com/j178/prek
+    license: MIT
+    package: j178/prek
+    version: 0.5.10
 
   ps:
     cmd: ps --version
@@ -658,7 +658,7 @@ dependencies:
     home: https://github.com/astral-sh/ruff
     license: MIT
     tool: true
-    version: 0.17.3
+    version: 0.17.5
 
   ShellCheck:
     cmd: shellcheck --version
@@ -772,7 +772,7 @@ dependencies:
 
   ws-cli:
     cmd: ws-cli --version
-    currentDigest: 7438ab346ae6dd7dd57aabbb6996c8cd218e91b9
+    currentDigest: 8aaa275f6ca7408809b20ce3535ea503f2d6bfd3
     currentValue: main
     datasource: git-refs
     home: https://github.com/kloudkit/ws-cli
