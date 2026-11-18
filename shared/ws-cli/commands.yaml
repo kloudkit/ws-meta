@@ -383,6 +383,46 @@ commands:
         - name: target
           default: main
           usage: Log target to read (main|metrics|docker|cloudflared)
+    - name: ws-cli port
+      since: next
+      synopsis: Share and list the workspace's ports
+      description: Make a forwarded port public on its proxy-domain host without the workspace sign-in, list the listening ports and which are public, and tidy the editor's Ports tab.
+      example: |-
+        # Share a dev server until Ctrl+C
+        ws-cli port share 8000
+
+        # End a share from any terminal
+        ws-cli port unshare 8000
+
+        # See what is listening and what is public
+        ws-cli port list
+
+        # Close the unused ports in the editor's Ports tab
+        ws-cli port clear
+      commands:
+        - name: ws-cli port clear
+          since: next
+          synopsis: Close the unused ports in the editor's Ports tab
+          description: Close the forwarded ports in the editor's Ports tab whose process has exited. A port with a live process stays.
+          usage: ws-cli port clear
+        - name: ws-cli port list
+          since: next
+          synopsis: List the listening ports and which are public
+          description: List the TCP ports listening in the workspace, whether each one is public or private, its public URLs, and its state in the editor's Ports tab.
+          usage: ws-cli port list
+          mcp:
+            name: port_list
+            access: read
+        - name: ws-cli port share
+          since: next
+          synopsis: Make a forwarded port public until you stop
+          description: Make a port answer on its proxy-domain host without the workspace sign-in, and keep it public while this command runs. Prints the public URLs; Ctrl+C, or `ws-cli port unshare` from any terminal, makes the port private again. Needs WS_SERVER_PROXY_ALLOW_PUBLIC and WS_SERVER_PROXY_DOMAIN. The /proxy/<port>/ path always needs sign-in.
+          usage: ws-cli port share <port>
+        - name: ws-cli port unshare
+          since: next
+          synopsis: Make a public port private
+          description: 'End the share of a public port, whoever holds it: a `ws-cli port share` in another terminal exits, and a share set in the editor''s Ports view goes back to private.'
+          usage: ws-cli port unshare <port>
     - name: ws-cli secrets
       since: 0.2.0
       synopsis: Manage encryption and decryption of secrets
@@ -495,13 +535,16 @@ commands:
         # Serve on a custom port
         ws-cli serve current --port 38081
 
+        # Serve it and make it public on its proxy-domain host until Ctrl+C
+        ws-cli serve current --share
+
         # Serve the workspace tools to an AI agent over stdio
         ws-cli serve mcp
       commands:
         - name: ws-cli serve current
           since: 0.2.0
           synopsis: Serve current directory as a static site
-          description: Serve the current directory over HTTP as a static site, a quick way to preview built files.
+          description: Serve the current directory over HTTP as a static site, a quick way to preview built files. With --share the site is also public on its proxy-domain host until you stop it.
           usage: ws-cli serve current [flags]
           options:
             - name: bind
@@ -511,6 +554,9 @@ commands:
               shorthand: p
               default: "38080"
               usage: Port to serve assets on
+            - name: share
+              default: "false"
+              usage: Also make the site public on its proxy-domain host until you stop; dotfiles, directory listings and links leaving the folder answer 404
         - name: ws-cli serve mcp
           since: next
           synopsis: Serve the workspace tools to AI agents over MCP
