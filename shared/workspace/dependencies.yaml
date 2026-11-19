@@ -55,7 +55,7 @@ dependencies:
     home: https://github.com/docker/buildx
     license: Apache 2
     package: docker/buildx
-    version: 0.38.2
+    version: 0.39.0
 
   catppuccin:
     datasource: pypi
@@ -70,7 +70,7 @@ dependencies:
     home: https://github.com/anthropics/claude-code
     license: Anthropic PBC
     package: anthropics/claude-code
-    version: 2.1.325
+    version: 2.1.327
 
   community.docker:
     datasource: galaxy-collection
@@ -84,7 +84,7 @@ dependencies:
     group: Ansible
     home: https://github.com/ansible-collections/community.general
     license: GPL 3
-    version: 14.0.0
+    version: 14.0.1
 
   containerd.io:
     cmd: containerd --version
@@ -110,7 +110,7 @@ dependencies:
     group: CLI Tools
     home: https://github.com/streetsidesoftware/cspell
     license: MIT
-    version: 10.5.1
+    version: 10.5.2
 
   curl:
     cmd: curl --version
@@ -156,7 +156,7 @@ dependencies:
     license: Apache 2
     package: docker-ce
     track: false
-    version: 29.9.3
+    version: 29.10.0
 
   docker CLI:
     datasource: deb
@@ -172,7 +172,7 @@ dependencies:
     home: https://github.com/docker/compose
     license: Apache 2
     package: docker/compose
-    version: 5.7.0
+    version: 5.8.0
 
   docker-py:
     datasource: pypi
@@ -308,7 +308,7 @@ dependencies:
     home: https://github.com/helm/helm
     license: Apache 2
     package: helm/helm
-    version: 4.3.1
+    version: 4.3.2
 
   htop:
     cmd: htop --version
@@ -416,7 +416,7 @@ dependencies:
     home: https://github.com/kubernetes-client/python
     license: Apache
     package: kubernetes
-    version: 37.0.2
+    version: 37.0.3
 
   kubernetes.core:
     datasource: galaxy-collection
@@ -556,7 +556,7 @@ dependencies:
     home: https://pixi.sh
     license: BSD 3
     package: prefix-dev/pixi
-    version: 0.84.1
+    version: 0.84.2
 
   pnpm:
     cmd: pnpm --version
@@ -592,7 +592,7 @@ dependencies:
     home: https://github.com/j178/prek
     license: MIT
     package: j178/prek
-    version: 0.5.10
+    version: 0.5.11
 
   ps:
     cmd: ps --version
@@ -610,7 +610,7 @@ dependencies:
     home: https://github.com/pylint-dev/pylint
     license: GPL 2
     tool: true
-    version: 4.1.3
+    version: 4.1.4
 
   pyrefly:
     cmd: pyrefly --version
@@ -619,7 +619,7 @@ dependencies:
     home: https://github.com/facebook/pyrefly
     license: MIT
     tool: true
-    version: 1.4.1
+    version: 1.5.0
 
   Python:
     cmd: python3 --version
@@ -632,7 +632,7 @@ dependencies:
 
   python-environment-tools:
     cmd: /usr/libexec/python-environment-tools/pet --version
-    currentDigest: 02dd29e49e3c71d4ec06e1072d6331494a12e01d
+    currentDigest: f73d8b7cf6bbbf693d80c5b7b00cf147cab5d618
     currentValue: main
     datasource: git-refs
     group: Python
@@ -752,7 +752,7 @@ dependencies:
     home: https://github.com/astral-sh/uv
     package: astral-sh/uv
     license: MIT
-    version: 0.13.7
+    version: 0.13.9
 
   vim:
     cmd: vim --version
@@ -772,7 +772,7 @@ dependencies:
 
   ws-cli:
     cmd: ws-cli --version
-    currentDigest: 8aaa275f6ca7408809b20ce3535ea503f2d6bfd3
+    currentDigest: 290e7545139270a7e3344e7dae6801ad3e676a0b
     currentValue: main
     datasource: git-refs
     home: https://github.com/kloudkit/ws-cli
