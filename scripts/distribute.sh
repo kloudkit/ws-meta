@@ -14,19 +14,10 @@ resolve_targets \
 JSON="[]"
 
 for repo in "${!REPO_TARGETS[@]}"; do
-  mappings="${REPO_TARGETS[$repo]}"
-  use_pr=true
-
-  while IFS='|' read -r src dest pr; do
-    [ -z "$src" ] && continue
-    [ "$pr" = "false" ] && use_pr=false
-  done <<< "$mappings"
-
   JSON=$(jq -c \
     --arg repo "$repo" \
-    --arg mappings "$mappings" \
-    --argjson use_pr "$use_pr" \
-    '. += [{repo: $repo, mappings: $mappings, use_pr: $use_pr}]' \
+    --arg mappings "${REPO_TARGETS[$repo]}" \
+    '. += [{repo: $repo, mappings: $mappings}]' \
     <<< "$JSON")
 done
 

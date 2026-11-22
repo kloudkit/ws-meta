@@ -8,6 +8,10 @@ on:
       - shared/**
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   resolve:
     name: 🔍 Resolve targets
@@ -17,22 +21,13 @@ jobs:
     steps:
       - name: 📥 Checkout ws-meta
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 2
 
       - name: 🔧 Install yq
         run: pip install yq
 
       - name: 📋 Resolve targets
         id: matrix
-        run: |
-          if [ "${{ github.event_name }}" = "push" ]; then
-            FILES=$(git diff --name-only HEAD~1 HEAD -- shared/)
-          else
-            FILES=$(yq -r 'keys[]' shared/distribution.yaml)
-          fi
-          [ -z "$FILES" ] && echo "targets=[]" >> "$GITHUB_OUTPUT" && exit 0
-          scripts/distribute.sh "$FILES"
+        run: scripts/distribute.sh "$(yq -r 'keys[]' shared/distribution.yaml)"
 
   sync:
     name: 🔄 Sync (${{ matrix.target.repo }})
@@ -63,7 +58,6 @@ jobs:
           done <<< "${{ matrix.target.mappings }}"
 
       - name: 🔄 Create PR
-        if: matrix.target.use_pr
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.KLOUD_BOT_ORG_PAT }}
@@ -74,10 +68,3 @@ jobs:
           commit-message: '🔄 Sync shared files from `ws-meta`'
           committer: 'kloud-bot <ws@kloud.email>'
           author: 'kloud-bot <ws@kloud.email>'
-
-      - name: 📤 Direct push
-        if: '!matrix.target.use_pr'
-        uses: ./.github/actions/commit-and-push
-        with:
-          message: 🔄 Sync shared files from `ws-meta`
-          cwd: _target
