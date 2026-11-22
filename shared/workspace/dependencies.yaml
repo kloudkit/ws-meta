@@ -17,6 +17,13 @@
 #   - That same key is displayed as the friendly name in generated docs
 ################################################################################
 dependencies:
+  aardvark-dns:
+    cmd: /usr/lib/podman/aardvark-dns --version
+    datasource: deb
+    home: https://github.com/containers/aardvark-dns
+    license: Apache 2
+    version: 1.14.0
+
   ansible-core:
     cmd: ansible --version
     datasource: pypi
@@ -531,6 +538,12 @@ dependencies:
     home: https://github.com/passlib/passlib
     license: BSD
     version: 1.7.4
+
+  passt:
+    cmd: pasta --version
+    datasource: deb
+    home: https://passt.top
+    license: GPL 2
 
   ping:
     cmd: ping -V
